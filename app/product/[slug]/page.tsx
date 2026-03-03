@@ -19,11 +19,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const ogImage = photos[0] || null
   return {
     title: `${product.title} - £${product.price.toFixed(2)} | BigDiscounts`,
-    description: `${product.description.slice(0, 150)} - Sold by ${product.seller.companyName} on BigDiscounts.`,
+    description: `${product.description.slice(0, 150)} - Vândut de ${product.seller.companyName} pe BigDiscounts.`,
     alternates: { canonical: `https://www.bigdiscounts.uk/product/${slug}` },
     openGraph: {
       title: `${product.title} - £${product.price.toFixed(2)}`,
-      description: `${product.description.slice(0, 150)} - Sold by ${product.seller.companyName} on BigDiscounts.`,
+      description: `${product.description.slice(0, 150)} - Vândut de ${product.seller.companyName} pe BigDiscounts.`,
       url: `https://www.bigdiscounts.uk/product/${slug}`,
       images: ogImage ? [{ url: ogImage, alt: product.title }] : [],
       type: 'website',
@@ -54,15 +54,15 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <nav style={{background: '#111111', borderBottom: '1px solid #2a2a2a'}} className="px-6 py-4 flex justify-between items-center sticky top-0 z-50">
         <span className="text-2xl font-black" style={{color: '#fcd968'}}>🇬🇧 BigDiscounts</span>
         <div className="flex items-center gap-4">
-          <Link href="/browse" className="text-gray-400 hover:text-white transition-colors">← Browse</Link>
+          <Link href="/browse" className="text-gray-400 hover:text-white transition-colors">← Explorează</Link>
           {session?.user ? (
             <Link href="/seller/dashboard" className="text-gray-400 hover:text-white transition-colors text-sm">
-              Dashboard
+              Panou
             </Link>
           ) : (
             <>
-              <Link href="/login" className="text-gray-400 hover:text-white transition-colors">Login</Link>
-              <Link href="/register" style={{background: '#fcd968'}} className="text-black px-5 py-2 rounded-lg font-bold hover:opacity-90">Sign Up</Link>
+              <Link href="/login" className="text-gray-400 hover:text-white transition-colors">Autentificare</Link>
+              <Link href="/register" style={{background: '#fcd968'}} className="text-black px-5 py-2 rounded-lg font-bold hover:opacity-90">Înregistrare</Link>
             </>
           )}
         </div>
@@ -96,7 +96,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             <div className="p-8 flex flex-col justify-between">
               <div>
                 <p className="text-xs text-gray-600 mb-3">
-                  <Link href="/browse" className="hover:text-gray-400">Browse</Link>
+                  <Link href="/browse" className="hover:text-gray-400">Explorează</Link>
                   {product.category && (
                     <> › <Link href={`/browse/${encodeURIComponent(product.category)}`} className="hover:text-gray-400">{product.category}</Link></>
                   )}
@@ -113,21 +113,21 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 <h1 className="text-3xl font-black text-white mt-3 mb-2">{product.title}</h1>
                 <p className="text-4xl font-black mb-4" style={{color: '#fcd968'}}>£{product.price.toFixed(2)}</p>
                 {product.deliveryTime && (
-                  <p className="text-sm font-semibold mb-4" style={{color: '#4ade80'}}>🚚 Delivery: {product.deliveryTime}</p>
+                  <p className="text-sm font-semibold mb-4" style={{color: '#4ade80'}}>🚚 Livrare: {product.deliveryTime}</p>
                 )}
-                <p className="text-sm text-gray-600 mb-4">👁️ {product.views} views</p>
+                <p className="text-sm text-gray-600 mb-4">👁️ {product.views} vizualizări</p>
                 <p className="text-gray-400 leading-relaxed mb-4">{product.description}</p>
               </div>
 
               <div style={{borderTop: '1px solid #222'}} className="pt-6">
-                <p className="text-xs text-gray-600 uppercase tracking-wide font-semibold mb-3">Sold by</p>
+                <p className="text-xs text-gray-600 uppercase tracking-wide font-semibold mb-3">Vândut de</p>
                 <div className="rounded-xl p-4" style={{background: '#1a1a1a', border: '1px solid #2a2a2a'}}>
                   <div className="flex items-center gap-2 mb-1">
                     <p className="font-bold text-white text-lg">{product.seller.companyName}</p>
                     {product.seller.verified && (
                       <span className="text-xs font-bold px-2 py-1 rounded-full"
                         style={{background: '#0a1a0a', color: '#4ade80', border: '1px solid #4ade80'}}>
-                        ✅ Verified
+                        ✅ Verificat
                       </span>
                     )}
                   </div>

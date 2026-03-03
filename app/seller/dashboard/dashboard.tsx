@@ -45,10 +45,10 @@ export default function Dashboard() {
   }
 
   async function deleteProduct(id: string) {
-    if (!confirm('Delete this product?')) return
+    if (!confirm('Ștergi acest produs?')) return
     await fetch(`/api/seller/products/${id}`, { method: 'DELETE' })
     fetchProducts()
-    showToast('Product deleted successfully', 'success')
+    showToast('Produsul a fost șters cu succes', 'success')
   }
 
   async function activateProduct(id: string) {
@@ -74,13 +74,13 @@ export default function Dashboard() {
   async function cancelSubscription(id: string, type: 'regular' | 'featured') {
     const product = products.find(p => p.id === id)
     const endsAt = product?.subscriptionEndsAt
-      ? new Date(product.subscriptionEndsAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
-      : 'the end of your billing period'
+      ? new Date(product.subscriptionEndsAt).toLocaleDateString('ro-RO', { day: 'numeric', month: 'long', year: 'numeric' })
+      : 'sfârșitul perioadei de facturare'
 
     if (!confirm(
       type === 'featured'
-        ? 'Cancel featured subscription? Your listing will lose featured status at the end of the billing period.'
-        : 'Cancel subscription? Your listing will remain active until ' + endsAt + ', then go offline.'
+        ? 'Anulezi abonamentul de promovare? Anunțul tău va pierde statutul de promovat la sfârșitul perioadei de facturare.'
+        : 'Anulezi abonamentul? Anunțul tău va rămâne activ până la ' + endsAt + ', apoi va fi dezactivat.'
     )) return
 
     setCancelling(id + type)
@@ -93,19 +93,19 @@ export default function Dashboard() {
       fetchProducts()
       showToast(
         type === 'featured'
-          ? 'Featured subscription cancelled - feature will end at billing period end.'
-          : 'Subscription cancelled - listing stays active until ' + endsAt + '.',
+          ? 'Abonamentul de promovare a fost anulat - promovarea se va încheia la sfârșitul perioadei de facturare.'
+          : 'Abonamentul a fost anulat - anunțul rămâne activ până la ' + endsAt + '.',
         'info'
       )
     } else {
-      showToast('Failed to cancel. Please try again.', 'error')
+      showToast('Anularea a eșuat. Te rugăm să încerci din nou.', 'error')
     }
     setCancelling(null)
   }
 
   if (status === 'loading' || loading) return (
     <div className="min-h-screen flex items-center justify-center" style={{background: '#0a0a0a'}}>
-      <p style={{color: '#fcd968'}} className="text-lg font-bold">Loading...</p>
+      <p style={{color: '#fcd968'}} className="text-lg font-bold">Se încarcă...</p>
     </div>
   )
 
@@ -116,8 +116,8 @@ export default function Dashboard() {
       <nav style={{background: '#111111', borderBottom: '1px solid #2a2a2a'}} className="px-6 py-4 flex justify-between items-center sticky top-0 z-50">
         <span className="text-2xl font-black" style={{color: '#fcd968'}}>BigDiscounts</span>
         <div className="flex items-center gap-4">
-          <span className="text-gray-400 text-sm">Welcome, {session?.user?.name}</span>
-          <button onClick={() => signOut({ callbackUrl: '/' })} className="text-gray-500 hover:text-red-400 text-sm">Logout</button>
+          <span className="text-gray-400 text-sm">Bun venit, {session?.user?.name}</span>
+          <button onClick={() => signOut({ callbackUrl: '/' })} className="text-gray-500 hover:text-red-400 text-sm">Deconectare</button>
         </div>
       </nav>
 
@@ -127,8 +127,8 @@ export default function Dashboard() {
             style={{background: '#0a1a0a', border: '1px solid #4ade80'}}>
             <span className="text-2xl">🎉</span>
             <div>
-              <p className="font-bold text-green-400">Payment successful!</p>
-              <p className="text-green-600 text-sm">Your product is now active and visible to buyers.</p>
+              <p className="font-bold text-green-400">Plata a fost efectuată cu succes!</p>
+              <p className="text-green-600 text-sm">Produsul tău este acum activ și vizibil pentru cumpărători.</p>
             </div>
           </div>
         )}
@@ -138,8 +138,8 @@ export default function Dashboard() {
             style={{background: '#1a1400', border: '1px solid #fcd968'}}>
             <span className="text-2xl">⭐</span>
             <div>
-              <p className="font-bold" style={{color: '#fcd968'}}>Listing featured successfully!</p>
-              <p className="text-yellow-600 text-sm">Your product will appear at the top of the browse page.</p>
+              <p className="font-bold" style={{color: '#fcd968'}}>Anunțul a fost promovat cu succes!</p>
+              <p className="text-yellow-600 text-sm">Produsul tău va apărea în partea de sus a paginii de explorare.</p>
             </div>
           </div>
         )}
@@ -149,40 +149,40 @@ export default function Dashboard() {
             style={{background: '#1a1000', border: '1px solid #f97316'}}>
             <span className="text-2xl">⚠️</span>
             <div>
-              <p className="font-bold text-orange-400">Payment cancelled</p>
-              <p className="text-orange-600 text-sm">No changes were made to your listing.</p>
+              <p className="font-bold text-orange-400">Plata a fost anulată</p>
+              <p className="text-orange-600 text-sm">Nu s-au făcut modificări la anunțul tău.</p>
             </div>
           </div>
         )}
 
         <div className="rounded-xl p-4 mb-6" style={{background: '#1a1400', border: '1px solid #fcd968'}}>
-          <p className="font-bold mb-1" style={{color: '#fcd968'}}>📦 Seller Responsibilities</p>
-          <p className="text-gray-400 text-sm">As a seller you are responsible for: shipping products to buyers and issuing refunds within 14 days of receiving a return. Buyers are responsible for returning items within 14 days under UK Consumer Contracts Regulations 2013. BigDiscounts is not liable for any disputes between buyers and sellers.</p>
+          <p className="font-bold mb-1" style={{color: '#fcd968'}}>📦 Responsabilitățile Vânzătorului</p>
+          <p className="text-gray-400 text-sm">Ca vânzător, ești responsabil pentru: expedierea produselor către cumpărători și emiterea rambursărilor în termen de 14 zile de la primirea returului. Cumpărătorii sunt responsabili pentru returnarea articolelor în termen de 14 zile conform Regulamentelor UK privind Contractele cu Consumatorii din 2013. BigDiscounts nu este responsabil pentru niciun litigiu între cumpărători și vânzători.</p>
         </div>
 
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-black text-white">My Products</h1>
+          <h1 className="text-3xl font-black text-white">Produsele Mele</h1>
           <div className="flex gap-3">
             <Link href="/seller/profile"
               className="px-5 py-2 rounded-lg font-bold text-sm transition-opacity hover:opacity-80"
               style={{background: '#1a1a1a', color: '#fcd968', border: '1px solid #fcd968'}}>
-              Profile
+              Profil
             </Link>
             <Link href="/seller/products/new"
               className="px-5 py-2 rounded-lg font-bold text-sm text-black transition-opacity hover:opacity-90"
               style={{background: '#fcd968'}}>
-              + Add Product
+              + Adaugă Produs
             </Link>
           </div>
         </div>
 
         {products.length === 0 ? (
           <div className="rounded-xl p-12 text-center" style={{background: '#111111', border: '1px solid #222'}}>
-            <p className="text-gray-500 text-lg mb-4">You have not listed any products yet.</p>
+            <p className="text-gray-500 text-lg mb-4">Nu ai listat niciun produs încă.</p>
             <Link href="/seller/products/new"
               className="px-6 py-3 rounded-lg font-bold text-black"
               style={{background: '#fcd968'}}>
-              List Your First Product
+              Listează Primul Tău Produs
             </Link>
           </div>
         ) : (
@@ -195,24 +195,24 @@ export default function Dashboard() {
                     <h3 className="font-bold text-white text-lg">{product.title}</h3>
                     {product.featured && (
                       <span className="text-xs font-black px-2 py-1 rounded-full text-black"
-                        style={{background: '#fcd968'}}>⭐ Featured</span>
+                        style={{background: '#fcd968'}}>⭐ Promovat</span>
                     )}
                   </div>
-                  <p className="text-gray-500 text-sm">£{product.price.toFixed(2)} · {product.category || 'No category'}</p>
+                  <p className="text-gray-500 text-sm">£{product.price.toFixed(2)} · {product.category || 'Fără categorie'}</p>
                   <div className="flex items-center gap-3 mt-2 flex-wrap">
                     <span className="text-xs px-2 py-1 rounded-full font-bold"
                       style={product.active
                         ? {background: '#0a1a0a', color: '#4ade80', border: '1px solid #4ade80'}
                         : {background: '#1a1000', color: '#f97316', border: '1px solid #f97316'}}>
-                      {product.active ? 'Active' : 'Pending payment'}
+                      {product.active ? 'Activ' : 'În așteptarea plății'}
                     </span>
                     {product.active && product.subscriptionEndsAt && (
                       <span className="text-xs px-2 py-1 rounded-full font-bold"
                         style={{background: '#1a0a0a', color: '#f87171', border: '1px solid #f87171'}}>
-                        Active until {new Date(product.subscriptionEndsAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
+                        Activ până la {new Date(product.subscriptionEndsAt).toLocaleDateString('ro-RO', { day: 'numeric', month: 'short', year: 'numeric' })}
                       </span>
                     )}
-                    <span className="text-xs text-gray-600">👁️ {product.views} views</span>
+                    <span className="text-xs text-gray-600">👁️ {product.views} vizualizări</span>
                   </div>
                 </div>
                 <div className="flex gap-2 items-center flex-wrap justify-end">
@@ -220,14 +220,14 @@ export default function Dashboard() {
                     <button onClick={() => activateProduct(product.id)}
                       className="px-4 py-2 rounded-lg text-sm font-bold text-black hover:opacity-90"
                       style={{background: '#4ade80'}}>
-                      Activate £1/mo
+                      Activează £1/lună
                     </button>
                   )}
                   {product.active && !product.featured && (
                     <button onClick={() => featureProduct(product.id)}
                       className="px-4 py-2 rounded-lg text-sm font-black text-black hover:opacity-90"
                       style={{background: '#fcd968'}}>
-                      ⭐ Feature £3/mo
+                      ⭐ Promovează £3/lună
                     </button>
                   )}
                   {product.active && product.stripeSubId && !product.subscriptionEndsAt && (
@@ -235,7 +235,7 @@ export default function Dashboard() {
                       disabled={cancelling === product.id + 'regular'}
                       className="px-4 py-2 rounded-lg text-sm font-bold hover:opacity-80 disabled:opacity-30"
                       style={{background: '#1a0a0a', color: '#f87171', border: '1px solid #f87171'}}>
-                      {cancelling === product.id + 'regular' ? 'Cancelling...' : 'Cancel Sub'}
+                      {cancelling === product.id + 'regular' ? 'Se anulează...' : 'Anulează Abonamentul'}
                     </button>
                   )}
                   {product.featured && product.featuredSubId && (
@@ -243,17 +243,17 @@ export default function Dashboard() {
                       disabled={cancelling === product.id + 'featured'}
                       className="px-4 py-2 rounded-lg text-sm font-bold hover:opacity-80 disabled:opacity-30"
                       style={{background: '#1a1400', color: '#fcd968', border: '1px solid #fcd968'}}>
-                      {cancelling === product.id + 'featured' ? 'Cancelling...' : 'Cancel Feature'}
+                      {cancelling === product.id + 'featured' ? 'Se anulează...' : 'Anulează Promovarea'}
                     </button>
                   )}
                   <Link href={`/seller/products/${product.id}/edit`}
                     className="px-4 py-2 rounded-lg text-sm font-bold hover:opacity-80"
                     style={{color: '#fcd968'}}>
-                    Edit
+                    Editează
                   </Link>
                   <button onClick={() => deleteProduct(product.id)}
                     className="px-4 py-2 rounded-lg text-sm font-bold text-red-400 hover:opacity-80">
-                    Delete
+                    Șterge
                   </button>
                 </div>
               </div>

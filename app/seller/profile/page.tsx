@@ -39,7 +39,7 @@ export default function SellerProfile() {
 
   if (status === 'loading' || loading) return (
     <div className="min-h-screen flex items-center justify-center" style={{background: '#0a0a0a'}}>
-      <p style={{color: '#fcd968'}} className="text-lg font-bold">Loading...</p>
+      <p style={{color: '#fcd968'}} className="text-lg font-bold">Se încarcă...</p>
     </div>
   )
 
@@ -47,19 +47,19 @@ export default function SellerProfile() {
     <main className="min-h-screen" style={{background: '#0a0a0a'}}>
       <nav style={{background: '#111111', borderBottom: '1px solid #2a2a2a'}} className="px-6 py-4 flex justify-between items-center sticky top-0 z-50">
         <span className="text-2xl font-black" style={{color: '#fcd968'}}>🇬🇧 BigDiscounts</span>
-        <Link href="/seller/dashboard" className="text-gray-400 hover:text-white transition-colors">← Back to Dashboard</Link>
+        <Link href="/seller/dashboard" className="text-gray-400 hover:text-white transition-colors">← Înapoi la Panou</Link>
       </nav>
 
       <div className="max-w-2xl mx-auto px-6 py-10">
-        <h1 className="text-3xl font-black text-white mb-8">Seller Profile</h1>
+        <h1 className="text-3xl font-black text-white mb-8">Profil Vânzător</h1>
 
         <div className="rounded-2xl p-6 mb-6" style={{background: '#111111', border: '1px solid #222'}}>
-          <h2 className="text-xl font-black text-white mb-2">Payment Settings</h2>
-          <p className="text-gray-500 mb-6 text-sm">Add your PayPal.me link so buyers can pay you directly.</p>
+          <h2 className="text-xl font-black text-white mb-2">Setări de Plată</h2>
+          <p className="text-gray-500 mb-6 text-sm">Adaugă link-ul tău PayPal.me pentru ca cumpărătorii să te plătească direct.</p>
 
           <form onSubmit={handleSave} className="space-y-4">
             <div>
-              <label className="block text-sm font-semibold text-gray-400 mb-1">PayPal.me link</label>
+              <label className="block text-sm font-semibold text-gray-400 mb-1">Link PayPal.me</label>
               <div className="flex items-center rounded-xl overflow-hidden" style={{border: '1px solid #333'}}>
                 <span className="px-4 py-3 text-gray-500 text-sm" style={{background: '#1a1a1a', borderRight: '1px solid #333'}}>paypal.me/</span>
                 <input type="text" value={paypalMe} onChange={e => setPaypalMe(e.target.value)}
@@ -67,27 +67,27 @@ export default function SellerProfile() {
                   className="flex-1 px-4 py-3 text-white focus:outline-none"
                   style={{background: '#1a1a1a'}} />
               </div>
-              <p className="text-xs text-gray-600 mt-1">Enter just your username, e.g. "johnsmith"</p>
+              <p className="text-xs text-gray-600 mt-1">Introdu doar numele de utilizator, de ex. „ionpopescu"</p>
             </div>
 
             {saved && (
               <div className="rounded-xl px-4 py-3 text-sm"
                 style={{background: '#0a1a0a', border: '1px solid #4ade80', color: '#4ade80'}}>
-                ✅ Profile saved successfully!
+                ✅ Profilul a fost salvat cu succes!
               </div>
             )}
 
             <button type="submit" disabled={saving}
               className="w-full py-3 rounded-xl font-black text-lg text-black transition-opacity hover:opacity-90 disabled:opacity-50"
               style={{background: '#fcd968'}}>
-              {saving ? 'Saving...' : 'Save Profile'}
+              {saving ? 'Se salvează...' : 'Salvează Profilul'}
             </button>
           </form>
         </div>
 
         <div className="rounded-2xl p-6" style={{background: '#111111', border: '1px solid #f87171'}}>
-          <h2 className="text-xl font-black text-white mb-2">Danger Zone</h2>
-          <p className="text-gray-500 text-sm mb-4">Permanently delete your account and all your listings.</p>
+          <h2 className="text-xl font-black text-white mb-2">Zonă Periculoasă</h2>
+          <p className="text-gray-500 text-sm mb-4">Șterge permanent contul și toate anunțurile tale.</p>
           <DeleteAccountButton type="seller" />
         </div>
       </div>

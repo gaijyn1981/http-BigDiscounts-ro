@@ -17,7 +17,7 @@ export default function AdminLogout() {
 
   return (
     <main className="min-h-screen flex items-center justify-center" style={{background: '#0a0a0a'}}>
-      <p className="text-white font-bold text-lg">Logging out...</p>
+      <p className="text-white font-bold text-lg">Se deconectează...</p>
     </main>
   )
 }

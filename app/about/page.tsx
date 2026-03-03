@@ -5,57 +5,57 @@ export default function AboutPage() {
     <main className="min-h-screen" style={{background: '#0a0a0a'}}>
       <nav style={{background: '#111111', borderBottom: '1px solid #2a2a2a'}} className="px-6 py-4 flex justify-between items-center sticky top-0 z-50">
         <span className="text-2xl font-black" style={{color: '#fcd968'}}>🇬🇧 BigDiscounts</span>
-        <Link href="/" className="text-gray-400 hover:text-white transition-colors">← Back to Home</Link>
+        <Link href="/" className="text-gray-400 hover:text-white transition-colors">← Înapoi Acasă</Link>
       </nav>
 
       <div className="max-w-3xl mx-auto px-6 py-16">
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-black text-white mb-4">About <span style={{color: '#fcd968'}}>BigDiscounts</span></h1>
-          <p className="text-gray-400 text-xl">The UK's premium discount marketplace</p>
+          <h1 className="text-5xl font-black text-white mb-4">Despre <span style={{color: '#fcd968'}}>BigDiscounts</span></h1>
+          <p className="text-gray-400 text-xl">Piața premium de reduceri din UK</p>
         </div>
 
         <div className="space-y-8">
           <div className="rounded-2xl p-8" style={{background: '#111111', border: '1px solid #222'}}>
-            <h2 className="text-2xl font-black text-white mb-4">Our Story</h2>
-            <p className="text-gray-400 leading-relaxed">BigDiscounts was built with one simple idea — UK sellers deserve a fair, affordable place to list their products without paying huge commissions or monthly fees. For just £1 per listing per month, sellers can reach thousands of buyers across the UK.</p>
+            <h2 className="text-2xl font-black text-white mb-4">Povestea Noastră</h2>
+            <p className="text-gray-400 leading-relaxed">BigDiscounts a fost creat cu o idee simplă — vânzătorii din UK merită un loc corect și accesibil pentru a-și lista produsele fără a plăti comisioane uriașe sau taxe lunare. Pentru doar £1 pe anunț pe lună, vânzătorii pot ajunge la mii de cumpărători din întregul UK.</p>
           </div>
 
           <div className="rounded-2xl p-8" style={{background: '#111111', border: '1px solid #fcd968'}}>
-            <h2 className="text-2xl font-black text-white mb-4">Our Mission</h2>
-            <p className="text-gray-400 leading-relaxed">To connect UK buyers and sellers directly, without the middleman. No hidden fees, no commissions, no nonsense. Just great deals at fair prices.</p>
+            <h2 className="text-2xl font-black text-white mb-4">Misiunea Noastră</h2>
+            <p className="text-gray-400 leading-relaxed">Să conectăm cumpărătorii și vânzătorii din UK direct, fără intermediari. Fără taxe ascunse, fără comisioane, fără complicații. Doar oferte excelente la prețuri corecte.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="rounded-2xl p-6 text-center" style={{background: '#111111', border: '1px solid #222'}}>
               <div className="text-4xl mb-3">🇬🇧</div>
-              <h3 className="text-lg font-black text-white mb-2">UK Only</h3>
-              <p className="text-gray-500 text-sm">All sellers and buyers are based in the United Kingdom.</p>
+              <h3 className="text-lg font-black text-white mb-2">Doar UK</h3>
+              <p className="text-gray-500 text-sm">Toți vânzătorii și cumpărătorii sunt din Regatul Unit.</p>
             </div>
             <div className="rounded-2xl p-6 text-center" style={{background: '#111111', border: '1px solid #fcd968'}}>
               <div className="text-4xl mb-3">💷</div>
-              <h3 className="text-lg font-black text-white mb-2">Just £1/month</h3>
-              <p className="text-gray-500 text-sm">The most affordable marketplace in the UK. No commissions.</p>
+              <h3 className="text-lg font-black text-white mb-2">Doar £1/lună</h3>
+              <p className="text-gray-500 text-sm">Cea mai accesibilă piață din UK. Fără comisioane.</p>
             </div>
             <div className="rounded-2xl p-6 text-center" style={{background: '#111111', border: '1px solid #222'}}>
               <div className="text-4xl mb-3">🤝</div>
-              <h3 className="text-lg font-black text-white mb-2">Direct Deals</h3>
-              <p className="text-gray-500 text-sm">Buyers contact sellers directly. Simple, fast, and honest.</p>
+              <h3 className="text-lg font-black text-white mb-2">Tranzacții Directe</h3>
+              <p className="text-gray-500 text-sm">Cumpărătorii contactează vânzătorii direct. Simplu, rapid și onest.</p>
             </div>
           </div>
 
           <div className="rounded-2xl p-8" style={{background: '#111111', border: '1px solid #222'}}>
-            <h2 className="text-2xl font-black text-white mb-4">Who We Are</h2>
-            <p className="text-gray-400 leading-relaxed mb-6">BigDiscounts is run by Petrica Marin, a sole trader based in Gloucester, UK. We're passionate about supporting UK small businesses and helping buyers find great deals.</p>
+            <h2 className="text-2xl font-black text-white mb-4">Cine Suntem</h2>
+            <p className="text-gray-400 leading-relaxed mb-6">BigDiscounts este administrat de Petrica Marin, un comerciant individual din Gloucester, UK. Suntem pasionați de sprijinirea micilor afaceri din UK și de a ajuta cumpărătorii să găsească oferte excelente.</p>
             <div className="flex gap-4 flex-wrap">
               <a href="mailto:hello@bigdiscounts.uk"
                 className="px-6 py-3 rounded-xl font-bold text-black transition-opacity hover:opacity-90"
                 style={{background: '#fcd968'}}>
-                ✉️ Get in Touch
+                ✉️ Contactează-ne
               </a>
               <Link href="/browse"
                 className="px-6 py-3 rounded-xl font-bold text-white transition-opacity hover:opacity-80"
                 style={{background: '#1a1a1a', border: '1px solid #333'}}>
-                Browse Deals
+                Vezi Ofertele
               </Link>
             </div>
           </div>
@@ -64,10 +64,10 @@ export default function AboutPage() {
 
       <footer style={{background: '#111111', borderTop: '1px solid #1a1a1a'}} className="px-6 py-8 text-center">
         <div className="flex flex-wrap justify-center gap-6 text-sm">
-          <Link href="/privacy" className="text-gray-500 hover:text-white">Privacy Policy</Link>
-          <Link href="/terms" className="text-gray-500 hover:text-white">Terms & Conditions</Link>
-          <Link href="/cookies" className="text-gray-500 hover:text-white">Cookie Policy</Link>
-          <Link href="/data-request" className="text-gray-500 hover:text-white">Data Request</Link>
+          <Link href="/privacy" className="text-gray-500 hover:text-white">Politica de Confidențialitate</Link>
+          <Link href="/terms" className="text-gray-500 hover:text-white">Termeni și Condiții</Link>
+          <Link href="/cookies" className="text-gray-500 hover:text-white">Politica de Cookie-uri</Link>
+          <Link href="/data-request" className="text-gray-500 hover:text-white">Solicitare Date</Link>
         </div>
       </footer>
     </main>

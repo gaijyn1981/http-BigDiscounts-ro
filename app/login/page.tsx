@@ -21,7 +21,7 @@ export default function LoginPage() {
     })
 
     if (res?.error) {
-      setError('Invalid email or password')
+      setError('Email sau parolă incorectă')
       setLoading(false)
     } else {
       const sessionRes = await fetch('/api/auth/session')
@@ -46,16 +46,16 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
   <Link href="/" className="text-3xl font-black" style={{color: '#fcd968'}}>🇬🇧 BigDiscounts</Link>
-  <p className="text-gray-500 mt-2">Sign in to your account</p>
+  <p className="text-gray-500 mt-2">Conectează-te la contul tău</p>
   <Link href="/" className="inline-flex items-center gap-2 mt-3 text-sm text-gray-500 hover:text-white transition-colors">
     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-    Back to homepage
+    Înapoi la pagina principală
   </Link>
 </div>
 
         <div className="rounded-2xl p-8" style={{background: '#111111', border: '1px solid #222'}}>
-          <h1 className="text-2xl font-black text-white mb-2">Welcome Back</h1>
-          <p className="text-gray-500 text-sm mb-6">Sign in as a seller or buyer — we'll take you to the right place.</p>
+          <h1 className="text-2xl font-black text-white mb-2">Bine ai Revenit</h1>
+          <p className="text-gray-500 text-sm mb-6">Conectează-te ca vânzător sau cumpărător — te vom direcționa în locul potrivit.</p>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-semibold text-gray-400 mb-1">Email</label>
@@ -64,7 +64,7 @@ export default function LoginPage() {
                 style={{background: '#1a1a1a', border: '1px solid #333'}} />
             </div>
             <div>
-              <label className="block text-sm font-semibold text-gray-400 mb-1">Password</label>
+              <label className="block text-sm font-semibold text-gray-400 mb-1">Parolă</label>
               <input type="password" value={password} onChange={e => setPassword(e.target.value)} required
                 className="w-full px-4 py-3 rounded-xl text-white focus:outline-none"
                 style={{background: '#1a1a1a', border: '1px solid #333'}} />
@@ -73,22 +73,22 @@ export default function LoginPage() {
             <button type="submit" disabled={loading}
               className="w-full py-3 rounded-xl font-black text-lg text-black transition-opacity hover:opacity-90 disabled:opacity-50"
               style={{background: '#fcd968'}}>
-              {loading ? 'Signing in...' : 'Sign In'}
+              {loading ? 'Se conectează...' : 'Conectare'}
             </button>
           </form>
-          <p className="text-right mt-2"><Link href="/forgot-password" style={{color: '#fcd968'}} className="text-sm hover:opacity-80">Forgot password?</Link></p>
+          <p className="text-right mt-2"><Link href="/forgot-password" style={{color: '#fcd968'}} className="text-sm hover:opacity-80">Ai uitat parola?</Link></p>
           <div className="mt-8 pt-6" style={{borderTop: '1px solid #222'}}>
-            <p className="text-center text-gray-500 text-sm mb-4">Don't have an account?</p>
+            <p className="text-center text-gray-500 text-sm mb-4">Nu ai cont?</p>
             <div className="grid grid-cols-2 gap-3">
               <Link href="/register?type=seller"
                 className="py-3 rounded-xl font-bold text-sm text-black text-center transition-opacity hover:opacity-90"
                 style={{background: '#fcd968'}}>
-                Register as Seller
+                Înregistrare ca Vânzător
               </Link>
               <Link href="/register?type=buyer"
                 className="py-3 rounded-xl font-bold text-sm text-white text-center transition-opacity hover:opacity-80"
                 style={{background: '#1a1a1a', border: '1px solid #333'}}>
-                Register as Buyer
+                Înregistrare ca Cumpărător
               </Link>
             </div>
           </div>
