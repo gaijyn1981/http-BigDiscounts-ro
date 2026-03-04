@@ -4,8 +4,8 @@ import { getServerSession } from 'next-auth'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'UK Marketplace for Sellers & Buyers | BigDiscounts — Fair, Low Fee Marketplace',
-  description: 'BigDiscounts is a UK marketplace built to support sellers and buyers. List products for £1/month with 0% commission, or browse deals and buy direct from UK sellers.',
+  title: 'Marketplace din UK pentru Vânzători & Cumpărători | BigDiscounts — Marketplace Corect, cu Taxe Mici',
+  description: 'BigDiscounts este un marketplace din Regatul Unit creat pentru a sprijini vânzătorii și cumpărătorii. Listează produse la doar £1/lună cu 0% comision, sau răsfoiește ofertele și cumpără direct de la vânzătorii din UK.',
 }
 
 export default async function Home() {
@@ -28,21 +28,21 @@ export default async function Home() {
       <nav style={{background: '#111111', borderBottom: '1px solid #2a2a2a'}} className="px-6 py-4 flex justify-between items-center sticky top-0 z-50">
         <span className="text-2xl font-black" style={{color: '#fcd968'}}>BigDiscounts</span>
         <div className="flex gap-4 items-center">
-          <Link href="/browse" aria-label="Browse products" className="text-gray-400 hover:text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></Link>
-          <Link href="/sell" className="text-gray-400 hover:text-white transition-colors">Sell</Link>
+          <Link href="/browse" aria-label="Răsfoiește produse" className="text-gray-400 hover:text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></Link>
+          <Link href="/sell" className="text-gray-400 hover:text-white transition-colors">Vinde</Link>
           {session?.user ? (
             <>
               <Link href="/seller/dashboard" className="text-gray-400 hover:text-white transition-colors text-sm">
-                Hi, {session.user.name?.split(' ')[0]}
+                Salut, {session.user.name?.split(' ')[0]}
               </Link>
               <Link href="/seller/dashboard"
                 className="px-5 py-2 rounded-lg font-bold hover:opacity-90 transition-opacity text-sm"
                 style={{background: '#fcd968', color: 'black'}}>
-                Dashboard
+                Panou de control
               </Link>
             </>
           ) : (
-            <Link href="/login" className="text-gray-400 hover:text-white transition-colors">Login</Link>
+            <Link href="/login" className="text-gray-400 hover:text-white transition-colors">Conectare</Link>
           )}
         </div>
       </nav>
@@ -50,34 +50,34 @@ export default async function Home() {
       <section className="px-6 py-24 text-center" style={{background: 'linear-gradient(180deg, #111111 0%, #0a0a0a 100%)'}}>
         <div className="max-w-4xl mx-auto">
           <div className="inline-block mb-6 px-4 py-2 rounded-full text-sm font-bold" style={{background: '#1a1400', border: '1px solid #fcd968', color: '#fcd968'}}>
-            Connecting Buyers and Businesses Across the UK
+            Conectăm cumpărători și afaceri din întregul Regat Unit
           </div>
           <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
-            The UK Marketplace<br/>
-            <span style={{color: '#fcd968'}}>Built to Support Sellers and Buyers</span>
+            Marketplace-ul din UK<br/>
+            <span style={{color: '#fcd968'}}>Creat pentru a sprijini vânzătorii și cumpărătorii</span>
           </h1>
           <p className="text-xl text-gray-400 mb-6 max-w-2xl mx-auto leading-relaxed">
-            A fair, transparent place to buy and sell — no commission, low fees, full control.
+            Un loc corect și transparent de a cumpăra și vinde — fără comision, taxe mici, control total.
           </p>
           <p className="text-gray-600 text-base mb-10 max-w-2xl mx-auto leading-relaxed">
-            BigDiscounts is an online marketplace in the United Kingdom designed to support independent sellers and small businesses. Unlike traditional platforms that charge commission on every sale, BigDiscounts offers a transparent £1/month listing fee with no commission, allowing sellers to keep 100% of their revenue while connecting directly with buyers.
+            BigDiscounts este un marketplace online din Regatul Unit conceput pentru a sprijini vânzătorii independenți și micile afaceri. Spre deosebire de platformele tradiționale care percep comision la fiecare vânzare, BigDiscounts oferă o taxă transparentă de £1/lună fără comision, permițând vânzătorilor să păstreze 100% din venituri, conectându-se direct cu cumpărătorii.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             {session?.user ? (
               <Link href="/seller/dashboard" style={{background: '#fcd968'}}
                 className="text-black px-8 py-4 rounded-xl font-black text-lg hover:opacity-90 transition-opacity">
-                Go to Dashboard
+                Mergi la Panou de control
               </Link>
             ) : (
               <Link href="/register?type=seller" style={{background: '#fcd968'}}
                 className="text-black px-8 py-4 rounded-xl font-black text-lg hover:opacity-90 transition-opacity">
-                Start Selling — £1/mo
+                Începe să vinzi — £1/lună
               </Link>
             )}
             <Link href="/browse"
               className="text-black px-8 py-4 rounded-xl font-black text-lg hover:opacity-90 transition-opacity"
               style={{background: '#fcd968'}}>
-              Browse Deals
+              Răsfoiește ofertele
             </Link>
           </div>
         </div>
@@ -85,13 +85,13 @@ export default async function Home() {
 
       <section className="px-6 py-14" style={{background: '#111111', borderTop: '1px solid #1a1a1a', borderBottom: '1px solid #1a1a1a'}}>
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-black text-white text-center mb-8">A Fair Alternative to High-Fee Marketplaces</h2>
+          <h2 className="text-2xl font-black text-white text-center mb-8">O alternativă corectă la marketplace-urile cu taxe mari</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { icon: '💷', title: '£1/month listing fee', desc: 'No commission on any sale you make.' },
-              { icon: '💰', title: 'Keep 100% of every sale', desc: 'Your revenue stays yours, always.' },
-              { icon: '💬', title: 'Buyers contact you directly', desc: 'Full control over communication and fulfilment.' },
-              { icon: '✅', title: 'Simple, transparent pricing', desc: 'No hidden costs, no contracts, cancel anytime.' },
+              { icon: '💷', title: 'Taxă de listare £1/lună', desc: 'Fără comision la nicio vânzare.' },
+              { icon: '💰', title: 'Păstrezi 100% din fiecare vânzare', desc: 'Veniturile tale rămân ale tale, mereu.' },
+              { icon: '💬', title: 'Cumpărătorii te contactează direct', desc: 'Control total asupra comunicării și livrării.' },
+              { icon: '✅', title: 'Prețuri simple, transparente', desc: 'Fără costuri ascunse, fără contracte, anulezi oricând.' },
             ].map(item => (
               <div key={item.title} className="p-5 rounded-xl text-center" style={{background: '#1a1a1a', border: '1px solid #fcd968'}}>
                 <div className="text-3xl mb-3">{item.icon}</div>
@@ -108,15 +108,15 @@ export default async function Home() {
           <div className="max-w-4xl mx-auto grid grid-cols-3 gap-8 text-center">
             <div>
               <p className="text-4xl font-black" style={{color: '#fcd968'}}>{totalProducts}+</p>
-              <p className="text-gray-400 mt-1">Active Listings</p>
+              <p className="text-gray-400 mt-1">Anunțuri active</p>
             </div>
             <div>
               <p className="text-4xl font-black" style={{color: '#fcd968'}}>{totalSellers}+</p>
-              <p className="text-gray-400 mt-1">UK Sellers</p>
+              <p className="text-gray-400 mt-1">Vânzători din UK</p>
             </div>
             <div>
               <p className="text-4xl font-black" style={{color: '#fcd968'}}>£1</p>
-              <p className="text-gray-400 mt-1">Per Month</p>
+              <p className="text-gray-400 mt-1">Pe lună</p>
             </div>
           </div>
         </section>
@@ -126,8 +126,8 @@ export default async function Home() {
         <section className="px-6 py-16">
           <div className="max-w-6xl mx-auto">
             <div className="flex justify-between items-center mb-8">
-              <h2 className="text-3xl font-black text-white">Latest Deals</h2>
-              <Link href="/browse" style={{color: '#fcd968'}} className="font-bold hover:opacity-80">View All Deals →</Link>
+              <h2 className="text-3xl font-black text-white">Cele mai recente oferte</h2>
+              <Link href="/browse" style={{color: '#fcd968'}} className="font-bold hover:opacity-80">Vezi toate ofertele →</Link>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {recentProducts.map(product => {
@@ -159,66 +159,66 @@ export default async function Home() {
 
       <section className="px-6 py-16" style={{background: '#111111'}}>
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-black text-white text-center mb-12">How Buying and Selling Works</h2>
+          <h2 className="text-3xl font-black text-white text-center mb-12">Cum funcționează vânzarea și cumpărarea</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
             <div className="p-8 rounded-2xl" style={{background: '#1a1a1a', border: '1px solid #fcd968'}}>
-              <p className="text-sm font-bold mb-6 inline-block px-3 py-1 rounded-full" style={{background: '#1a1400', color: '#fcd968', border: '1px solid #fcd968'}}>For Sellers</p>
+              <p className="text-sm font-bold mb-6 inline-block px-3 py-1 rounded-full" style={{background: '#1a1400', color: '#fcd968', border: '1px solid #fcd968'}}>Pentru vânzători</p>
               <div className="space-y-6">
                 <div className="flex gap-4 items-start">
                   <span className="text-2xl">📝</span>
                   <div>
-                    <p className="font-black text-white mb-1">1. List your products</p>
-                    <p className="text-gray-400 text-sm">Create your listing in minutes with photos, description and price.</p>
+                    <p className="font-black text-white mb-1">1. Listează-ți produsele</p>
+                    <p className="text-gray-400 text-sm">Creează anunțul în câteva minute cu fotografii, descriere și preț.</p>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
                   <span className="text-2xl">💳</span>
                   <div>
-                    <p className="font-black text-white mb-1">2. Pay just £1/month</p>
-                    <p className="text-gray-400 text-sm">Activate your listing with our simple £1/month subscription.</p>
+                    <p className="font-black text-white mb-1">2. Plătești doar £1/lună</p>
+                    <p className="text-gray-400 text-sm">Activează anunțul cu abonamentul nostru simplu de £1/lună.</p>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
                   <span className="text-2xl">💰</span>
                   <div>
-                    <p className="font-black text-white mb-1">3. Keep 100% of every sale</p>
-                    <p className="text-gray-400 text-sm">Buyers contact you directly. No commission, no middleman.</p>
+                    <p className="font-black text-white mb-1">3. Păstrezi 100% din fiecare vânzare</p>
+                    <p className="text-gray-400 text-sm">Cumpărătorii te contactează direct. Fără comision, fără intermediari.</p>
                   </div>
                 </div>
               </div>
               <Link href="/sell" className="inline-block mt-8 px-6 py-3 rounded-xl font-black text-black hover:opacity-90 transition-opacity" style={{background: '#fcd968'}}>
-                Start Selling — £1/mo →
+                Începe să vinzi — £1/lună →
               </Link>
             </div>
 
             <div className="p-8 rounded-2xl" style={{background: '#1a1a1a', border: '1px solid #fcd968'}}>
-              <p className="text-sm font-bold mb-6 inline-block px-3 py-1 rounded-full" style={{background: '#1a1400', color: '#fcd968', border: '1px solid #fcd968'}}>For Buyers</p>
+              <p className="text-sm font-bold mb-6 inline-block px-3 py-1 rounded-full" style={{background: '#1a1400', color: '#fcd968', border: '1px solid #fcd968'}}>Pentru cumpărători</p>
               <div className="space-y-6">
                 <div className="flex gap-4 items-start">
                   <span className="text-2xl">🔍</span>
                   <div>
-                    <p className="font-black text-white mb-1">1. Browse UK deals</p>
-                    <p className="text-gray-400 text-sm">Discover products from UK sellers and businesses across all categories.</p>
+                    <p className="font-black text-white mb-1">1. Răsfoiește ofertele din UK</p>
+                    <p className="text-gray-400 text-sm">Descoperă produse de la vânzători și afaceri din UK, din toate categoriile.</p>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
                   <span className="text-2xl">💬</span>
                   <div>
-                    <p className="font-black text-white mb-1">2. Contact sellers directly</p>
-                    <p className="text-gray-400 text-sm">No middleman. Contact the seller directly and pay securely via PayPal.</p>
+                    <p className="font-black text-white mb-1">2. Contactează vânzătorii direct</p>
+                    <p className="text-gray-400 text-sm">Fără intermediari. Contactează vânzătorul direct și plătește securizat prin PayPal.</p>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
                   <span className="text-2xl">🎉</span>
                   <div>
-                    <p className="font-black text-white mb-1">3. No buyer fees, ever</p>
-                    <p className="text-gray-400 text-sm">Free to browse and buy. No hidden charges, no platform fees.</p>
+                    <p className="font-black text-white mb-1">3. Fără taxe pentru cumpărători, niciodată</p>
+                    <p className="text-gray-400 text-sm">Gratuit pentru a răsfoi și cumpăra. Fără costuri ascunse, fără taxe de platformă.</p>
                   </div>
                 </div>
               </div>
               <Link href="/browse" className="inline-block mt-8 px-6 py-3 rounded-xl font-black text-black hover:opacity-90 transition-opacity" style={{background: '#fcd968'}}>
-                Browse Deals →
+                Răsfoiește ofertele →
               </Link>
             </div>
 
@@ -228,29 +228,29 @@ export default async function Home() {
 
       <section className="px-6 py-16" style={{background: '#0a0a0a'}}>
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl font-black text-white mb-4">Browse by Category</h2>
-          <p className="text-gray-500 mb-10">Discover products from UK sellers across all categories.</p>
+          <h2 className="text-3xl font-black text-white mb-4">Răsfoiește pe categorii</h2>
+          <p className="text-gray-500 mb-10">Descoperă produse de la vânzătorii din UK, din toate categoriile.</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {[
-              { icon: '📱', label: 'Electronics & Tech', href: '/browse/Electronics%20%26%20Tech' },
-              { icon: '📲', label: 'Phone & Accessories', href: '/browse/Phone%20%26%20Accessories' },
-              { icon: '👗', label: 'Clothing & Fashion', href: '/browse/Clothing%20%26%20Fashion' },
-              { icon: '🏠', label: 'Home & Living', href: '/browse/Home%20%26%20Living' },
-              { icon: '🌿', label: 'Garden & Outdoor', href: '/browse/Garden%20%26%20Outdoor' },
-              { icon: '🐾', label: 'Pets', href: '/browse/Pets' },
-              { icon: '👶', label: 'Baby & Kids', href: '/browse/Baby%20%26%20Kids' },
-              { icon: '💊', label: 'Health & Beauty', href: '/browse/Health%20%26%20Beauty' },
-              { icon: '🧸', label: 'Toys & Games', href: '/browse/Toys%20%26%20Games' },
-              { icon: '⚽', label: 'Sports & Fitness', href: '/browse/Sports%20%26%20Fitness' },
-              { icon: '🍫', label: 'Food & Drink', href: '/browse/Food%20%26%20Drink' },
-              { icon: '📚', label: 'Books & Stationery', href: '/browse/Books%20%26%20Stationery' },
-              { icon: '🔧', label: 'Tools & DIY', href: '/browse/Tools%20%26%20DIY' },
-              { icon: '🚗', label: 'Automotive', href: '/browse/Automotive' },
-              { icon: '🎨', label: 'Arts & Crafts', href: '/browse/Arts%20%26%20Crafts' },
-              { icon: '💼', label: 'Office & Business', href: '/browse/Office%20%26%20Business' },
-              { icon: '🎁', label: 'Gifts & Seasonal', href: '/browse/Gifts%20%26%20Seasonal' },
-              { icon: '🧹', label: 'Cleaning & Household', href: '/browse/Cleaning%20%26%20Household' },
-              { icon: '📦', label: 'View All', href: '/browse' },
+              { icon: '📱', label: 'Electronică & Tehnologie', href: '/browse/Electronics%20%26%20Tech' },
+              { icon: '📲', label: 'Telefoane & Accesorii', href: '/browse/Phone%20%26%20Accessories' },
+              { icon: '👗', label: 'Îmbrăcăminte & Modă', href: '/browse/Clothing%20%26%20Fashion' },
+              { icon: '🏠', label: 'Casă & Locuință', href: '/browse/Home%20%26%20Living' },
+              { icon: '🌿', label: 'Grădină & Exterior', href: '/browse/Garden%20%26%20Outdoor' },
+              { icon: '🐾', label: 'Animale de companie', href: '/browse/Pets' },
+              { icon: '👶', label: 'Bebeluși & Copii', href: '/browse/Baby%20%26%20Kids' },
+              { icon: '💊', label: 'Sănătate & Frumusețe', href: '/browse/Health%20%26%20Beauty' },
+              { icon: '🧸', label: 'Jucării & Jocuri', href: '/browse/Toys%20%26%20Games' },
+              { icon: '⚽', label: 'Sport & Fitness', href: '/browse/Sports%20%26%20Fitness' },
+              { icon: '🍫', label: 'Alimente & Băuturi', href: '/browse/Food%20%26%20Drink' },
+              { icon: '📚', label: 'Cărți & Papetărie', href: '/browse/Books%20%26%20Stationery' },
+              { icon: '🔧', label: 'Unelte & Bricolaj', href: '/browse/Tools%20%26%20DIY' },
+              { icon: '🚗', label: 'Auto', href: '/browse/Automotive' },
+              { icon: '🎨', label: 'Arte & Meșteșuguri', href: '/browse/Arts%20%26%20Crafts' },
+              { icon: '💼', label: 'Birou & Afaceri', href: '/browse/Office%20%26%20Business' },
+              { icon: '🎁', label: 'Cadouri & Sezoniere', href: '/browse/Gifts%20%26%20Seasonal' },
+              { icon: '🧹', label: 'Curățenie & Menaj', href: '/browse/Cleaning%20%26%20Household' },
+              { icon: '📦', label: 'Vezi tot', href: '/browse' },
             ].map(item => (
               <Link key={item.label} href={item.href} className="p-4 rounded-xl text-center hover:opacity-80 transition-opacity" style={{background: '#111111', border: '1px solid #fcd968'}}>
                 <div className="text-2xl mb-2">{item.icon}</div>
@@ -264,18 +264,18 @@ export default async function Home() {
       <section className="px-6 py-24 text-center" style={{background: '#111111'}}>
         <div className="max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-8 leading-tight">
-            A Smarter Way to Buy and Sell in the UK.
+            Un mod mai inteligent de a cumpăra și vinde în UK.
           </h2>
           <p className="text-gray-400 text-lg mb-12 leading-relaxed">
-            BigDiscounts is a transparent marketplace where buyers and businesses connect directly — without unnecessary mark-ups or hidden barriers.
+            BigDiscounts este un marketplace transparent unde cumpărătorii și afacerile se conectează direct — fără adaosuri inutile sau bariere ascunse.
           </p>
           <div className="space-y-3 mb-12">
-            <p className="text-white font-bold text-lg">Designed for fairness.</p>
-            <p className="text-white font-bold text-lg">Built for visibility.</p>
-            <p className="text-white font-bold text-lg">Grounded in trust.</p>
+            <p className="text-white font-bold text-lg">Conceput pentru corectitudine.</p>
+            <p className="text-white font-bold text-lg">Construit pentru vizibilitate.</p>
+            <p className="text-white font-bold text-lg">Bazat pe încredere.</p>
           </div>
           <p className="text-gray-500 text-base italic">
-            A marketplace that puts people before platforms — always.
+            Un marketplace care pune oamenii înaintea platformelor — mereu.
           </p>
         </div>
       </section>
@@ -285,46 +285,46 @@ export default async function Home() {
           <div className="flex flex-wrap justify-between gap-8 mb-8">
             <div>
               <p className="text-2xl font-black mb-2" style={{color: '#fcd968'}}>BigDiscounts</p>
-              <p className="text-gray-500 text-sm max-w-xs">Buy direct or sell for just £1/month. No commissions. No hidden fees.</p>
+              <p className="text-gray-500 text-sm max-w-xs">Cumpără direct sau vinde la doar £1/lună. Fără comisioane. Fără taxe ascunse.</p>
             </div>
             <div className="flex gap-12">
               <div>
                 <p className="text-white font-bold mb-3">Site</p>
                 <div className="space-y-2">
-                  <Link href="/browse" className="block text-gray-500 hover:text-white text-sm">Browse</Link>
-                  <Link href="/sell" className="block text-gray-500 hover:text-white text-sm">Start Selling</Link>
-                  <Link href="/about" className="block text-gray-500 hover:text-white text-sm">About Us</Link>
-                  <Link href="/contact" className="block text-gray-500 hover:text-white text-sm">Contact Us</Link>
+                  <Link href="/browse" className="block text-gray-500 hover:text-white text-sm">Răsfoiește</Link>
+                  <Link href="/sell" className="block text-gray-500 hover:text-white text-sm">Începe să vinzi</Link>
+                  <Link href="/about" className="block text-gray-500 hover:text-white text-sm">Despre noi</Link>
+                  <Link href="/contact" className="block text-gray-500 hover:text-white text-sm">Contactează-ne</Link>
                 </div>
               </div>
               <div>
-                <p className="text-white font-bold mb-3">Categories</p>
+                <p className="text-white font-bold mb-3">Categorii</p>
                 <div className="space-y-2">
-                  <Link href="/browse/Electronics%20%26%20Tech" className="block text-gray-500 hover:text-white text-sm">Electronics & Tech</Link>
-                  <Link href="/browse/Clothing%20%26%20Fashion" className="block text-gray-500 hover:text-white text-sm">Clothing & Fashion</Link>
-                  <Link href="/browse/Home%20%26%20Living" className="block text-gray-500 hover:text-white text-sm">Home & Living</Link>
-                  <Link href="/browse/Health%20%26%20Beauty" className="block text-gray-500 hover:text-white text-sm">Health & Beauty</Link>
-                  <Link href="/browse/Garden%20%26%20Outdoor" className="block text-gray-500 hover:text-white text-sm">Garden & Outdoor</Link>
-                  <Link href="/browse/Sports%20%26%20Fitness" className="block text-gray-500 hover:text-white text-sm">Sports & Fitness</Link>
-                  <Link href="/browse/Toys%20%26%20Games" className="block text-gray-500 hover:text-white text-sm">Toys & Games</Link>
-                  <Link href="/browse/Pets" className="block text-gray-500 hover:text-white text-sm">Pets</Link>
+                  <Link href="/browse/Electronics%20%26%20Tech" className="block text-gray-500 hover:text-white text-sm">Electronică & Tehnologie</Link>
+                  <Link href="/browse/Clothing%20%26%20Fashion" className="block text-gray-500 hover:text-white text-sm">Îmbrăcăminte & Modă</Link>
+                  <Link href="/browse/Home%20%26%20Living" className="block text-gray-500 hover:text-white text-sm">Casă & Locuință</Link>
+                  <Link href="/browse/Health%20%26%20Beauty" className="block text-gray-500 hover:text-white text-sm">Sănătate & Frumusețe</Link>
+                  <Link href="/browse/Garden%20%26%20Outdoor" className="block text-gray-500 hover:text-white text-sm">Grădină & Exterior</Link>
+                  <Link href="/browse/Sports%20%26%20Fitness" className="block text-gray-500 hover:text-white text-sm">Sport & Fitness</Link>
+                  <Link href="/browse/Toys%20%26%20Games" className="block text-gray-500 hover:text-white text-sm">Jucării & Jocuri</Link>
+                  <Link href="/browse/Pets" className="block text-gray-500 hover:text-white text-sm">Animale de companie</Link>
                 </div>
               </div>
               <div>
                 <p className="text-white font-bold mb-3">Legal</p>
                 <div className="space-y-2">
-                  <Link href="/privacy" className="block text-gray-500 hover:text-white text-sm">Privacy Policy</Link>
-                  <Link href="/terms" className="block text-gray-500 hover:text-white text-sm">Terms & Conditions</Link>
-                  <Link href="/cookies" className="block text-gray-500 hover:text-white text-sm">Cookie Policy</Link>
-                  <Link href="/data-request" className="block text-gray-500 hover:text-white text-sm">Data Request</Link>
+                  <Link href="/privacy" className="block text-gray-500 hover:text-white text-sm">Politica de confidențialitate</Link>
+                  <Link href="/terms" className="block text-gray-500 hover:text-white text-sm">Termeni și condiții</Link>
+                  <Link href="/cookies" className="block text-gray-500 hover:text-white text-sm">Politica de cookie-uri</Link>
+                  <Link href="/data-request" className="block text-gray-500 hover:text-white text-sm">Cerere de date</Link>
                 </div>
               </div>
             </div>
           </div>
           <div style={{borderTop: '1px solid #1a1a1a'}} className="pt-6 text-center">
             <p className="text-gray-600 text-sm">hello@bigdiscounts.uk</p>
-            <p className="text-gray-600 text-xs mt-1">BigDiscounts is operated by Petrica Marin, Sole Trader, United Kingdom.</p>
-            <p className="text-gray-700 text-xs mt-1">© 2026 BigDiscounts. All rights reserved.</p>
+            <p className="text-gray-600 text-xs mt-1">BigDiscounts este operat de Petrica Marin, Persoană Fizică Autorizată, Regatul Unit.</p>
+            <p className="text-gray-700 text-xs mt-1">© 2026 BigDiscounts. Toate drepturile rezervate.</p>
           </div>
         </div>
       </footer>

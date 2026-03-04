@@ -45,7 +45,7 @@ export default function FavouritesPage() {
 
   if (status === 'loading' || loading) return (
     <div className="min-h-screen flex items-center justify-center" style={{background: '#0a0a0a'}}>
-      <p style={{color: '#fcd968'}} className="text-lg font-bold">Loading...</p>
+      <p style={{color: '#fcd968'}} className="text-lg font-bold">Se încarcă...</p>
     </div>
   )
 
@@ -53,20 +53,20 @@ export default function FavouritesPage() {
     <main className="min-h-screen" style={{background: '#0a0a0a'}}>
       <nav style={{background: '#111111', borderBottom: '1px solid #2a2a2a'}} className="px-6 py-4 flex justify-between items-center sticky top-0 z-50">
         <span className="text-2xl font-black" style={{color: '#fcd968'}}>🇬🇧 BigDiscounts</span>
-        <Link href="/buyer/dashboard" className="text-gray-400 hover:text-white transition-colors">← Back to Dashboard</Link>
+        <Link href="/buyer/dashboard" className="text-gray-400 hover:text-white transition-colors">← Înapoi la Panou de control</Link>
       </nav>
 
       <div className="max-w-4xl mx-auto px-6 py-10">
-        <h1 className="text-3xl font-black text-white mb-8">❤️ My Saved Products</h1>
+        <h1 className="text-3xl font-black text-white mb-8">❤️ Produsele mele salvate</h1>
 
         {products.length === 0 ? (
           <div className="rounded-2xl p-12 text-center" style={{background: '#111111', border: '1px solid #222'}}>
             <div className="text-5xl mb-4">🤍</div>
-            <p className="text-gray-500 text-lg mb-4">You haven't saved any products yet.</p>
+            <p className="text-gray-500 text-lg mb-4">Nu ai salvat niciun produs încă.</p>
             <Link href="/browse"
               className="px-6 py-3 rounded-xl font-bold text-black inline-block"
               style={{background: '#fcd968'}}>
-              Browse Deals
+              Răsfoiește ofertele
             </Link>
           </div>
         ) : (

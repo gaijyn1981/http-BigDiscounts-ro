@@ -2,11 +2,11 @@
 
 export default function ShareButtons({ title, id }: { title: string, id: string }) {
   const url = `https://www.bigdiscounts.uk/product/${id}`
-  const text = `Check out this deal on BigDiscounts: ${title}`
+  const text = `Vezi această ofertă pe BigDiscounts: ${title}`
 
   return (
     <div className="mt-4">
-      <p className="text-sm font-semibold text-gray-500 mb-2">Share this deal:</p>
+      <p className="text-sm font-semibold text-gray-500 mb-2">Distribuie această ofertă:</p>
       <div className="flex gap-2 flex-wrap">
         <a href={`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`}
           target="_blank" rel="noopener noreferrer"
@@ -25,7 +25,7 @@ export default function ShareButtons({ title, id }: { title: string, id: string 
         </a>
         <button onClick={() => { navigator.clipboard.writeText(url) }}
           className="flex items-center gap-2 bg-gray-200 text-gray-700 px-4 py-2 rounded-xl text-sm font-bold hover:bg-gray-300">
-          🔗 Copy Link
+          🔗 Copiază Link
         </button>
       </div>
     </div>

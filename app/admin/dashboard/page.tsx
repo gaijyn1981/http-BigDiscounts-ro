@@ -72,7 +72,7 @@ export default function AdminDashboard() {
   }, [session])
 
   const deleteProduct = async (id: string) => {
-    if (!confirm('Delete this product?')) return
+    if (!confirm('Ștergi acest produs?')) return
     await fetch(`/api/admin/products/${id}`, { method: 'DELETE' })
     setProducts(prev => prev.filter(p => p.id !== id))
   }
@@ -101,7 +101,7 @@ export default function AdminDashboard() {
 
   if (status === 'loading' || loading) return (
     <div className="min-h-screen flex items-center justify-center" style={{background: '#0a0a0a'}}>
-      <p className="text-gray-400">Loading...</p>
+      <p className="text-gray-400">Se încarcă...</p>
     </div>
   )
 
@@ -112,11 +112,11 @@ export default function AdminDashboard() {
       <nav style={{background: '#111111', borderBottom: '1px solid #2a2a2a'}} className="px-6 py-4 flex justify-between items-center sticky top-0 z-50">
         <span className="text-2xl font-black" style={{color: '#fcd968'}}>🇬🇧 BigDiscounts</span>
         <div className="flex items-center gap-4">
-  <span className="text-gray-400 text-sm">Admin Dashboard</span>
+  <span className="text-gray-400 text-sm">Panou Administrare</span>
   <button onClick={() => signOut({ callbackUrl: '/login' })}
     className="text-sm font-bold px-4 py-2 rounded-lg transition-opacity hover:opacity-80"
     style={{background: '#1a1a1a', color: '#f87171', border: '1px solid #f87171'}}>
-    Logout
+    Deconectare
   </button>
 </div>
 
@@ -126,10 +126,10 @@ export default function AdminDashboard() {
         {stats && (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             {[
-              { label: 'Sellers', value: stats.totalSellers },
-              { label: 'Buyers', value: stats.totalBuyers },
-              { label: 'Total Products', value: stats.totalProducts },
-              { label: 'Active Products', value: stats.activeProducts },
+              { label: 'Vânzători', value: stats.totalSellers },
+              { label: 'Cumpărători', value: stats.totalBuyers },
+              { label: 'Total Produse', value: stats.totalProducts },
+              { label: 'Produse Active', value: stats.activeProducts },
             ].map(s => (
               <div key={s.label} className="rounded-xl p-4 text-center" style={{background: '#111', border: '1px solid #fcd968'}}>
                 <p className="text-3xl font-black" style={{color: '#fcd968'}}>{s.value}</p>
@@ -140,8 +140,8 @@ export default function AdminDashboard() {
         )}
 
         <div className="flex gap-4 mb-6">
-          <button onClick={() => setTab('products')} className={`px-4 py-2 rounded-lg font-bold text-sm ${tab === 'products' ? 'text-black' : 'text-gray-400'}`} style={tab === 'products' ? {background: '#fcd968'} : {background: '#1a1a1a'}}>Products</button>
-          <button onClick={() => setTab('sellers')} className={`px-4 py-2 rounded-lg font-bold text-sm ${tab === 'sellers' ? 'text-black' : 'text-gray-400'}`} style={tab === 'sellers' ? {background: '#fcd968'} : {background: '#1a1a1a'}}>Sellers</button>
+          <button onClick={() => setTab('products')} className={`px-4 py-2 rounded-lg font-bold text-sm ${tab === 'products' ? 'text-black' : 'text-gray-400'}`} style={tab === 'products' ? {background: '#fcd968'} : {background: '#1a1a1a'}}>Produse</button>
+          <button onClick={() => setTab('sellers')} className={`px-4 py-2 rounded-lg font-bold text-sm ${tab === 'sellers' ? 'text-black' : 'text-gray-400'}`} style={tab === 'sellers' ? {background: '#fcd968'} : {background: '#1a1a1a'}}>Vânzători</button>
         </div>
 
         {tab === 'products' && (
@@ -152,7 +152,7 @@ export default function AdminDashboard() {
                   <p className="text-white font-bold">{p.title}</p>
                   <p className="text-gray-400 text-sm">{p.seller.companyName} · £{p.price}</p>
                 </div>
-                <button onClick={() => deleteProduct(p.id)} className="px-3 py-1 rounded-lg text-sm font-bold" style={{background: '#1a1a1a', color: '#f87171', border: '1px solid #f87171'}}>Delete</button>
+                <button onClick={() => deleteProduct(p.id)} className="px-3 py-1 rounded-lg text-sm font-bold" style={{background: '#1a1a1a', color: '#f87171', border: '1px solid #f87171'}}>Șterge</button>
               </div>
             ))}
           </div>
@@ -166,13 +166,13 @@ export default function AdminDashboard() {
                   <div>
                     <p className="text-white font-bold">{s.companyName}</p>
                     <p className="text-gray-400 text-sm">{s.email} · {s.phone}</p>
-                    <p className="text-gray-500 text-xs mt-1">{s._count.products} products</p>
+                    <p className="text-gray-500 text-xs mt-1">{s._count.products} produse</p>
                   </div>
                   <div className="flex gap-2">
                     <button onClick={() => toggleVerified(s.id, !s.verified)} className="px-3 py-1 rounded-lg text-sm font-bold" style={s.verified ? {background: '#1a1a1a', color: '#4ade80', border: '1px solid #4ade80'} : {background: '#1a1a1a', color: '#fcd968', border: '1px solid #fcd968'}}>
-                      {s.verified ? 'Verified' : 'Unverified'}
+                      {s.verified ? 'Verificat' : 'Neverificat'}
                     </button>
-                    <button onClick={() => { setEditingSeller(s); setEditForm({ companyName: s.companyName, contactName: s.contactName, email: s.email, phone: s.phone }) }} className="px-3 py-1 rounded-lg text-sm font-bold text-gray-400" style={{background: '#1a1a1a', border: '1px solid #2a2a2a'}}>Edit</button>
+                    <button onClick={() => { setEditingSeller(s); setEditForm({ companyName: s.companyName, contactName: s.contactName, email: s.email, phone: s.phone }) }} className="px-3 py-1 rounded-lg text-sm font-bold text-gray-400" style={{background: '#1a1a1a', border: '1px solid #2a2a2a'}}>Editează</button>
                   </div>
                 </div>
               </div>
@@ -184,14 +184,14 @@ export default function AdminDashboard() {
       {editingSeller && (
         <div className="fixed inset-0 flex items-center justify-center z-50" style={{background: 'rgba(0,0,0,0.8)'}}>
           <div className="p-6 rounded-2xl w-full max-w-md" style={{background: '#111', border: '1px solid #2a2a2a'}}>
-            <h2 className="text-white font-black text-xl mb-4">Edit Seller</h2>
+            <h2 className="text-white font-black text-xl mb-4">Editează Vânzătorul</h2>
             {['companyName', 'contactName', 'email', 'phone'].map(field => (
               <input key={field} value={(editForm as any)[field]} onChange={e => setEditForm(prev => ({...prev, [field]: e.target.value}))}
                 placeholder={field} className="w-full mb-3 px-4 py-2 rounded-lg text-white text-sm" style={{background: '#1a1a1a', border: '1px solid #2a2a2a'}} />
             ))}
             <div className="flex gap-3 mt-4">
-              <button onClick={saveSellerEdit} disabled={saving} className="flex-1 py-2 rounded-lg font-bold text-black" style={{background: '#fcd968'}}>{saving ? 'Saving...' : 'Save'}</button>
-              <button onClick={() => setEditingSeller(null)} className="flex-1 py-2 rounded-lg font-bold text-gray-400" style={{background: '#1a1a1a'}}>Cancel</button>
+              <button onClick={saveSellerEdit} disabled={saving} className="flex-1 py-2 rounded-lg font-bold text-black" style={{background: '#fcd968'}}>{saving ? 'Se salvează...' : 'Salvează'}</button>
+              <button onClick={() => setEditingSeller(null)} className="flex-1 py-2 rounded-lg font-bold text-gray-400" style={{background: '#1a1a1a'}}>Anulează</button>
             </div>
           </div>
         </div>

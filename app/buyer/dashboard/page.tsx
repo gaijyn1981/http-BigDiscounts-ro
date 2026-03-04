@@ -45,7 +45,7 @@ export default function BuyerDashboard() {
 
   if (status === 'loading' || loading) return (
     <div className="min-h-screen flex items-center justify-center" style={{background: '#0a0a0a'}}>
-      <p style={{color: '#fcd968'}} className="text-lg font-bold">Loading...</p>
+      <p style={{color: '#fcd968'}} className="text-lg font-bold">Se încarcă...</p>
     </div>
   )
 
@@ -54,25 +54,25 @@ export default function BuyerDashboard() {
       <nav style={{background: '#111111', borderBottom: '1px solid #2a2a2a'}} className="px-6 py-4 flex justify-between items-center sticky top-0 z-50">
         <span className="text-2xl font-black" style={{color: '#fcd968'}}>🇬🇧 BigDiscounts</span>
         <div className="flex items-center gap-4">
-          <Link href="/" aria-label="Home" className="text-gray-400 hover:text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></Link><Link href="/browse" aria-label="Browse products" className="text-gray-400 hover:text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></Link>
-          <span className="text-gray-600 text-sm hidden md:block">Hi, {session?.user?.name}</span>
+          <Link href="/" aria-label="Acasă" className="text-gray-400 hover:text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></Link><Link href="/browse" aria-label="Răsfoiește produse" className="text-gray-400 hover:text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></Link>
+          <span className="text-gray-600 text-sm hidden md:block">Salut, {session?.user?.name}</span>
           <button onClick={() => signOut({ callbackUrl: '/' })}
             className="text-sm font-bold px-4 py-2 rounded-lg transition-opacity hover:opacity-80"
             style={{background: '#1a1a1a', color: '#f87171', border: '1px solid #f87171'}}>
-            Logout
+            Deconectare
           </button>
         </div>
       </nav>
 
       <div className="max-w-5xl mx-auto px-6 py-10">
         <div className="mb-10">
-          <h1 className="text-3xl font-black text-white mb-1">Welcome back, {session?.user?.name}! 👋</h1>
-          <p className="text-gray-500">Browse deals or check your saved products.</p>
+          <h1 className="text-3xl font-black text-white mb-1">Bine ai revenit, {session?.user?.name}! 👋</h1>
+          <p className="text-gray-500">Răsfoiește ofertele sau verifică produsele salvate.</p>
         </div>
 
         {favourites.length > 0 && (
           <div>
-            <h2 className="text-2xl font-black text-white mb-6">Your Saved Products</h2>
+            <h2 className="text-2xl font-black text-white mb-6">Produsele tale salvate</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {favourites.slice(0, 6).map(product => {
                 const photos = JSON.parse(product.photos || '[]')
@@ -100,7 +100,7 @@ export default function BuyerDashboard() {
             {favourites.length > 6 && (
               <div className="text-center mt-6">
                 <Link href="/buyer/favourites" style={{color: '#fcd968'}} className="font-bold hover:opacity-80">
-                  View all {favourites.length} saved products →
+                  Vezi toate cele {favourites.length} produse salvate →
                 </Link>
               </div>
             )}
@@ -110,19 +110,19 @@ export default function BuyerDashboard() {
         {favourites.length === 0 && (
           <div className="rounded-2xl p-12 text-center mb-8" style={{background: '#111111', border: '1px solid #222'}}>
             <div className="text-5xl mb-4">🛍️</div>
-            <h2 className="text-xl font-black text-white mb-2">No saved products yet</h2>
-            <p className="text-gray-500 mb-6">Browse deals and save products you like!</p>
+            <h2 className="text-xl font-black text-white mb-2">Niciun produs salvat încă</h2>
+            <p className="text-gray-500 mb-6">Răsfoiește ofertele și salvează produsele care îți plac!</p>
             <Link href="/browse"
               className="px-6 py-3 rounded-xl font-bold text-black inline-block"
               style={{background: '#fcd968'}}>
-              Browse Deals
+              Răsfoiește ofertele
             </Link>
           </div>
         )}
 
         <div className="rounded-2xl p-6" style={{background: '#111111', border: '1px solid #f87171'}}>
-          <h2 className="text-xl font-black text-white mb-2">Danger Zone</h2>
-          <p className="text-gray-500 text-sm mb-4">Permanently delete your account and all saved products.</p>
+          <h2 className="text-xl font-black text-white mb-2">Zonă periculoasă</h2>
+          <p className="text-gray-500 text-sm mb-4">Șterge permanent contul tău și toate produsele salvate.</p>
           <DeleteAccountButton type="buyer" />
         </div>
       </div>

@@ -16,7 +16,7 @@ export default function DeleteAccountButton({ type }: { type: 'seller' | 'buyer'
       await signOut({ callbackUrl: '/?deleted=true' })
     } else {
       const data = await res.json()
-      setError(data.error || 'Something went wrong')
+      setError(data.error || 'Ceva nu a mers bine')
       setDeleting(false)
     }
   }
@@ -26,7 +26,7 @@ export default function DeleteAccountButton({ type }: { type: 'seller' | 'buyer'
       <button onClick={() => setShowModal(true)}
         className="text-sm font-bold px-4 py-2 rounded-lg transition-opacity hover:opacity-80"
         style={{background: '#1a0a0a', color: '#f87171', border: '1px solid #f87171'}}>
-        🗑️ Delete Account
+        🗑️ Șterge Contul
       </button>
 
       {showModal && (
@@ -35,13 +35,13 @@ export default function DeleteAccountButton({ type }: { type: 'seller' | 'buyer'
           <div className="w-full max-w-md rounded-2xl p-8 text-center"
             style={{background: '#111111', border: '1px solid #f87171'}}>
             <div className="text-5xl mb-4">⚠️</div>
-            <h2 className="text-2xl font-black text-white mb-2">Delete Account?</h2>
-            <p className="text-gray-400 mb-2">This action is <span className="text-red-400 font-bold">permanent</span> and cannot be undone.</p>
+            <h2 className="text-2xl font-black text-white mb-2">Ștergi Contul?</h2>
+            <p className="text-gray-400 mb-2">Această acțiune este <span className="text-red-400 font-bold">permanentă</span> și nu poate fi anulată.</p>
             {type === 'seller' && (
-              <p className="text-gray-500 text-sm mb-6">All your products and listings will also be deleted.</p>
+              <p className="text-gray-500 text-sm mb-6">Toate produsele și anunțurile tale vor fi de asemenea șterse.</p>
             )}
             {type === 'buyer' && (
-              <p className="text-gray-500 text-sm mb-6">All your saved products will also be deleted.</p>
+              <p className="text-gray-500 text-sm mb-6">Toate produsele salvate vor fi de asemenea șterse.</p>
             )}
             {error && <p className="text-red-400 text-sm mb-4">{error}</p>}
             <div className="flex gap-3">
@@ -49,13 +49,13 @@ export default function DeleteAccountButton({ type }: { type: 'seller' | 'buyer'
                 disabled={deleting}
                 className="flex-1 py-3 rounded-xl font-black text-white transition-opacity hover:opacity-80 disabled:opacity-50"
                 style={{background: '#1a1a1a', border: '1px solid #333'}}>
-                No, Keep Account
+                Nu, Păstrează Contul
               </button>
               <button onClick={handleDelete}
                 disabled={deleting}
                 className="flex-1 py-3 rounded-xl font-black transition-opacity hover:opacity-80 disabled:opacity-50"
                 style={{background: '#f87171', color: 'black'}}>
-                {deleting ? 'Deleting...' : 'Yes, Delete'}
+                {deleting ? 'Se șterge...' : 'Da, Șterge'}
               </button>
             </div>
           </div>

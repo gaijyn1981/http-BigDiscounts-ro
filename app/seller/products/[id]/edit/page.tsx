@@ -63,12 +63,12 @@ export default function EditProductPage() {
       body: JSON.stringify({ ...form, deliveryTime: form.deliveryTime === 'Custom' ? customDelivery : form.deliveryTime, photos: filteredPhotos })
     })
     if (res.ok) router.push('/seller/dashboard')
-    else { const data = await res.json(); setError(data.error || 'Error'); setLoading(false) }
+    else { const data = await res.json(); setError(data.error || 'Eroare'); setLoading(false) }
   }
 
   if (fetching) return (
     <div className="min-h-screen flex items-center justify-center" style={{background: '#0a0a0a'}}>
-      <p style={{color: '#fcd968'}} className="text-lg font-bold">Loading...</p>
+      <p style={{color: '#fcd968'}} className="text-lg font-bold">Se încarcă...</p>
     </div>
   )
 
@@ -76,96 +76,96 @@ export default function EditProductPage() {
     <main className="min-h-screen" style={{background: '#0a0a0a'}}>
       <nav style={{background: '#111111', borderBottom: '1px solid #2a2a2a'}} className="px-6 py-4 flex justify-between items-center sticky top-0 z-50">
         <span className="text-2xl font-black" style={{color: '#fcd968'}}>🇬🇧 BigDiscounts</span>
-        <Link href="/seller/dashboard" className="text-gray-400 hover:text-white transition-colors">← Back</Link>
+        <Link href="/seller/dashboard" className="text-gray-400 hover:text-white transition-colors">← Înapoi</Link>
       </nav>
 
       <div className="max-w-2xl mx-auto px-6 py-10">
-        <h1 className="text-3xl font-black text-white mb-8">Edit Product</h1>
+        <h1 className="text-3xl font-black text-white mb-8">Editează produsul</h1>
         <form onSubmit={handleSubmit} className="rounded-2xl p-6 space-y-5" style={{background: '#111111', border: '1px solid #222'}}>
           <div>
-            <label className="block text-sm font-semibold text-gray-400 mb-1">Title</label>
+            <label className="block text-sm font-semibold text-gray-400 mb-1">Titlu</label>
             <input name="title" type="text" value={form.title} onChange={update} required
               className="w-full px-4 py-3 rounded-xl text-white focus:outline-none"
               style={{background: '#1a1a1a', border: '1px solid #333'}} />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-400 mb-1">Description</label>
+            <label className="block text-sm font-semibold text-gray-400 mb-1">Descriere</label>
             <textarea name="description" value={form.description} onChange={update} rows={4} required
               className="w-full px-4 py-3 rounded-xl text-white focus:outline-none"
               style={{background: '#1a1a1a', border: '1px solid #333'}} />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-400 mb-1">Price (£)</label>
+            <label className="block text-sm font-semibold text-gray-400 mb-1">Preț (£)</label>
             <input name="price" type="number" step="0.01" value={form.price} onChange={update} required
               className="w-full px-4 py-3 rounded-xl text-white focus:outline-none"
               style={{background: '#1a1a1a', border: '1px solid #333'}} />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-400 mb-1">Category</label>
+            <label className="block text-sm font-semibold text-gray-400 mb-1">Categorie</label>
             <select name="category" value={form.category} onChange={update}
               className="w-full px-4 py-3 rounded-xl text-white focus:outline-none"
               style={{background: '#1a1a1a', border: '1px solid #333'}}>
-                            <option value="">Select</option>
-              <option value="Electronics & Tech">Electronics & Tech</option>
-              <option value="Phone & Accessories">Phone & Accessories</option>
-              <option value="Clothing & Fashion">Clothing & Fashion</option>
-              <option value="Home & Living">Home & Living</option>
-              <option value="Garden & Outdoor">Garden & Outdoor</option>
-              <option value="Pets">Pets</option>
-              <option value="Baby & Kids">Baby & Kids</option>
-              <option value="Health & Beauty">Health & Beauty</option>
-              <option value="Toys & Games">Toys & Games</option>
-              <option value="Sports & Fitness">Sports & Fitness</option>
-              <option value="Food & Drink">Food & Drink</option>
-              <option value="Books & Stationery">Books & Stationery</option>
-              <option value="Tools & DIY">Tools & DIY</option>
-              <option value="Automotive">Automotive</option>
-              <option value="Arts & Crafts">Arts & Crafts</option>
-              <option value="Office & Business">Office & Business</option>
-              <option value="Gifts & Seasonal">Gifts & Seasonal</option>
-              <option value="Cleaning & Household">Cleaning & Household</option>
-              <option value="Other">Other</option>
+                            <option value="">Selectează</option>
+              <option value="Electronics & Tech">Electronică & Tehnologie</option>
+              <option value="Phone & Accessories">Telefoane & Accesorii</option>
+              <option value="Clothing & Fashion">Îmbrăcăminte & Modă</option>
+              <option value="Home & Living">Casă & Locuință</option>
+              <option value="Garden & Outdoor">Grădină & Exterior</option>
+              <option value="Pets">Animale de companie</option>
+              <option value="Baby & Kids">Bebeluși & Copii</option>
+              <option value="Health & Beauty">Sănătate & Frumusețe</option>
+              <option value="Toys & Games">Jucării & Jocuri</option>
+              <option value="Sports & Fitness">Sport & Fitness</option>
+              <option value="Food & Drink">Alimente & Băuturi</option>
+              <option value="Books & Stationery">Cărți & Papetărie</option>
+              <option value="Tools & DIY">Unelte & Bricolaj</option>
+              <option value="Automotive">Auto</option>
+              <option value="Arts & Crafts">Arte & Meșteșuguri</option>
+              <option value="Office & Business">Birou & Afaceri</option>
+              <option value="Gifts & Seasonal">Cadouri & Sezoniere</option>
+              <option value="Cleaning & Household">Curățenie & Menaj</option>
+              <option value="Other">Altele</option>
             </select>
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-400 mb-1">Delivery Time <span className="text-gray-600 font-normal">(optional)</span></label>
+            <label className="block text-sm font-semibold text-gray-400 mb-1">Timp de livrare <span className="text-gray-600 font-normal">(opțional)</span></label>
             <select name="deliveryTime" value={form.deliveryTime} onChange={update}
               className="w-full px-4 py-3 rounded-xl text-white focus:outline-none"
               style={{background: '#1a1a1a', border: '1px solid #333'}}>
-              <option value="">Not specified</option>
-              <option value="Next day">Next day</option>
-              <option value="2-3 days">2-3 days</option>
-              <option value="1 week">1 week</option>
-              <option value="2 weeks+">2 weeks+</option>
-              <option value="Custom">Custom</option>
+              <option value="">Nespecificat</option>
+              <option value="Next day">A doua zi</option>
+              <option value="2-3 days">2-3 zile</option>
+              <option value="1 week">1 săptămână</option>
+              <option value="2 weeks+">2 săptămâni+</option>
+              <option value="Custom">Personalizat</option>
             </select>
             {form.deliveryTime === 'Custom' && (
               <input value={customDelivery} onChange={e => setCustomDelivery(e.target.value)}
-                placeholder="e.g. 3-5 working days"
+                placeholder="ex. 3-5 zile lucrătoare"
                 className="w-full mt-2 px-4 py-3 rounded-xl text-white focus:outline-none"
                 style={{background: '#1a1a1a', border: '1px solid #333'}} />
             )}
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-400 mb-2">Photos (up to 4)</label>
+            <label className="block text-sm font-semibold text-gray-400 mb-2">Fotografii (până la 4)</label>
             <div className="space-y-3">
               {photos.map((photo, index) => (
                 <div key={index} className="flex gap-3 items-center">
-                  <span className="text-sm text-gray-600 w-16">Photo {index + 1}</span>
+                  <span className="text-sm text-gray-600 w-16">Foto {index + 1}</span>
                   {photo ? (
                     <div className="flex-1 flex items-center gap-2">
                       <img src={photo} alt="" className="h-16 w-16 object-cover rounded-lg" />
                       <button type="button" onClick={() => { const p = [...photos]; p[index] = ''; setPhotos(p) }}
-                        className="text-red-400 text-sm hover:opacity-80">Remove</button>
+                        className="text-red-400 text-sm hover:opacity-80">Elimină</button>
                     </div>
                   ) : (
                     <label className="flex-1 cursor-pointer">
                       <div className="rounded-xl px-4 py-3 text-center"
                         style={{border: '2px dashed #333', background: '#1a1a1a'}}>
                         {uploading[index] ? (
-                          <span className="text-sm" style={{color: '#fcd968'}}>Uploading...</span>
+                          <span className="text-sm" style={{color: '#fcd968'}}>Se încarcă...</span>
                         ) : (
-                          <span className="text-gray-600 text-sm">📷 Click to upload photo</span>
+                          <span className="text-gray-600 text-sm">📷 Click pentru a încărca fotografia</span>
                         )}
                       </div>
                       <input type="file" accept="image/*" className="hidden"
@@ -180,7 +180,7 @@ export default function EditProductPage() {
           <button type="submit" disabled={loading}
             className="w-full py-3 rounded-xl font-black text-lg text-black transition-opacity hover:opacity-90 disabled:opacity-50"
             style={{background: '#fcd968'}}>
-            {loading ? 'Saving...' : 'Save Changes'}
+            {loading ? 'Se salvează...' : 'Salvează modificările'}
           </button>
         </form>
       </div>

@@ -26,7 +26,7 @@ export default function FavouriteButton({ productId }: { productId: string }) {
   return (
     <button onClick={toggle} disabled={loading}
       className={`w-full py-3 rounded-xl font-bold text-lg mt-2 transition-colors ${saved ? 'bg-red-50 text-red-500 border border-red-200 hover:bg-red-100' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
-      {loading ? '...' : saved ? '❤️ Saved' : '🤍 Save for Later'}
+      {loading ? '...' : saved ? '❤️ Salvat' : '🤍 Salvează pentru Mai Târziu'}
     </button>
   )
 }

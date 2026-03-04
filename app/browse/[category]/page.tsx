@@ -4,118 +4,118 @@ import CategoryClient from './CategoryClient'
 
 const categoryData: Record<string, { meta_title: string; meta_desc: string; h1: string; description: string }> = {
   "Electronics & Tech": {
-    meta_title: "Electronics & Tech Products from UK Sellers | BigDiscounts",
-    meta_desc: "Browse electronics and tech products from UK sellers on BigDiscounts. Direct contact, competitive prices, no buyer fees.",
-    h1: "Electronics & Tech Products from UK Sellers",
-    description: "Discover a wide range of electronics and technology products listed by UK sellers on BigDiscounts. From gadgets and smart home devices to computers, accessories, and audio equipment, our electronics category connects buyers directly with UK businesses offering competitive prices. Unlike traditional retail platforms, BigDiscounts charges sellers a simple £1/month fee with zero commission, meaning you benefit from fairer pricing and direct communication with the seller. Browse the latest tech listings, contact sellers directly, and buy with confidence from UK-based businesses."
+    meta_title: "Produse de electronică & tehnologie de la vânzătorii din UK | BigDiscounts",
+    meta_desc: "Răsfoiește produse de electronică și tehnologie de la vânzătorii din UK pe BigDiscounts. Contact direct, prețuri competitive, fără taxe pentru cumpărători.",
+    h1: "Produse de electronică & tehnologie de la vânzătorii din UK",
+    description: "Descoperă o gamă variată de produse de electronică și tehnologie listate de vânzătorii din UK pe BigDiscounts. De la gadgeturi și dispozitive smart home la calculatoare, accesorii și echipamente audio, categoria noastră de electronică conectează cumpărătorii direct cu afacerile din UK care oferă prețuri competitive. Spre deosebire de platformele tradiționale de retail, BigDiscounts percepe vânzătorilor o taxă simplă de £1/lună cu zero comision, ceea ce înseamnă că beneficiezi de prețuri mai corecte și comunicare directă cu vânzătorul. Răsfoiește cele mai recente anunțuri tech, contactează vânzătorii direct și cumpără cu încredere de la afacerile din UK."
   },
   "Phone & Accessories": {
-    meta_title: "Phone & Accessories from UK Sellers | BigDiscounts",
-    meta_desc: "Shop phone accessories and mobile products from UK sellers on BigDiscounts. No buyer fees, direct contact with sellers.",
-    h1: "Phone & Accessories from UK Sellers",
-    description: "Find mobile phones, cases, chargers, screen protectors, and all kinds of phone accessories listed by UK sellers on BigDiscounts. Whether you are looking for the latest smartphone accessories or replacement parts, our Phone & Accessories category brings together UK businesses offering direct sales with no platform commission. Buyers can browse listings, compare prices, and contact sellers directly — cutting out the middleman and ensuring a transparent, straightforward purchase. All sellers on BigDiscounts are UK-based, giving you confidence in every transaction."
+    meta_title: "Telefoane & accesorii de la vânzătorii din UK | BigDiscounts",
+    meta_desc: "Cumpără accesorii pentru telefon și produse mobile de la vânzătorii din UK pe BigDiscounts. Fără taxe pentru cumpărători, contact direct cu vânzătorii.",
+    h1: "Telefoane & accesorii de la vânzătorii din UK",
+    description: "Găsește telefoane mobile, huse, încărcătoare, folii de protecție și tot felul de accesorii pentru telefon listate de vânzătorii din UK pe BigDiscounts. Fie că ești în căutarea celor mai recente accesorii pentru smartphone sau piese de schimb, categoria noastră de Telefoane & Accesorii reunește afacerile din UK care oferă vânzări directe fără comision de platformă. Cumpărătorii pot răsfoi anunțurile, compara prețurile și contacta vânzătorii direct — eliminând intermediarii și asigurând o achiziție transparentă și simplă. Toți vânzătorii de pe BigDiscounts sunt din UK, oferindu-ți încredere în fiecare tranzacție."
   },
   "Clothing & Fashion": {
-    meta_title: "Clothing & Fashion from UK Sellers | BigDiscounts Marketplace",
-    meta_desc: "Shop clothing and fashion from UK sellers on BigDiscounts. Independent brands, direct contact, no buyer fees.",
-    h1: "Clothing & Fashion from UK Sellers",
-    description: "Browse clothing, fashion, and accessories from UK sellers and businesses on BigDiscounts. From everyday wardrobe staples to seasonal collections and unique styles, our Clothing & Fashion category features listings from UK retailers and brands selling directly to buyers. BigDiscounts was built to support UK sellers of all sizes — from small fashion labels to established retailers — by offering a fair £1/month listing fee with zero commission. Shop direct, enjoy transparent pricing, and connect with UK fashion sellers without paying inflated platform fees."
+    meta_title: "Îmbrăcăminte & modă de la vânzătorii din UK | BigDiscounts Marketplace",
+    meta_desc: "Cumpără îmbrăcăminte și modă de la vânzătorii din UK pe BigDiscounts. Branduri independente, contact direct, fără taxe pentru cumpărători.",
+    h1: "Îmbrăcăminte & modă de la vânzătorii din UK",
+    description: "Răsfoiește îmbrăcăminte, modă și accesorii de la vânzătorii și afacerile din UK pe BigDiscounts. De la elementele de bază din garderobă de zi cu zi la colecțiile sezoniere și stilurile unice, categoria noastră de Îmbrăcăminte & Modă prezintă anunțuri de la retailerii și brandurile din UK care vând direct cumpărătorilor. BigDiscounts a fost creat pentru a sprijini vânzătorii din UK de toate dimensiunile — de la mici etichete de modă la retaileri consacrați — oferind o taxă corectă de £1/lună fără comision. Cumpără direct, bucură-te de prețuri transparente și conectează-te cu vânzătorii de modă din UK fără a plăti taxe de platformă umflate."
   },
   "Home & Living": {
-    meta_title: "Home & Living Products from UK Sellers | BigDiscounts",
-    meta_desc: "Discover home and living products from UK sellers on BigDiscounts. Furniture, decor, and homeware at fair prices.",
-    h1: "Home & Living Products from UK Sellers",
-    description: "Explore home décor, furniture, kitchenware, soft furnishings, and everyday homeware from UK sellers on BigDiscounts. Whether you are refreshing a room or searching for a specific item, our Home & Living category connects you directly with UK businesses offering a broad range of products at competitive prices. Sellers on BigDiscounts keep 100% of every sale, which means better value for buyers and a more direct relationship between you and the people behind the products. Browse listings, ask questions directly, and buy with confidence."
+    meta_title: "Produse pentru casă & locuință de la vânzătorii din UK | BigDiscounts",
+    meta_desc: "Descoperă produse pentru casă și locuință de la vânzătorii din UK pe BigDiscounts. Mobilier, decorațiuni și articole de uz casnic la prețuri corecte.",
+    h1: "Produse pentru casă & locuință de la vânzătorii din UK",
+    description: "Explorează decorațiuni, mobilier, articole de bucătărie, textile și articole de uz casnic de la vânzătorii din UK pe BigDiscounts. Fie că reamenajezi o cameră sau cauți un articol specific, categoria noastră Casă & Locuință te conectează direct cu afacerile din UK care oferă o gamă largă de produse la prețuri competitive. Vânzătorii de pe BigDiscounts păstrează 100% din fiecare vânzare, ceea ce înseamnă o valoare mai bună pentru cumpărători și o relație mai directă între tine și oamenii din spatele produselor. Răsfoiește anunțurile, pune întrebări direct și cumpără cu încredere."
   },
   "Garden & Outdoor": {
-    meta_title: "Garden & Outdoor Products from UK Sellers | BigDiscounts",
-    meta_desc: "Browse garden and outdoor products from UK sellers on BigDiscounts. Tools, furniture, plants and more at fair prices.",
-    h1: "Garden & Outdoor Products from UK Sellers",
-    description: "Find garden tools, outdoor furniture, planters, seeds, barbecues, and everything you need for your outdoor space from UK sellers on BigDiscounts. Our Garden & Outdoor category brings together UK businesses selling directly to buyers — no unnecessary markups, no platform commission eating into seller margins. Whether you are a keen gardener or simply looking to improve your outdoor living space, BigDiscounts makes it easy to browse, compare, and contact sellers directly. All listings are from UK-based sellers committed to fair, transparent trading."
+    meta_title: "Produse de grădină & exterior de la vânzătorii din UK | BigDiscounts",
+    meta_desc: "Răsfoiește produse de grădină și exterior de la vânzătorii din UK pe BigDiscounts. Unelte, mobilier, plante și multe altele la prețuri corecte.",
+    h1: "Produse de grădină & exterior de la vânzătorii din UK",
+    description: "Găsește unelte de grădină, mobilier de exterior, jardiniere, semințe, grătare și tot ce ai nevoie pentru spațiul tău în aer liber de la vânzătorii din UK pe BigDiscounts. Categoria noastră Grădină & Exterior reunește afacerile din UK care vând direct cumpărătorilor — fără adaosuri inutile, fără comision de platformă care să diminueze marjele vânzătorilor. Fie că ești un grădinar pasionat sau pur și simplu dorești să îmbunătățești spațiul tău exterior, BigDiscounts facilitează răsfoirea, compararea și contactarea directă a vânzătorilor. Toate anunțurile sunt de la vânzători din UK dedicați comerțului corect și transparent."
   },
   "Pets": {
-    meta_title: "Pet Products from UK Sellers | BigDiscounts Marketplace",
-    meta_desc: "Shop pet food, accessories, and supplies from UK sellers on BigDiscounts. Direct contact, no buyer fees.",
-    h1: "Pet Products from UK Sellers",
-    description: "Browse pet food, treats, toys, accessories, bedding, and supplies for dogs, cats, small animals, and more from UK sellers on BigDiscounts. Our Pets category connects pet owners directly with UK businesses and retailers offering a wide range of products at competitive prices. BigDiscounts was designed to support UK sellers of all sizes — meaning you get access to products from businesses that genuinely care about what they sell. Contact sellers directly, ask questions about products, and buy with the confidence of dealing with a real UK business."
+    meta_title: "Produse pentru animale de companie de la vânzătorii din UK | BigDiscounts Marketplace",
+    meta_desc: "Cumpără hrană, accesorii și articole pentru animale de companie de la vânzătorii din UK pe BigDiscounts. Contact direct, fără taxe pentru cumpărători.",
+    h1: "Produse pentru animale de companie de la vânzătorii din UK",
+    description: "Răsfoiește hrană pentru animale, recompense, jucării, accesorii, paturi și articole pentru câini, pisici, animale mici și multe altele de la vânzătorii din UK pe BigDiscounts. Categoria noastră Animale de companie conectează proprietarii de animale direct cu afacerile și retailerii din UK care oferă o gamă largă de produse la prețuri competitive. BigDiscounts a fost conceput pentru a sprijini vânzătorii din UK de toate dimensiunile — ceea ce înseamnă că ai acces la produse de la afaceri care sunt cu adevărat pasionate de ceea ce vând. Contactează vânzătorii direct, pune întrebări despre produse și cumpără cu încrederea de a trata cu o afacere reală din UK."
   },
   "Baby & Kids": {
-    meta_title: "Baby & Kids Products from UK Sellers | BigDiscounts",
-    meta_desc: "Shop baby and kids products from UK sellers on BigDiscounts. Clothes, toys, accessories and more at fair prices.",
-    h1: "Baby & Kids Products from UK Sellers",
-    description: "Discover clothing, toys, nursery furniture, accessories, and everyday essentials for babies and children from UK sellers on BigDiscounts. Our Baby & Kids category features listings from UK businesses selling directly to parents and families, with no platform commission inflating prices. BigDiscounts connects buyers with sellers who take pride in the products they offer — giving you the opportunity to ask questions and buy directly from the source. Browse our growing selection of baby and children's products and support UK businesses at the same time."
+    meta_title: "Produse pentru bebeluși & copii de la vânzătorii din UK | BigDiscounts",
+    meta_desc: "Cumpără produse pentru bebeluși și copii de la vânzătorii din UK pe BigDiscounts. Haine, jucării, accesorii și multe altele la prețuri corecte.",
+    h1: "Produse pentru bebeluși & copii de la vânzătorii din UK",
+    description: "Descoperă îmbrăcăminte, jucării, mobilier pentru camera copilului, accesorii și articole esențiale pentru bebeluși și copii de la vânzătorii din UK pe BigDiscounts. Categoria noastră Bebeluși & Copii prezintă anunțuri de la afacerile din UK care vând direct părinților și familiilor, fără comision de platformă care să umfle prețurile. BigDiscounts conectează cumpărătorii cu vânzătorii care sunt mândri de produsele pe care le oferă — oferindu-ți oportunitatea de a pune întrebări și a cumpăra direct de la sursă. Răsfoiește selecția noastră în creștere de produse pentru bebeluși și copii și sprijină afacerile din UK în același timp."
   },
   "Health & Beauty": {
-    meta_title: "Health & Beauty Products from UK Sellers | BigDiscounts",
-    meta_desc: "Shop health and beauty products from UK sellers on BigDiscounts. Skincare, supplements, and more at fair prices.",
-    h1: "Health & Beauty Products from UK Sellers",
-    description: "Browse skincare, haircare, supplements, vitamins, beauty tools, and wellness products from UK sellers on BigDiscounts. Our Health & Beauty category brings together UK businesses offering a wide range of products directly to buyers — cutting out unnecessary intermediaries and keeping prices fair. Whether you are looking for everyday essentials or specialist wellness products, BigDiscounts makes it simple to find, compare, and contact UK sellers directly. All listings come from UK-based businesses committed to transparent pricing and direct communication with their customers."
+    meta_title: "Produse de sănătate & frumusețe de la vânzătorii din UK | BigDiscounts",
+    meta_desc: "Cumpără produse de sănătate și frumusețe de la vânzătorii din UK pe BigDiscounts. Îngrijire piele, suplimente și multe altele la prețuri corecte.",
+    h1: "Produse de sănătate & frumusețe de la vânzătorii din UK",
+    description: "Răsfoiește produse de îngrijire a pielii, îngrijire a părului, suplimente, vitamine, instrumente de frumusețe și produse de wellness de la vânzătorii din UK pe BigDiscounts. Categoria noastră Sănătate & Frumusețe reunește afacerile din UK care oferă o gamă largă de produse direct cumpărătorilor — eliminând intermediarii inutili și menținând prețurile corecte. Fie că ești în căutarea articolelor esențiale de zi cu zi sau produselor specializate de wellness, BigDiscounts facilitează găsirea, compararea și contactarea directă a vânzătorilor din UK. Toate anunțurile provin de la afaceri din UK dedicate prețurilor transparente și comunicării directe cu clienții lor."
   },
   "Toys & Games": {
-    meta_title: "Toys & Games from UK Sellers | BigDiscounts Marketplace",
-    meta_desc: "Shop toys and games from UK sellers on BigDiscounts. Board games, outdoor toys, and more at competitive prices.",
-    h1: "Toys & Games from UK Sellers",
-    description: "Find board games, outdoor toys, educational games, puzzles, action figures, and more from UK sellers on BigDiscounts. Our Toys & Games category features listings from UK businesses selling directly to buyers, with no commission charges keeping prices competitive. Whether you are shopping for a birthday gift or stocking up on family favourites, BigDiscounts makes it easy to browse UK toy sellers, contact them directly, and buy with confidence. Support UK businesses while finding great value on toys and games for all ages."
+    meta_title: "Jucării & jocuri de la vânzătorii din UK | BigDiscounts Marketplace",
+    meta_desc: "Cumpără jucării și jocuri de la vânzătorii din UK pe BigDiscounts. Jocuri de societate, jucării de exterior și multe altele la prețuri competitive.",
+    h1: "Jucării & jocuri de la vânzătorii din UK",
+    description: "Găsește jocuri de societate, jucării de exterior, jocuri educative, puzzle-uri, figurine de acțiune și multe altele de la vânzătorii din UK pe BigDiscounts. Categoria noastră Jucării & Jocuri prezintă anunțuri de la afacerile din UK care vând direct cumpărătorilor, fără comisioane care să mențină prețurile competitive. Fie că faci cumpărături pentru un cadou de ziua de naștere sau te aprovizionezi cu jocuri preferate pentru familie, BigDiscounts facilitează răsfoirea vânzătorilor de jucării din UK, contactarea lor directă și cumpărarea cu încredere. Sprijină afacerile din UK găsind valoare excelentă la jucării și jocuri pentru toate vârstele."
   },
   "Sports & Fitness": {
-    meta_title: "Sports & Fitness Products from UK Sellers | BigDiscounts",
-    meta_desc: "Shop sports and fitness equipment from UK sellers on BigDiscounts. Gym gear, outdoor sports, and more.",
-    h1: "Sports & Fitness Products from UK Sellers",
-    description: "Browse gym equipment, fitness accessories, sportswear, outdoor gear, and wellness products from UK sellers on BigDiscounts. Our Sports & Fitness category connects buyers directly with UK businesses offering competitive prices on a wide range of products. From home workout equipment to specialist sports accessories, BigDiscounts gives you access to UK sellers who are passionate about what they sell. Contact sellers directly, compare listings, and buy without paying inflated platform fees. All sellers on BigDiscounts are UK-based."
+    meta_title: "Produse de sport & fitness de la vânzătorii din UK | BigDiscounts",
+    meta_desc: "Cumpără echipamente de sport și fitness de la vânzătorii din UK pe BigDiscounts. Echipamente de sală, sport în aer liber și multe altele.",
+    h1: "Produse de sport & fitness de la vânzătorii din UK",
+    description: "Răsfoiește echipamente de sală, accesorii fitness, îmbrăcăminte sport, echipamente outdoor și produse de wellness de la vânzătorii din UK pe BigDiscounts. Categoria noastră Sport & Fitness conectează cumpărătorii direct cu afacerile din UK care oferă prețuri competitive pentru o gamă largă de produse. De la echipamente de antrenament acasă la accesorii sportive specializate, BigDiscounts îți oferă acces la vânzători din UK care sunt pasionați de ceea ce vând. Contactează vânzătorii direct, compară anunțurile și cumpără fără a plăti taxe de platformă umflate. Toți vânzătorii de pe BigDiscounts sunt din UK."
   },
   "Food & Drink": {
-    meta_title: "Food & Drink Products from UK Sellers | BigDiscounts",
-    meta_desc: "Shop food and drink products from UK sellers on BigDiscounts. Specialty foods, drinks, and more direct from UK businesses.",
-    h1: "Food & Drink Products from UK Sellers",
-    description: "Discover specialty foods, drinks, snacks, condiments, and artisan products from UK sellers and businesses on BigDiscounts. Our Food & Drink category brings together UK producers and retailers selling directly to buyers — with no commission charges and full transparency on pricing. Whether you are looking for everyday staples or unique specialty products, BigDiscounts connects you with UK food and drink businesses committed to quality and fair trading. Browse listings, contact sellers directly, and enjoy buying from real UK businesses."
+    meta_title: "Produse alimentare & băuturi de la vânzătorii din UK | BigDiscounts",
+    meta_desc: "Cumpără alimente și băuturi de la vânzătorii din UK pe BigDiscounts. Alimente de specialitate, băuturi și multe altele direct de la afacerile din UK.",
+    h1: "Produse alimentare & băuturi de la vânzătorii din UK",
+    description: "Descoperă alimente de specialitate, băuturi, gustări, condimente și produse artizanale de la vânzătorii și afacerile din UK pe BigDiscounts. Categoria noastră Alimente & Băuturi reunește producătorii și retailerii din UK care vând direct cumpărătorilor — fără comisioane și cu transparență totală a prețurilor. Fie că ești în căutarea produselor de bază sau a produselor unice de specialitate, BigDiscounts te conectează cu afacerile din UK din domeniul alimentar dedicate calității și comerțului corect. Răsfoiește anunțurile, contactează vânzătorii direct și bucură-te de cumpărarea de la afaceri reale din UK."
   },
   "Books & Stationery": {
-    meta_title: "Books & Stationery from UK Sellers | BigDiscounts Marketplace",
-    meta_desc: "Shop books and stationery from UK sellers on BigDiscounts. Notebooks, pens, educational books and more.",
-    h1: "Books & Stationery from UK Sellers",
-    description: "Browse books, notebooks, pens, planners, art supplies, and stationery products from UK sellers on BigDiscounts. Our Books & Stationery category features listings from UK businesses selling directly to buyers at competitive prices. Whether you are a student, professional, or hobbyist, BigDiscounts makes it easy to find quality stationery and reading materials from UK sellers who are passionate about their products. Contact sellers directly, compare options, and buy without unnecessary fees. All listings come from UK-based businesses."
+    meta_title: "Cărți & papetărie de la vânzătorii din UK | BigDiscounts Marketplace",
+    meta_desc: "Cumpără cărți și papetărie de la vânzătorii din UK pe BigDiscounts. Caiete, pixuri, cărți educative și multe altele.",
+    h1: "Cărți & papetărie de la vânzătorii din UK",
+    description: "Răsfoiește cărți, caiete, pixuri, planificatoare, materiale de artă și produse de papetărie de la vânzătorii din UK pe BigDiscounts. Categoria noastră Cărți & Papetărie prezintă anunțuri de la afacerile din UK care vând direct cumpărătorilor la prețuri competitive. Fie că ești student, profesionist sau hobbyist, BigDiscounts facilitează găsirea papetăriei și materialelor de lectură de calitate de la vânzătorii din UK care sunt pasionați de produsele lor. Contactează vânzătorii direct, compară opțiunile și cumpără fără taxe inutile. Toate anunțurile provin de la afaceri din UK."
   },
   "Tools & DIY": {
-    meta_title: "Tools & DIY Products from UK Sellers | BigDiscounts",
-    meta_desc: "Shop tools and DIY supplies from UK sellers on BigDiscounts. Power tools, hand tools, and home improvement products.",
-    h1: "Tools & DIY Products from UK Sellers",
-    description: "Find power tools, hand tools, fixings, home improvement supplies, and DIY essentials from UK sellers on BigDiscounts. Our Tools & DIY category connects buyers directly with UK businesses offering competitive prices on a broad range of products. Whether you are a professional tradesperson or a weekend DIY enthusiast, BigDiscounts gives you access to UK sellers with the tools and supplies you need. Browse listings, contact sellers directly, and buy with confidence from real UK businesses committed to fair, transparent pricing."
+    meta_title: "Unelte & bricolaj de la vânzătorii din UK | BigDiscounts",
+    meta_desc: "Cumpără unelte și materiale de bricolaj de la vânzătorii din UK pe BigDiscounts. Scule electrice, unelte manuale și produse de îmbunătățire a locuinței.",
+    h1: "Unelte & bricolaj de la vânzătorii din UK",
+    description: "Găsește scule electrice, unelte manuale, materiale de fixare, articole de îmbunătățire a locuinței și articole esențiale de bricolaj de la vânzătorii din UK pe BigDiscounts. Categoria noastră Unelte & Bricolaj conectează cumpărătorii direct cu afacerile din UK care oferă prețuri competitive pentru o gamă largă de produse. Fie că ești profesionist sau entuziast de bricolaj de weekend, BigDiscounts îți oferă acces la vânzătorii din UK cu uneltele și materialele de care ai nevoie. Răsfoiește anunțurile, contactează vânzătorii direct și cumpără cu încredere de la afaceri reale din UK dedicate prețurilor corecte și transparente."
   },
   "Automotive": {
-    meta_title: "Automotive Products from UK Sellers | BigDiscounts Marketplace",
-    meta_desc: "Shop car accessories, parts, and automotive products from UK sellers on BigDiscounts. Direct contact, competitive prices.",
-    h1: "Automotive Products from UK Sellers",
-    description: "Browse car accessories, cleaning products, spare parts, tools, and automotive essentials from UK sellers on BigDiscounts. Our Automotive category brings together UK businesses selling directly to buyers — cutting out unnecessary platform fees and keeping prices competitive. Whether you are maintaining your vehicle, upgrading accessories, or searching for a specific part, BigDiscounts makes it straightforward to find UK automotive sellers, compare listings, and contact them directly. All sellers are UK-based, giving you confidence in every purchase."
+    meta_title: "Produse auto de la vânzătorii din UK | BigDiscounts Marketplace",
+    meta_desc: "Cumpără accesorii auto, piese și produse automotive de la vânzătorii din UK pe BigDiscounts. Contact direct, prețuri competitive.",
+    h1: "Produse auto de la vânzătorii din UK",
+    description: "Răsfoiește accesorii auto, produse de curățare, piese de schimb, unelte și articole esențiale automotive de la vânzătorii din UK pe BigDiscounts. Categoria noastră Auto reunește afacerile din UK care vând direct cumpărătorilor — eliminând taxele inutile de platformă și menținând prețurile competitive. Fie că întreții vehiculul, actualizezi accesoriile sau cauți o piesă specifică, BigDiscounts facilitează găsirea vânzătorilor auto din UK, compararea anunțurilor și contactarea lor directă. Toți vânzătorii sunt din UK, oferindu-ți încredere în fiecare achiziție."
   },
   "Arts & Crafts": {
-    meta_title: "Arts & Crafts Supplies from UK Sellers | BigDiscounts",
-    meta_desc: "Shop arts and crafts supplies from UK sellers on BigDiscounts. Paints, fabrics, tools, and more at fair prices.",
-    h1: "Arts & Crafts Supplies from UK Sellers",
-    description: "Discover paints, canvases, fabrics, sewing supplies, craft tools, and creative materials from UK sellers on BigDiscounts. Our Arts & Crafts category features listings from UK businesses and makers selling directly to buyers, with no commission charges keeping prices fair. Whether you are a professional artist, a hobbyist, or looking for craft supplies for a project, BigDiscounts connects you with UK sellers who understand their products. Browse listings, contact sellers directly, and support UK arts and crafts businesses."
+    meta_title: "Materiale de artă & meșteșuguri de la vânzătorii din UK | BigDiscounts",
+    meta_desc: "Cumpără materiale de artă și meșteșuguri de la vânzătorii din UK pe BigDiscounts. Vopsele, țesături, unelte și multe altele la prețuri corecte.",
+    h1: "Materiale de artă & meșteșuguri de la vânzătorii din UK",
+    description: "Descoperă vopsele, pânze, țesături, materiale de cusut, unelte de meșteșug și materiale creative de la vânzătorii din UK pe BigDiscounts. Categoria noastră Arte & Meșteșuguri prezintă anunțuri de la afacerile și creatorii din UK care vând direct cumpărătorilor, fără comisioane care să mențină prețurile corecte. Fie că ești artist profesionist, hobbyist sau cauți materiale pentru un proiect, BigDiscounts te conectează cu vânzătorii din UK care își înțeleg produsele. Răsfoiește anunțurile, contactează vânzătorii direct și sprijină afacerile de artă și meșteșuguri din UK."
   },
   "Office & Business": {
-    meta_title: "Office & Business Products from UK Sellers | BigDiscounts",
-    meta_desc: "Shop office and business supplies from UK sellers on BigDiscounts. Furniture, stationery, tech and more.",
-    h1: "Office & Business Products from UK Sellers",
-    description: "Browse office furniture, business supplies, technology, and workplace essentials from UK sellers on BigDiscounts. Our Office & Business category connects buyers directly with UK businesses offering competitive prices on products designed for professional environments. Whether you are equipping a home office or sourcing supplies for a larger workspace, BigDiscounts makes it easy to find UK sellers, compare listings, and purchase directly. All sellers on BigDiscounts are UK-based, and our transparent £1/month fee model means better value for everyone."
+    meta_title: "Produse de birou & afaceri de la vânzătorii din UK | BigDiscounts",
+    meta_desc: "Cumpără articole de birou și afaceri de la vânzătorii din UK pe BigDiscounts. Mobilier, papetărie, tehnologie și multe altele.",
+    h1: "Produse de birou & afaceri de la vânzătorii din UK",
+    description: "Răsfoiește mobilier de birou, articole de birou, tehnologie și articole esențiale pentru locul de muncă de la vânzătorii din UK pe BigDiscounts. Categoria noastră Birou & Afaceri conectează cumpărătorii direct cu afacerile din UK care oferă prețuri competitive pentru produse destinate mediilor profesionale. Fie că echipezi un birou de acasă sau achiziționezi articole pentru un spațiu de lucru mai mare, BigDiscounts facilitează găsirea vânzătorilor din UK, compararea anunțurilor și achiziționarea directă. Toți vânzătorii de pe BigDiscounts sunt din UK, iar modelul nostru transparent de taxă de £1/lună înseamnă valoare mai bună pentru toți."
   },
   "Gifts & Seasonal": {
-    meta_title: "Gifts & Seasonal Products from UK Sellers | BigDiscounts",
-    meta_desc: "Shop gifts and seasonal products from UK sellers on BigDiscounts. Unique gifts, decorations, and seasonal items.",
-    h1: "Gifts & Seasonal Products from UK Sellers",
-    description: "Find unique gifts, seasonal decorations, occasion products, and thoughtful presents from UK sellers on BigDiscounts. Our Gifts & Seasonal category brings together UK businesses offering a wide range of gift ideas for all occasions — birthdays, Christmas, anniversaries, and more. BigDiscounts connects buyers directly with UK sellers, allowing for personal communication and the kind of service you would expect from a real business. Browse listings, contact sellers directly, and find the perfect gift from a UK business that cares about its customers."
+    meta_title: "Cadouri & produse sezoniere de la vânzătorii din UK | BigDiscounts",
+    meta_desc: "Cumpără cadouri și produse sezoniere de la vânzătorii din UK pe BigDiscounts. Cadouri unice, decorațiuni și articole sezoniere.",
+    h1: "Cadouri & produse sezoniere de la vânzătorii din UK",
+    description: "Găsește cadouri unice, decorațiuni sezoniere, produse pentru ocazii speciale și daruri cu gând de la vânzătorii din UK pe BigDiscounts. Categoria noastră Cadouri & Sezoniere reunește afacerile din UK care oferă o gamă largă de idei de cadouri pentru toate ocaziile — zile de naștere, Crăciun, aniversări și multe altele. BigDiscounts conectează cumpărătorii direct cu vânzătorii din UK, permițând comunicare personală și tipul de serviciu pe care l-ai aștepta de la o afacere reală. Răsfoiește anunțurile, contactează vânzătorii direct și găsește cadoul perfect de la o afacere din UK căreia îi pasă de clienții săi."
   },
   "Cleaning & Household": {
-    meta_title: "Cleaning & Household Products from UK Sellers | BigDiscounts",
-    meta_desc: "Shop cleaning and household products from UK sellers on BigDiscounts. Everyday essentials at competitive prices.",
-    h1: "Cleaning & Household Products from UK Sellers",
-    description: "Browse cleaning products, household essentials, laundry supplies, and home maintenance items from UK sellers on BigDiscounts. Our Cleaning & Household category features listings from UK businesses selling directly to buyers at competitive prices. Whether you are stocking up on everyday essentials or looking for specialist cleaning products, BigDiscounts makes it easy to find UK sellers, compare options, and contact them directly. All sellers on BigDiscounts are UK-based, and our transparent pricing model means you always know exactly what you are paying."
+    meta_title: "Produse de curățenie & menaj de la vânzătorii din UK | BigDiscounts",
+    meta_desc: "Cumpără produse de curățenie și menaj de la vânzătorii din UK pe BigDiscounts. Articole esențiale de zi cu zi la prețuri competitive.",
+    h1: "Produse de curățenie & menaj de la vânzătorii din UK",
+    description: "Răsfoiește produse de curățenie, articole esențiale de menaj, produse de spălat și articole de întreținere a locuinței de la vânzătorii din UK pe BigDiscounts. Categoria noastră Curățenie & Menaj prezintă anunțuri de la afacerile din UK care vând direct cumpărătorilor la prețuri competitive. Fie că te aprovizionezi cu articole esențiale de zi cu zi sau cauți produse de curățenie specializate, BigDiscounts facilitează găsirea vânzătorilor din UK, compararea opțiunilor și contactarea lor directă. Toți vânzătorii de pe BigDiscounts sunt din UK, iar modelul nostru transparent de prețuri înseamnă că știi mereu exact ce plătești."
   },
   "Other": {
-    meta_title: "Products from UK Sellers | BigDiscounts Marketplace",
-    meta_desc: "Browse a wide range of products from UK sellers on BigDiscounts. Direct contact, no buyer fees, transparent pricing.",
-    h1: "Products from UK Sellers on BigDiscounts",
-    description: "Explore a wide variety of products from UK sellers and businesses on BigDiscounts. Our marketplace supports sellers of all kinds — from niche specialists to multi-category retailers — offering buyers direct access to UK businesses at fair, transparent prices. BigDiscounts charges sellers a simple £1/month listing fee with zero commission, meaning better value for buyers and a fairer deal for sellers. Browse all available listings, contact sellers directly, and discover what UK businesses have to offer across a broad range of categories."
+    meta_title: "Produse de la vânzătorii din UK | BigDiscounts Marketplace",
+    meta_desc: "Răsfoiește o gamă largă de produse de la vânzătorii din UK pe BigDiscounts. Contact direct, fără taxe pentru cumpărători, prețuri transparente.",
+    h1: "Produse de la vânzătorii din UK pe BigDiscounts",
+    description: "Explorează o varietate largă de produse de la vânzătorii și afacerile din UK pe BigDiscounts. Marketplace-ul nostru sprijină vânzătorii de toate tipurile — de la specialiști de nișă la retaileri cu categorii multiple — oferind cumpărătorilor acces direct la afacerile din UK la prețuri corecte și transparente. BigDiscounts percepe vânzătorilor o taxă simplă de £1/lună cu zero comision, ceea ce înseamnă valoare mai bună pentru cumpărători și o înțelegere mai corectă pentru vânzători. Răsfoiește toate anunțurile disponibile, contactează vânzătorii direct și descoperă ce au de oferit afacerile din UK într-o gamă largă de categorii."
   }
 }
 

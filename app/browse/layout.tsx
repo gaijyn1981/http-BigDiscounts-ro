@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Browse Deals from UK Sellers | BigDiscounts Marketplace',
-  description: 'Discover products from independent UK sellers. Browse categories including fashion, home, pets, and beauty on a fair and transparent UK marketplace.',
+  title: 'Răsfoiește ofertele de la vânzătorii din UK | BigDiscounts Marketplace',
+  description: 'Descoperă produse de la vânzătorii independenți din UK. Răsfoiește categorii incluzând modă, casă, animale de companie și frumusețe pe un marketplace corect și transparent din UK.',
 }
 
 export default function BrowseLayout({ children }: { children: React.ReactNode }) {
