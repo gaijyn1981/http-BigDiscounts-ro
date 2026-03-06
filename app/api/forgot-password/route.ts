@@ -35,7 +35,7 @@ export async function POST(req: Request) {
         data: { verifyToken: token, resetTokenExpiry: expiry }
       })
       await getResend().emails.send({
-        from: 'BigDiscounts <hello@bigdiscounts.uk>',
+        from: 'BigDiscounts <hello@bigdiscounts.ro>',
         to: email,
         subject: 'Resetează-ți parola BigDiscounts',
         html: emailHtml
@@ -50,7 +50,7 @@ export async function POST(req: Request) {
         data: { verifyToken: token, resetTokenExpiry: expiry }
       })
       await getResend().emails.send({
-        from: 'BigDiscounts <hello@bigdiscounts.uk>',
+        from: 'BigDiscounts <hello@bigdiscounts.ro>',
         to: email,
         subject: 'Resetează-ți parola BigDiscounts',
         html: emailHtml

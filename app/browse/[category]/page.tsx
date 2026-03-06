@@ -7,7 +7,7 @@ const categoryData: Record<string, { meta_title: string; meta_desc: string; h1: 
     meta_title: "Produse de electronică & tehnologie de la vânzătorii din România | BigDiscounts",
     meta_desc: "Răsfoiește produse de electronică și tehnologie de la vânzătorii din România pe BigDiscounts. Contact direct, prețuri competitive, fără taxe pentru cumpărători.",
     h1: "Produse de electronică & tehnologie de la vânzătorii din România",
-    description: "Descoperă o gamă variată de produse de electronică și tehnologie listate de vânzătorii din România pe BigDiscounts. De la gadgeturi și dispozitive smart home la calculatoare, accesorii și echipamente audio, categoria noastră de electronică conectează cumpărătorii direct cu afacerile din România care oferă prețuri competitive. Spre deosebire de platformele tradiționale de retail, BigDiscounts percepe vânzătorilor o taxă simplă de £1/lună cu zero comision, ceea ce înseamnă că beneficiezi de prețuri mai corecte și comunicare directă cu vânzătorul. Răsfoiește cele mai recente anunțuri tech, contactează vânzătorii direct și cumpără cu încredere de la afacerile din România."
+    description: "Descoperă o gamă variată de produse de electronică și tehnologie listate de vânzătorii din România pe BigDiscounts. De la gadgeturi și dispozitive smart home la calculatoare, accesorii și echipamente audio, categoria noastră de electronică conectează cumpărătorii direct cu afacerile din România care oferă prețuri competitive. Spre deosebire de platformele tradiționale de retail, BigDiscounts percepe vânzătorilor o taxă simplă de 5 RON/lună cu zero comision, ceea ce înseamnă că beneficiezi de prețuri mai corecte și comunicare directă cu vânzătorul. Răsfoiește cele mai recente anunțuri tech, contactează vânzătorii direct și cumpără cu încredere de la afacerile din România."
   },
   "Phone & Accessories": {
     meta_title: "Telefoane & accesorii de la vânzătorii din România | BigDiscounts",
@@ -19,7 +19,7 @@ const categoryData: Record<string, { meta_title: string; meta_desc: string; h1: 
     meta_title: "Îmbrăcăminte & modă de la vânzătorii din România | BigDiscounts Marketplace",
     meta_desc: "Cumpără îmbrăcăminte și modă de la vânzătorii din România pe BigDiscounts. Branduri independente, contact direct, fără taxe pentru cumpărători.",
     h1: "Îmbrăcăminte & modă de la vânzătorii din România",
-    description: "Răsfoiește îmbrăcăminte, modă și accesorii de la vânzătorii și afacerile din România pe BigDiscounts. De la elementele de bază din garderobă de zi cu zi la colecțiile sezoniere și stilurile unice, categoria noastră de Îmbrăcăminte & Modă prezintă anunțuri de la retailerii și brandurile din România care vând direct cumpărătorilor. BigDiscounts a fost creat pentru a sprijini vânzătorii din România de toate dimensiunile — de la mici etichete de modă la retaileri consacrați — oferind o taxă corectă de £1/lună fără comision. Cumpără direct, bucură-te de prețuri transparente și conectează-te cu vânzătorii de modă din România fără a plăti taxe de platformă umflate."
+    description: "Răsfoiește îmbrăcăminte, modă și accesorii de la vânzătorii și afacerile din România pe BigDiscounts. De la elementele de bază din garderobă de zi cu zi la colecțiile sezoniere și stilurile unice, categoria noastră de Îmbrăcăminte & Modă prezintă anunțuri de la retailerii și brandurile din România care vând direct cumpărătorilor. BigDiscounts a fost creat pentru a sprijini vânzătorii din România de toate dimensiunile — de la mici etichete de modă la retaileri consacrați — oferind o taxă corectă de 5 RON/lună fără comision. Cumpără direct, bucură-te de prețuri transparente și conectează-te cu vânzătorii de modă din România fără a plăti taxe de platformă umflate."
   },
   "Home & Living": {
     meta_title: "Produse pentru casă & locuință de la vânzătorii din România | BigDiscounts",
@@ -97,7 +97,7 @@ const categoryData: Record<string, { meta_title: string; meta_desc: string; h1: 
     meta_title: "Produse de birou & afaceri de la vânzătorii din România | BigDiscounts",
     meta_desc: "Cumpără articole de birou și afaceri de la vânzătorii din România pe BigDiscounts. Mobilier, papetărie, tehnologie și multe altele.",
     h1: "Produse de birou & afaceri de la vânzătorii din România",
-    description: "Răsfoiește mobilier de birou, articole de birou, tehnologie și articole esențiale pentru locul de muncă de la vânzătorii din România pe BigDiscounts. Categoria noastră Birou & Afaceri conectează cumpărătorii direct cu afacerile din România care oferă prețuri competitive pentru produse destinate mediilor profesionale. Fie că echipezi un birou de acasă sau achiziționezi articole pentru un spațiu de lucru mai mare, BigDiscounts facilitează găsirea vânzătorilor din România, compararea anunțurilor și achiziționarea directă. Toți vânzătorii de pe BigDiscounts sunt din România, iar modelul nostru transparent de taxă de £1/lună înseamnă valoare mai bună pentru toți."
+    description: "Răsfoiește mobilier de birou, articole de birou, tehnologie și articole esențiale pentru locul de muncă de la vânzătorii din România pe BigDiscounts. Categoria noastră Birou & Afaceri conectează cumpărătorii direct cu afacerile din România care oferă prețuri competitive pentru produse destinate mediilor profesionale. Fie că echipezi un birou de acasă sau achiziționezi articole pentru un spațiu de lucru mai mare, BigDiscounts facilitează găsirea vânzătorilor din România, compararea anunțurilor și achiziționarea directă. Toți vânzătorii de pe BigDiscounts sunt din România, iar modelul nostru transparent de taxă de 5 RON/lună înseamnă valoare mai bună pentru toți."
   },
   "Gifts & Seasonal": {
     meta_title: "Cadouri & produse sezoniere de la vânzătorii din România | BigDiscounts",
@@ -115,7 +115,7 @@ const categoryData: Record<string, { meta_title: string; meta_desc: string; h1: 
     meta_title: "Produse de la vânzătorii din România | BigDiscounts Marketplace",
     meta_desc: "Răsfoiește o gamă largă de produse de la vânzătorii din România pe BigDiscounts. Contact direct, fără taxe pentru cumpărători, prețuri transparente.",
     h1: "Produse de la vânzătorii din România pe BigDiscounts",
-    description: "Explorează o varietate largă de produse de la vânzătorii și afacerile din România pe BigDiscounts. Marketplace-ul nostru sprijină vânzătorii de toate tipurile — de la specialiști de nișă la retaileri cu categorii multiple — oferind cumpărătorilor acces direct la afacerile din România la prețuri corecte și transparente. BigDiscounts percepe vânzătorilor o taxă simplă de £1/lună cu zero comision, ceea ce înseamnă valoare mai bună pentru cumpărători și o înțelegere mai corectă pentru vânzători. Răsfoiește toate anunțurile disponibile, contactează vânzătorii direct și descoperă ce au de oferit afacerile din România într-o gamă largă de categorii."
+    description: "Explorează o varietate largă de produse de la vânzătorii și afacerile din România pe BigDiscounts. Marketplace-ul nostru sprijină vânzătorii de toate tipurile — de la specialiști de nișă la retaileri cu categorii multiple — oferind cumpărătorilor acces direct la afacerile din România la prețuri corecte și transparente. BigDiscounts percepe vânzătorilor o taxă simplă de 5 RON/lună cu zero comision, ceea ce înseamnă valoare mai bună pentru cumpărători și o înțelegere mai corectă pentru vânzători. Răsfoiește toate anunțurile disponibile, contactează vânzătorii direct și descoperă ce au de oferit afacerile din România într-o gamă largă de categorii."
   }
 }
 
@@ -127,7 +127,7 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
   return {
     title: data.meta_title,
     description: data.meta_desc,
-    alternates: { canonical: `https://www.bigdiscounts.uk/browse/${encodeURIComponent(name)}` }
+    alternates: { canonical: `https://www.bigdiscounts.ro/browse/${encodeURIComponent(name)}` }
   }
 }
 

@@ -198,7 +198,7 @@ export default function Dashboard() {
                         style={{background: '#fcd968'}}>⭐ Promovat</span>
                     )}
                   </div>
-                  <p className="text-gray-500 text-sm">£{product.price.toFixed(2)} · {product.category || 'Fără categorie'}</p>
+                  <p className="text-gray-500 text-sm">{product.price.toFixed(2)} RON · {product.category || 'Fără categorie'}</p>
                   <div className="flex items-center gap-3 mt-2 flex-wrap">
                     <span className="text-xs px-2 py-1 rounded-full font-bold"
                       style={product.active
@@ -220,14 +220,14 @@ export default function Dashboard() {
                     <button onClick={() => activateProduct(product.id)}
                       className="px-4 py-2 rounded-lg text-sm font-bold text-black hover:opacity-90"
                       style={{background: '#4ade80'}}>
-                      Activează £1/lună
+                      Activează 5 RON/lună
                     </button>
                   )}
                   {product.active && !product.featured && (
                     <button onClick={() => featureProduct(product.id)}
                       className="px-4 py-2 rounded-lg text-sm font-black text-black hover:opacity-90"
                       style={{background: '#fcd968'}}>
-                      ⭐ Promovează £3/lună
+                      ⭐ Promovează 15 RON/lună
                     </button>
                   )}
                   {product.active && product.stripeSubId && !product.subscriptionEndsAt && (

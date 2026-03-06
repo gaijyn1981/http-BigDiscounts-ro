@@ -18,13 +18,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const photos = JSON.parse(product.photos || '[]')
   const ogImage = photos[0] || null
   return {
-    title: `${product.title} - £${product.price.toFixed(2)} | BigDiscounts`,
+    title: `${product.title} - ${product.price.toFixed(2)} RON | BigDiscounts`,
     description: `${product.description.slice(0, 150)} - Vândut de ${product.seller.companyName} pe BigDiscounts.`,
-    alternates: { canonical: `https://www.bigdiscounts.uk/product/${slug}` },
+    alternates: { canonical: `https://www.bigdiscounts.ro/product/${slug}` },
     openGraph: {
-      title: `${product.title} - £${product.price.toFixed(2)}`,
+      title: `${product.title} - ${product.price.toFixed(2)} RON`,
       description: `${product.description.slice(0, 150)} - Vândut de ${product.seller.companyName} pe BigDiscounts.`,
-      url: `https://www.bigdiscounts.uk/product/${slug}`,
+      url: `https://www.bigdiscounts.ro/product/${slug}`,
       images: ogImage ? [{ url: ogImage, alt: product.title }] : [],
       type: 'website',
     }
@@ -111,7 +111,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                   </Link>
                 )}
                 <h1 className="text-3xl font-black text-white mt-3 mb-2">{product.title}</h1>
-                <p className="text-4xl font-black mb-4" style={{color: '#fcd968'}}>£{product.price.toFixed(2)}</p>
+                <p className="text-4xl font-black mb-4" style={{color: '#fcd968'}}>{product.price.toFixed(2)} RON</p>
                 {product.deliveryTime && (
                   <p className="text-sm font-semibold mb-4" style={{color: '#4ade80'}}>🚚 Livrare: {product.deliveryTime}</p>
                 )}

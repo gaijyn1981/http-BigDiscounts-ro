@@ -14,11 +14,11 @@ export default function Terms() {
           <div className="space-y-6 text-gray-400 leading-relaxed">
             <section>
               <h2 className="text-xl font-black text-white mb-2">1. Despre BigDiscounts</h2>
-              <p>BigDiscounts este o piață online din România care permite vânzătorilor să listeze produse pentru £1 per produs pe lună. Cumpărătorii navighează și contactează vânzătorii direct. BigDiscounts nu gestionează tranzacțiile dintre cumpărători și vânzători.</p>
+              <p>BigDiscounts este o piață online din România care permite vânzătorilor să listeze produse pentru 5 RON per produs pe lună. Cumpărătorii navighează și contactează vânzătorii direct. BigDiscounts nu gestionează tranzacțiile dintre cumpărători și vânzători.</p>
             </section>
             <section>
               <h2 className="text-xl font-black text-white mb-2">2. Conturi de Vânzător</h2>
-              <p>Vânzătorii trebuie să fie din România, să furnizeze informații corecte și să plătească £1/lună per anunț prin Stripe. Anunțurile se activează doar după plata cu succes. BigDiscounts poate elimina anunțurile care încalcă acești termeni.</p>
+              <p>Vânzătorii trebuie să fie din România, să furnizeze informații corecte și să plătească 5 RON/lună per anunț prin Stripe. Anunțurile se activează doar după plata cu succes. BigDiscounts poate elimina anunțurile care încalcă acești termeni.</p>
             </section>
             <section>
               <h2 className="text-xl font-black text-white mb-2">3. Conturi de Cumpărător</h2>
@@ -38,7 +38,7 @@ export default function Terms() {
             </section>
             <section>
               <h2 className="text-xl font-black text-white mb-2">7. Plăți de Abonament</h2>
-              <p>Taxele de abonament de £1/lună sunt nerambursabile. Anularea dezactivează anunțul imediat. Plățile sunt gestionate de Stripe.</p>
+              <p>Taxele de abonament de 5 RON/lună sunt nerambursabile. Anularea dezactivează anunțul imediat. Plățile sunt gestionate de Stripe.</p>
             </section>
             <section>
               <h2 className="text-xl font-black text-white mb-2">8. Limitarea Răspunderii</h2>
@@ -50,7 +50,7 @@ export default function Terms() {
             </section>
             <section>
               <h2 className="text-xl font-black text-white mb-2">10. Contact</h2>
-              <p>Email: <a href="mailto:legal@bigdiscounts.uk" style={{color: '#fcd968'}} className="hover:opacity-80">legal@bigdiscounts.uk</a></p>
+              <p>Email: <a href="mailto:legal@bigdiscounts.ro" style={{color: '#fcd968'}} className="hover:opacity-80">legal@bigdiscounts.ro</a></p>
             </section>
           </div>
         </div>

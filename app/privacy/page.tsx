@@ -14,7 +14,7 @@ export default function Privacy() {
           <div className="space-y-6 text-gray-400 leading-relaxed">
             <section>
               <h2 className="text-xl font-black text-white mb-2">1. Cine Suntem</h2>
-              <p>BigDiscounts este operat de Petrica Marin, un comerciant individual din România. Contact: hello@bigdiscounts.uk</p>
+              <p>BigDiscounts este operat de Petrica Marin, un comerciant individual din România. Contact: hello@bigdiscounts.ro</p>
             </section>
             <section>
               <h2 className="text-xl font-black text-white mb-2">2. Datele pe Care le Colectăm</h2>
@@ -38,7 +38,7 @@ export default function Privacy() {
             </section>
             <section>
               <h2 className="text-xl font-black text-white mb-2">7. Contact</h2>
-              <p>Email: <a href="mailto:privacy@bigdiscounts.uk" style={{color: '#fcd968'}} className="hover:opacity-80">privacy@bigdiscounts.uk</a></p>
+              <p>Email: <a href="mailto:privacy@bigdiscounts.ro" style={{color: '#fcd968'}} className="hover:opacity-80">privacy@bigdiscounts.ro</a></p>
             </section>
           </div>
         </div>

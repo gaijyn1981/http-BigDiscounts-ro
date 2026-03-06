@@ -150,7 +150,7 @@ export default function AdminDashboard() {
               <div key={p.id} className="flex items-center justify-between p-4 rounded-xl" style={{background: '#111', border: '1px solid #2a2a2a'}}>
                 <div>
                   <p className="text-white font-bold">{p.title}</p>
-                  <p className="text-gray-400 text-sm">{p.seller.companyName} · £{p.price}</p>
+                  <p className="text-gray-400 text-sm">{p.seller.companyName} · {p.price} RON</p>
                 </div>
                 <button onClick={() => deleteProduct(p.id)} className="px-3 py-1 rounded-lg text-sm font-bold" style={{background: '#1a1a1a', color: '#f87171', border: '1px solid #f87171'}}>Șterge</button>
               </div>

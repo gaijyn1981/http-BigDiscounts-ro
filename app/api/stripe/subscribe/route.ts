@@ -51,12 +51,12 @@ export async function POST(req: Request) {
     line_items: [
       {
         price_data: {
-          currency: 'gbp',
+          currency: 'ron',
           product_data: {
             name: `Anunț: ${product.title}`,
-            description: 'Abonament £1/lună per anunț pe BigDiscounts'
+            description: 'Abonament 5 RON/lună per anunț pe BigDiscounts'
           },
-          unit_amount: 100,
+          unit_amount: 500,
           recurring: { interval: 'month' }
         },
         quantity: 1

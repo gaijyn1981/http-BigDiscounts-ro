@@ -5,7 +5,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Marketplace din România pentru Vânzători & Cumpărători | BigDiscounts — Marketplace Corect, cu Taxe Mici',
-  description: 'BigDiscounts este un marketplace din România creat pentru a sprijini vânzătorii și cumpărătorii. Listează produse la doar £1/lună cu 0% comision, sau răsfoiește ofertele și cumpără direct de la vânzătorii din România.',
+  description: 'BigDiscounts este un marketplace din România creat pentru a sprijini vânzătorii și cumpărătorii. Listează produse la doar 5 RON/lună cu 0% comision, sau răsfoiește ofertele și cumpără direct de la vânzătorii din România.',
 }
 
 export default async function Home() {
@@ -60,7 +60,7 @@ export default async function Home() {
             Un loc corect și transparent de a cumpăra și vinde — fără comision, taxe mici, control total.
           </p>
           <p className="text-gray-600 text-base mb-10 max-w-2xl mx-auto leading-relaxed">
-            BigDiscounts este un marketplace online din România conceput pentru a sprijini vânzătorii independenți și micile afaceri. Spre deosebire de platformele tradiționale care percep comision la fiecare vânzare, BigDiscounts oferă o taxă transparentă de £1/lună fără comision, permițând vânzătorilor să păstreze 100% din venituri, conectându-se direct cu cumpărătorii.
+            BigDiscounts este un marketplace online din România conceput pentru a sprijini vânzătorii independenți și micile afaceri. Spre deosebire de platformele tradiționale care percep comision la fiecare vânzare, BigDiscounts oferă o taxă transparentă de 5 RON/lună fără comision, permițând vânzătorilor să păstreze 100% din venituri, conectându-se direct cu cumpărătorii.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             {session?.user ? (
@@ -71,7 +71,7 @@ export default async function Home() {
             ) : (
               <Link href="/register?type=seller" style={{background: '#fcd968'}}
                 className="text-black px-8 py-4 rounded-xl font-black text-lg hover:opacity-90 transition-opacity">
-                Începe să vinzi — £1/lună
+                Începe să vinzi — 5 RON/lună
               </Link>
             )}
             <Link href="/browse"
@@ -88,7 +88,7 @@ export default async function Home() {
           <h2 className="text-2xl font-black text-white text-center mb-8">O alternativă corectă la marketplace-urile cu taxe mari</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              { icon: '💷', title: 'Taxă de listare £1/lună', desc: 'Fără comision la nicio vânzare.' },
+              { icon: '💰', title: 'Taxă de listare 5 RON/lună', desc: 'Fără comision la nicio vânzare.' },
               { icon: '💰', title: 'Păstrezi 100% din fiecare vânzare', desc: 'Veniturile tale rămân ale tale, mereu.' },
               { icon: '💬', title: 'Cumpărătorii te contactează direct', desc: 'Control total asupra comunicării și livrării.' },
               { icon: '✅', title: 'Prețuri simple, transparente', desc: 'Fără costuri ascunse, fără contracte, anulezi oricând.' },
@@ -115,7 +115,7 @@ export default async function Home() {
               <p className="text-gray-400 mt-1">Vânzători din România</p>
             </div>
             <div>
-              <p className="text-4xl font-black" style={{color: '#fcd968'}}>£1</p>
+              <p className="text-4xl font-black" style={{color: '#fcd968'}}>5 RON</p>
               <p className="text-gray-400 mt-1">Pe lună</p>
             </div>
           </div>
@@ -147,7 +147,7 @@ export default async function Home() {
                     <div className="p-4">
                       <h3 className="font-bold text-white truncate mb-1">{product.title}</h3>
                       <p className="text-gray-500 text-sm mb-2">{product.seller.companyName}</p>
-                      <p className="text-2xl font-black" style={{color: '#fcd968'}}>£{product.price.toFixed(2)}</p>
+                      <p className="text-2xl font-black" style={{color: '#fcd968'}}>{product.price.toFixed(2)} RON</p>
                     </div>
                   </Link>
                 )
@@ -175,8 +175,8 @@ export default async function Home() {
                 <div className="flex gap-4 items-start">
                   <span className="text-2xl">💳</span>
                   <div>
-                    <p className="font-black text-white mb-1">2. Plătești doar £1/lună</p>
-                    <p className="text-gray-400 text-sm">Activează anunțul cu abonamentul nostru simplu de £1/lună.</p>
+                    <p className="font-black text-white mb-1">2. Plătești doar 5 RON/lună</p>
+                    <p className="text-gray-400 text-sm">Activează anunțul cu abonamentul nostru simplu de 5 RON/lună.</p>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
@@ -188,7 +188,7 @@ export default async function Home() {
                 </div>
               </div>
               <Link href="/sell" className="inline-block mt-8 px-6 py-3 rounded-xl font-black text-black hover:opacity-90 transition-opacity" style={{background: '#fcd968'}}>
-                Începe să vinzi — £1/lună →
+                Începe să vinzi — 5 RON/lună →
               </Link>
             </div>
 
@@ -285,7 +285,7 @@ export default async function Home() {
           <div className="flex flex-wrap justify-between gap-8 mb-8">
             <div>
               <p className="text-2xl font-black mb-2" style={{color: '#fcd968'}}>BigDiscounts</p>
-              <p className="text-gray-500 text-sm max-w-xs">Cumpără direct sau vinde la doar £1/lună. Fără comisioane. Fără taxe ascunse.</p>
+              <p className="text-gray-500 text-sm max-w-xs">Cumpără direct sau vinde la doar 5 RON/lună. Fără comisioane. Fără taxe ascunse.</p>
             </div>
             <div className="flex gap-12">
               <div>
@@ -322,7 +322,7 @@ export default async function Home() {
             </div>
           </div>
           <div style={{borderTop: '1px solid #1a1a1a'}} className="pt-6 text-center">
-            <p className="text-gray-600 text-sm">hello@bigdiscounts.uk</p>
+            <p className="text-gray-600 text-sm">hello@bigdiscounts.ro</p>
             <p className="text-gray-600 text-xs mt-1">BigDiscounts este operat de Petrica Marin, Persoană Fizică Autorizată, România.</p>
             <p className="text-gray-700 text-xs mt-1">© 2026 BigDiscounts. Toate drepturile rezervate.</p>
           </div>

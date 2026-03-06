@@ -57,7 +57,7 @@ export default function Cookies() {
             </section>
             <section>
               <h2 className="text-xl font-black text-white mb-2">Contact</h2>
-              <p>Email: <a href="mailto:privacy@bigdiscounts.uk" style={{color: '#fcd968'}} className="hover:opacity-80">privacy@bigdiscounts.uk</a></p>
+              <p>Email: <a href="mailto:privacy@bigdiscounts.ro" style={{color: '#fcd968'}} className="hover:opacity-80">privacy@bigdiscounts.ro</a></p>
             </section>
           </div>
         </div>

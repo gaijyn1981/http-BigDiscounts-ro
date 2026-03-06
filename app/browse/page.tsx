@@ -142,11 +142,11 @@ export default function BrowsePage() {
           </div>
           <div className="flex gap-3 mt-3 items-center">
             <span className="text-sm font-semibold" style={{color: '#fcd968'}}>Interval de preț:</span>
-            <input type="number" placeholder="Min £" value={minPrice} onChange={e => setMinPrice(e.target.value)}
+            <input type="number" placeholder="Min RON" value={minPrice} onChange={e => setMinPrice(e.target.value)}
               className="w-24 px-3 py-2 rounded-xl text-white text-sm focus:outline-none"
               style={{background: '#1a1a1a', border: '1px solid #333'}} />
             <span className="text-gray-600">la</span>
-            <input type="number" placeholder="Max £" value={maxPrice} onChange={e => setMaxPrice(e.target.value)}
+            <input type="number" placeholder="Max RON" value={maxPrice} onChange={e => setMaxPrice(e.target.value)}
               className="w-24 px-3 py-2 rounded-xl text-white text-sm focus:outline-none"
               style={{background: '#1a1a1a', border: '1px solid #333'}} />
             {(minPrice || maxPrice) && (
@@ -205,7 +205,7 @@ export default function BrowsePage() {
                     <div className="p-4">
                       <h3 className="font-bold text-white mt-1 mb-1 truncate">{product.title}</h3>
                       <p className="text-gray-500 text-xs mb-1">Vândut de {product.seller?.companyName} — Contact direct</p>
-                      <p className="text-2xl font-black" style={{color: '#fcd968'}}>£{product.price.toFixed(2)}</p>
+                      <p className="text-2xl font-black" style={{color: '#fcd968'}}>{product.price.toFixed(2)} RON</p>
                     </div>
                   </Link>
                 )

@@ -1,12 +1,12 @@
-# CLAUDE.md — BigDiscounts.uk
+# CLAUDE.md — BigDiscounts.ro
 
 This file documents the project structure and key information for AI-assisted development sessions.
 
 ## Project Overview
 
-**BigDiscounts.uk** — A UK discount marketplace where sellers list products for £1/month with 0% commission. Buyers browse and contact sellers directly.
+**BigDiscounts.ro** — Un marketplace de reduceri din România where sellers list products for 5 RON/lună with 0% commission. Buyers browse and contact sellers directly.
 
-- **Live URL:** https://www.bigdiscounts.uk
+- **Live URL:** https://www.bigdiscounts.ro
 - **Staging/Preview:** https://big-discounts.vercel.app
 - **GitHub:** https://github.com/gaijyn1981/BigDiscounts
 - **Gmail:** hello.bigdiscounts@gmail.com
@@ -17,7 +17,7 @@ This file documents the project structure and key information for AI-assisted de
 - **Language:** TypeScript
 - **Database:** Neon Postgres (via Prisma ORM)
 - **Auth:** NextAuth.js
-- **Payments:** Stripe (£1/month subscription)
+- **Payments:** Stripe (5 RON/lună subscription)
 - **Email:** Resend
 - **Image uploads:** Cloudinary
 - **Deployment:** Vercel (auto-deploys on push to main)
@@ -53,7 +53,7 @@ git push origin main
 
 ## Business Logic
 
-- Sellers register, verify email, pay £1/month via Stripe, listings go active
+- Sellers register, verify email, pay 5 RON/lună via Stripe, listings go active
 - Buyers browse freely, contact sellers via WhatsApp/phone/email
 - No in-platform transactions — sellers handle payment directly
 - Counters hidden on homepage until 50+ sellers

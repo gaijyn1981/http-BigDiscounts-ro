@@ -12,7 +12,7 @@ export default function DataRequest() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    window.location.href = `mailto:privacy@bigdiscounts.uk?subject=Data Request: ${form.type}&body=${encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\nRequest Type: ${form.type}\n\nDetails: ${form.details}`)}`
+    window.location.href = `mailto:privacy@bigdiscounts.ro?subject=Data Request: ${form.type}&body=${encodeURIComponent(`Name: ${form.name}\nEmail: ${form.email}\nRequest Type: ${form.type}\n\nDetails: ${form.details}`)}`
     setSubmitted(true)
   }
 

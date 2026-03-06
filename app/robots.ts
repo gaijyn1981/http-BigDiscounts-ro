@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/admin/', '/seller/dashboard', '/api/'],
     },
-    sitemap: 'https://www.bigdiscounts.uk/sitemap.xml',
+    sitemap: 'https://www.bigdiscounts.ro/sitemap.xml',
   }
 }

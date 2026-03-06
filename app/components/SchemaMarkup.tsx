@@ -3,13 +3,13 @@ export default function SchemaMarkup() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "BigDiscounts",
-    "url": "https://www.bigdiscounts.uk",
-    "description": "Marketplace-ul premium de reduceri din România. Listează-ți produsele la doar £1/lună. Fără comision, fără intermediari.",
+    "url": "https://www.bigdiscounts.ro",
+    "description": "Marketplace-ul premium de reduceri din România. Listează-ți produsele la doar 5 RON/lună. Fără comision, fără intermediari.",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://www.bigdiscounts.uk/browse?search={search_term_string}"
+        "urlTemplate": "https://www.bigdiscounts.ro/browse?search={search_term_string}"
       },
       "query-input": "required name=search_term_string"
     }
@@ -19,11 +19,11 @@ export default function SchemaMarkup() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "BigDiscounts",
-    "url": "https://www.bigdiscounts.uk",
-    "logo": "https://www.bigdiscounts.uk/favicon.ico",
+    "url": "https://www.bigdiscounts.ro",
+    "logo": "https://www.bigdiscounts.ro/favicon.ico",
     "contactPoint": {
       "@type": "ContactPoint",
-      "email": "hello@bigdiscounts.uk",
+      "email": "hello@bigdiscounts.ro",
       "contactType": "customer service",
       "areaServed": "RO"
     },

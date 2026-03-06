@@ -1,7 +1,7 @@
 'use client'
 
 export default function ShareButtons({ title, id }: { title: string, id: string }) {
-  const url = `https://www.bigdiscounts.uk/product/${id}`
+  const url = `https://www.bigdiscounts.ro/product/${id}`
   const text = `Vezi această ofertă pe BigDiscounts: ${title}`
 
   return (

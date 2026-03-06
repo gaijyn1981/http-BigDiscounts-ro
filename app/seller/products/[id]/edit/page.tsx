@@ -95,7 +95,7 @@ export default function EditProductPage() {
               style={{background: '#1a1a1a', border: '1px solid #333'}} />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-gray-400 mb-1">Preț (£)</label>
+            <label className="block text-sm font-semibold text-gray-400 mb-1">Preț (RON)</label>
             <input name="price" type="number" step="0.01" value={form.price} onChange={update} required
               className="w-full px-4 py-3 rounded-xl text-white focus:outline-none"
               style={{background: '#1a1a1a', border: '1px solid #333'}} />

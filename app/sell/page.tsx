@@ -3,8 +3,8 @@ import { getServerSession } from 'next-auth'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Vinde online în România | Marketplace la £1/lună — BigDiscounts',
-  description: 'Vrei să vinzi online în România fără să plătești comisioane mari? BigDiscounts oferă o taxă corectă de £1/lună cu 0% comision și control total pentru vânzători.',
+  title: 'Vinde online în România | Marketplace la 5 RON/lună — BigDiscounts',
+  description: 'Vrei să vinzi online în România fără să plătești comisioane mari? BigDiscounts oferă o taxă corectă de 5 RON/lună cu 0% comision și control total pentru vânzători.',
 }
 
 export default async function SellPage() {
@@ -44,11 +44,11 @@ export default async function SellPage() {
             Vinde online în România cu <span style={{color: '#fcd968'}}>taxe corecte și transparente</span>
           </h1>
           <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Listează produse la £1/lună și păstrezi 100% din ce vinzi — fără comisioane, fără taxe ascunse, fără contracte.
+            Listează produse la 5 RON/lună și păstrezi 100% din ce vinzi — fără comisioane, fără taxe ascunse, fără contracte.
           </p>
           <Link href="/register?type=seller" style={{background: '#fcd968'}}
             className="text-black px-10 py-4 rounded-xl font-black text-xl hover:opacity-90 transition-opacity inline-block">
-            Începe să vinzi acum — £1/lună
+            Începe să vinzi acum — 5 RON/lună
           </Link>
           <p className="text-gray-600 text-sm mt-4">Fără contract. Anulezi oricând.</p>
         </div>
@@ -58,7 +58,7 @@ export default async function SellPage() {
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-black text-white mb-4">Scopul nostru</h2>
           <p className="text-gray-400 leading-relaxed text-lg">
-            Multe marketplace-uri percep comision la fiecare vânzare, rețin fondurile și controlează vizibilitatea ta. BigDiscounts a fost creat pentru a oferi o alternativă corectă și transparentă vânzătorilor din România — o taxă simplă de £1/lună, contact direct cu cumpărătorii și control total asupra prețurilor, brandingului și livrării.
+            Multe marketplace-uri percep comision la fiecare vânzare, rețin fondurile și controlează vizibilitatea ta. BigDiscounts a fost creat pentru a oferi o alternativă corectă și transparentă vânzătorilor din România — o taxă simplă de 5 RON/lună, contact direct cu cumpărătorii și control total asupra prețurilor, brandingului și livrării.
           </p>
           <p className="text-gray-500 leading-relaxed mt-4">
             Dacă ești în căutarea unei alternative la Amazon, eBay sau alte marketplace-uri cu taxe mari din România, BigDiscounts oferă o soluție simplă. Vânzătorii păstrează controlul total, ajungând la cumpărători din întreaga România.
@@ -84,25 +84,25 @@ export default async function SellPage() {
               <tbody>
                 <tr style={{borderBottom: '1px solid #1a1a1a'}}>
                   <td className="px-6 py-4 text-gray-300 font-medium">Amazon</td>
-                  <td className="px-3 py-3 md:px-6 md:py-4 text-center text-gray-400">£25–39/lună</td>
+                  <td className="px-3 py-3 md:px-6 md:py-4 text-center text-gray-400">125–195 RON/lună</td>
                   <td className="px-3 py-3 md:px-6 md:py-4 text-center text-red-400 font-bold">15–20%</td>
                   <td className="px-3 py-3 md:px-6 md:py-4 text-center text-gray-400">~80%</td>
                 </tr>
                 <tr style={{borderBottom: '1px solid #1a1a1a'}}>
                   <td className="px-6 py-4 text-gray-300 font-medium">eBay</td>
-                  <td className="px-3 py-3 md:px-6 md:py-4 text-center text-gray-400">£0</td>
+                  <td className="px-3 py-3 md:px-6 md:py-4 text-center text-gray-400">0 RON</td>
                   <td className="px-3 py-3 md:px-6 md:py-4 text-center text-red-400 font-bold">10–15%</td>
                   <td className="px-3 py-3 md:px-6 md:py-4 text-center text-gray-400">~85%</td>
                 </tr>
                 <tr style={{borderBottom: '1px solid #1a1a1a'}}>
                   <td className="px-6 py-4 text-gray-300 font-medium">Etsy</td>
-                  <td className="px-3 py-3 md:px-6 md:py-4 text-center text-gray-400">£0</td>
+                  <td className="px-3 py-3 md:px-6 md:py-4 text-center text-gray-400">0 RON</td>
                   <td className="px-3 py-3 md:px-6 md:py-4 text-center text-red-400 font-bold">6,5% + taxe</td>
                   <td className="px-3 py-3 md:px-6 md:py-4 text-center text-gray-400">~90%</td>
                 </tr>
                 <tr style={{background: '#1a1400'}}>
                   <td className="px-3 py-4 md:px-6 md:py-5 font-black text-base md:text-lg" style={{color: '#fcd968'}}>BigDiscounts</td>
-                  <td className="px-3 py-4 md:px-6 md:py-5 text-center font-black text-lg" style={{color: '#fcd968'}}>£1/lună</td>
+                  <td className="px-3 py-4 md:px-6 md:py-5 text-center font-black text-lg" style={{color: '#fcd968'}}>5 RON/lună</td>
                   <td className="px-3 py-4 md:px-6 md:py-5 text-center font-black text-lg text-green-400">0%</td>
                   <td className="px-3 py-4 md:px-6 md:py-5 text-center font-black text-lg text-green-400">100%</td>
                 </tr>
@@ -143,7 +143,7 @@ export default async function SellPage() {
             {[
               { icon: '👤', step: '1', title: 'Înregistrează contul de vânzător', desc: 'Creează-ți profilul în mai puțin de 2 minute. Nu este nevoie de aprobare.' },
               { icon: '📸', step: '2', title: 'Încarcă produsele', desc: 'Adaugă fotografii, descrieri și prețuri. Până la 4 fotografii per anunț.' },
-              { icon: '✅', step: '3', title: 'Anunțurile tale devin active', desc: 'Plătește £1/lună per anunț și produsul tău este imediat vizibil cumpărătorilor.' },
+              { icon: '✅', step: '3', title: 'Anunțurile tale devin active', desc: 'Plătește 5 RON/lună per anunț și produsul tău este imediat vizibil cumpărătorilor.' },
               { icon: '💬', step: '4', title: 'Cumpărătorii te contactează direct', desc: 'Cumpărătorii interesați îți trimit mesaje direct — fără checkout forțat sau interferență de platformă.' },
               { icon: '💰', step: '5', title: 'Tu gestionezi plata și livrarea', desc: 'Gestionezi plata și livrarea în felul tău. Păstrezi 100% din fiecare vânzare.' },
             ].map(item => (
@@ -186,7 +186,7 @@ export default async function SellPage() {
             {[
               {
                 q: 'Percepeti vreun comision la vânzări?',
-                a: 'Nu. BigDiscounts percepe o taxă fixă de £1/lună per anunț. Nu percepem niciun comision la nicio vânzare pe care o faci.'
+                a: 'Nu. BigDiscounts percepe o taxă fixă de 5 RON/lună per anunț. Nu percepem niciun comision la nicio vânzare pe care o faci.'
               },
               {
                 q: 'Trebuie să semnez un contract?',
@@ -206,7 +206,7 @@ export default async function SellPage() {
               },
               {
                 q: 'Pot lista mai multe produse?',
-                a: 'Da. Fiecare produs este listat separat la £1/lună. Nu există limită pentru câte produse poți lista.'
+                a: 'Da. Fiecare produs este listat separat la 5 RON/lună. Nu există limită pentru câte produse poți lista.'
               },
             ].map((item, i) => (
               <div key={i} className="p-6 rounded-xl" style={{background: '#111111', border: '1px solid #fcd968'}}>
@@ -217,7 +217,7 @@ export default async function SellPage() {
           </div>
           <p className="text-center mt-8 text-gray-500 text-sm">
             Ai încă întrebări? Contactează-ne la{' '}
-            <a href="mailto:hello@bigdiscounts.uk" style={{color: '#fcd968'}} className="hover:opacity-80">hello@bigdiscounts.uk</a>
+            <a href="mailto:hello@bigdiscounts.ro" style={{color: '#fcd968'}} className="hover:opacity-80">hello@bigdiscounts.ro</a>
           </p>
         </div>
       </section>
@@ -228,7 +228,7 @@ export default async function SellPage() {
           <p className="text-gray-400 mb-8 text-lg">Alătură-te vânzătorilor din România care păstrează 100% din fiecare vânzare pe BigDiscounts.</p>
           <Link href="/register?type=seller" style={{background: '#fcd968'}}
             className="text-black px-10 py-4 rounded-xl font-black text-xl hover:opacity-90 transition-opacity inline-block">
-            Creează contul de vânzător — £1/lună
+            Creează contul de vânzător — 5 RON/lună
           </Link>
           <p className="text-gray-600 text-sm mt-4">Ai deja un cont? <Link href="/login" style={{color: '#fcd968'}} className="hover:opacity-80">Conectează-te aici</Link></p>
         </div>
@@ -237,7 +237,7 @@ export default async function SellPage() {
       <footer style={{background: '#111111', borderTop: '1px solid #1a1a1a'}} className="px-6 py-10">
         <div className="max-w-4xl mx-auto text-center">
           <span className="text-2xl font-black" style={{color: '#fcd968'}}>BigDiscounts</span>
-          <p className="text-gray-600 text-sm mt-3">hello@bigdiscounts.uk</p>
+          <p className="text-gray-600 text-sm mt-3">hello@bigdiscounts.ro</p>
           <p className="text-gray-600 text-xs mt-1">BigDiscounts este operat de Petrica Marin, Persoană Fizică Autorizată, România.</p>
           <div className="flex justify-center gap-6 mt-3">
             <Link href="/terms" className="text-gray-700 text-xs hover:text-gray-500">Termeni și condiții</Link>

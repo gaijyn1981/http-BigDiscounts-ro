@@ -93,7 +93,7 @@ export default function FavouritesPage() {
                     <div className="p-4">
                       <h3 className="font-bold text-white mb-1 truncate">{product.title}</h3>
                       <p className="text-gray-500 text-sm mb-2">{product.seller?.companyName}</p>
-                      <p className="text-2xl font-black" style={{color: '#fcd968'}}>£{product.price.toFixed(2)}</p>
+                      <p className="text-2xl font-black" style={{color: '#fcd968'}}>{product.price.toFixed(2)} RON</p>
                     </div>
                   </Link>
                 </div>

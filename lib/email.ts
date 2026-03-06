@@ -6,7 +6,7 @@ export async function sendVerificationEmail(email: string, token: string, name: 
   const verifyUrl = `${process.env.NEXTAUTH_URL}/api/verify-email?token=${token}`
 
   await getResend().emails.send({
-    from: 'BigDiscounts <hello@bigdiscounts.uk>',
+    from: 'BigDiscounts <hello@bigdiscounts.ro>',
     to: email,
     subject: 'Verifică-ți contul BigDiscounts',
     html: `

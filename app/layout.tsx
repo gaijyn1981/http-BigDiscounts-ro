@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'BigDiscounts - Piața de Reduceri din România',
-  description: 'Descoperă oferte incredibile de la vânzători verificați din România. Listează-ți produsele pentru doar £1/lună. Fără comision, fără intermediari.',
+  description: 'Descoperă oferte incredibile de la vânzători verificați din România. Listează-ți produsele pentru doar 5 RON/lună. Fără comision, fără intermediari.',
   keywords: 'piață România, produse cu reduceri, cumpără și vinde România, produse ieftine România, piață online',
   robots: 'index, follow',
   icons: {
@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   openGraph: {
 
     title: 'BigDiscounts - Piața de Reduceri din România',
-    description: 'Descoperă oferte incredibile de la vânzători verificați din România. Listează-ți produsele pentru doar £1/lună.',
-    url: 'https://www.bigdiscounts.uk',
+    description: 'Descoperă oferte incredibile de la vânzători verificați din România. Listează-ți produsele pentru doar 5 RON/lună.',
+    url: 'https://www.bigdiscounts.ro',
     siteName: 'BigDiscounts',
     locale: 'ro_RO',
     type: 'website',
