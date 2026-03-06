@@ -16,7 +16,7 @@ export async function POST(req: Request) {
   try {
     event = stripe.webhooks.constructEvent(body, sig, webhookSecret)
   } catch (err) {
-    return NextResponse.json({ error: 'Webhook error' }, { status: 400 })
+    return NextResponse.json({ error: 'Eroare webhook' }, { status: 400 })
   }
 
   try {
@@ -101,7 +101,7 @@ export async function POST(req: Request) {
 
   } catch (err) {
     console.error('Webhook handler error:', err)
-    return NextResponse.json({ error: 'Internal error' }, { status: 500 })
+    return NextResponse.json({ error: 'Eroare internă' }, { status: 500 })
   }
 
   return NextResponse.json({ received: true })

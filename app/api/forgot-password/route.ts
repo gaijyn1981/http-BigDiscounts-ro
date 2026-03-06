@@ -9,7 +9,7 @@ export async function POST(req: Request) {
   try {
     const { email } = await req.json()
     if (!email || typeof email !== 'string' || email.length > 200) {
-      return NextResponse.json({ error: 'Email required' }, { status: 400 })
+      return NextResponse.json({ error: 'Emailul este obligatoriu' }, { status: 400 })
     }
 
     const token = randomBytes(32).toString('hex')
@@ -61,6 +61,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error(error)
-    return NextResponse.json({ error: 'Something went wrong' }, { status: 500 })
+    return NextResponse.json({ error: 'Ceva nu a mers bine' }, { status: 500 })
   }
 }

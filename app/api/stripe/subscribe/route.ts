@@ -9,7 +9,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 export async function POST(req: Request) {
   const session = await getServerSession(authOptions)
   if (!session?.user?.email) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    return NextResponse.json({ error: 'Neautorizat' }, { status: 401 })
   }
 
   const { productId } = await req.json()
@@ -19,7 +19,7 @@ export async function POST(req: Request) {
   })
 
   if (!seller) {
-    return NextResponse.json({ error: 'Seller not found' }, { status: 404 })
+    return NextResponse.json({ error: 'Vânzătorul nu a fost găsit' }, { status: 404 })
   }
 
   const product = await prisma.product.findUnique({
@@ -27,7 +27,7 @@ export async function POST(req: Request) {
   })
 
   if (!product) {
-    return NextResponse.json({ error: 'Product not found' }, { status: 404 })
+    return NextResponse.json({ error: 'Produsul nu a fost găsit' }, { status: 404 })
   }
 
   let customerId = seller.stripeCustomerId
@@ -53,8 +53,8 @@ export async function POST(req: Request) {
         price_data: {
           currency: 'gbp',
           product_data: {
-            name: `Listing: ${product.title}`,
-            description: '£1/month per product listing on BigDiscounts'
+            name: `Anunț: ${product.title}`,
+            description: 'Abonament £1/lună per anunț pe BigDiscounts'
           },
           unit_amount: 100,
           recurring: { interval: 'month' }

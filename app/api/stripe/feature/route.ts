@@ -9,10 +9,10 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 export async function POST(req: Request) {
   try {
     const session = await getServerSession(authOptions)
-    if (!session?.user?.email) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    if (!session?.user?.email) return NextResponse.json({ error: 'Neautorizat' }, { status: 401 })
 
     const seller = await prisma.seller.findUnique({ where: { email: session.user.email } })
-    if (!seller) return NextResponse.json({ error: 'Seller not found' }, { status: 404 })
+    if (!seller) return NextResponse.json({ error: 'Vânzătorul nu a fost găsit' }, { status: 404 })
 
     const { productId } = await req.json()
 
@@ -20,7 +20,7 @@ export async function POST(req: Request) {
       where: { id: productId, sellerId: seller.id }
     })
 
-    if (!product) return NextResponse.json({ error: 'Product not found' }, { status: 404 })
+    if (!product) return NextResponse.json({ error: 'Produsul nu a fost găsit' }, { status: 404 })
 
     let customerId = seller.stripeCustomerId
     if (!customerId) {

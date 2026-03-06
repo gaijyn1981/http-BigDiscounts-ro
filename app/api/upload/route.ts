@@ -12,11 +12,11 @@ cloudinary.config({
 export async function POST(req: Request) {
   try {
     const session = await getServerSession(authOptions)
-    if (!session?.user?.email) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    if (!session?.user?.email) return NextResponse.json({ error: 'Neautorizat' }, { status: 401 })
 
     const formData = await req.formData()
     const file = formData.get('file') as File
-    if (!file) return NextResponse.json({ error: 'No file provided' }, { status: 400 })
+    if (!file) return NextResponse.json({ error: 'Niciun fișier furnizat' }, { status: 400 })
 
     const bytes = await file.arrayBuffer()
     const buffer = Buffer.from(bytes)
@@ -31,6 +31,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ url: result.secure_url })
   } catch (error: any) {
     console.error('Upload error:', error)
-    return NextResponse.json({ error: error.message || 'Upload failed' }, { status: 500 })
+    return NextResponse.json({ error: error.message || 'Încărcarea a eșuat' }, { status: 500 })
   }
 }

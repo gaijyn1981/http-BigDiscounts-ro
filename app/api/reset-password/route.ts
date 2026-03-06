@@ -5,14 +5,14 @@ import bcrypt from 'bcryptjs'
 export async function POST(req: Request) {
   try {
     const { token, password } = await req.json()
-    if (!token || !password) return NextResponse.json({ error: 'Invalid request' }, { status: 400 })
+    if (!token || !password) return NextResponse.json({ error: 'Cerere invalidă' }, { status: 400 })
 
     if (typeof password !== 'string' || password.length < 8) {
-      return NextResponse.json({ error: 'Password must be at least 8 characters' }, { status: 400 })
+      return NextResponse.json({ error: 'Parola trebuie să aibă cel puțin 8 caractere' }, { status: 400 })
     }
 
     if (password.length > 200) {
-      return NextResponse.json({ error: 'Password too long' }, { status: 400 })
+      return NextResponse.json({ error: 'Parola este prea lungă' }, { status: 400 })
     }
 
     const now = new Date()
@@ -21,7 +21,7 @@ export async function POST(req: Request) {
     const seller = await prisma.seller.findFirst({ where: { verifyToken: token } })
     if (seller) {
       if (!seller.resetTokenExpiry || seller.resetTokenExpiry < now) {
-        return NextResponse.json({ error: 'Reset link has expired. Please request a new one.' }, { status: 400 })
+        return NextResponse.json({ error: 'Linkul de resetare a expirat. Te rugăm să soliciți unul nou.' }, { status: 400 })
       }
       await prisma.seller.update({
         where: { id: seller.id },
@@ -33,7 +33,7 @@ export async function POST(req: Request) {
     const buyer = await prisma.buyer.findFirst({ where: { verifyToken: token } })
     if (buyer) {
       if (!buyer.resetTokenExpiry || buyer.resetTokenExpiry < now) {
-        return NextResponse.json({ error: 'Reset link has expired. Please request a new one.' }, { status: 400 })
+        return NextResponse.json({ error: 'Linkul de resetare a expirat. Te rugăm să soliciți unul nou.' }, { status: 400 })
       }
       await prisma.buyer.update({
         where: { id: buyer.id },
@@ -42,9 +42,9 @@ export async function POST(req: Request) {
       return NextResponse.json({ success: true })
     }
 
-    return NextResponse.json({ error: 'Invalid or expired reset link' }, { status: 400 })
+    return NextResponse.json({ error: 'Link de resetare invalid sau expirat' }, { status: 400 })
   } catch (error) {
     console.error(error)
-    return NextResponse.json({ error: 'Something went wrong' }, { status: 500 })
+    return NextResponse.json({ error: 'Ceva nu a mers bine' }, { status: 500 })
   }
 }

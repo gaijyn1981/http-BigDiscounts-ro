@@ -21,30 +21,30 @@ export async function GET() {
 export async function POST(req: Request) {
   try {
     const session = await getServerSession(authOptions)
-    if (!session?.user?.email) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    if (!session?.user?.email) return NextResponse.json({ error: 'Neautorizat' }, { status: 401 })
 
     const seller = await prisma.seller.findUnique({ where: { email: session.user.email } })
-    if (!seller) return NextResponse.json({ error: 'Seller not found' }, { status: 404 })
+    if (!seller) return NextResponse.json({ error: 'Vânzătorul nu a fost găsit' }, { status: 404 })
 
     const { title, description, price, category, photos, deliveryTime } = await req.json()
 
     if (!title || typeof title !== 'string' || title.length > 200)
-      return NextResponse.json({ error: 'Invalid title' }, { status: 400 })
+      return NextResponse.json({ error: 'Titlu invalid' }, { status: 400 })
 
     if (!description || typeof description !== 'string' || description.length > 2000)
-      return NextResponse.json({ error: 'Invalid description' }, { status: 400 })
+      return NextResponse.json({ error: 'Descriere invalidă' }, { status: 400 })
 
     if (!price || isNaN(parseFloat(price)) || parseFloat(price) < 0 || parseFloat(price) > 1000000)
-      return NextResponse.json({ error: 'Invalid price' }, { status: 400 })
+      return NextResponse.json({ error: 'Preț invalid' }, { status: 400 })
 
     if (category && typeof category !== 'string' || (category && category.length > 50))
-      return NextResponse.json({ error: 'Invalid category' }, { status: 400 })
+      return NextResponse.json({ error: 'Categorie invalidă' }, { status: 400 })
 
     if (deliveryTime && (typeof deliveryTime !== 'string' || deliveryTime.length > 100))
-      return NextResponse.json({ error: 'Invalid delivery time' }, { status: 400 })
+      return NextResponse.json({ error: 'Timp de livrare invalid' }, { status: 400 })
 
     if (photos && (!Array.isArray(photos) || photos.length > 4))
-      return NextResponse.json({ error: 'Maximum 4 photos allowed' }, { status: 400 })
+      return NextResponse.json({ error: 'Maxim 4 fotografii permise' }, { status: 400 })
 
     const product = await prisma.product.create({
       data: { sellerId: seller.id, title, description, price: parseFloat(price), category: category || null, deliveryTime: deliveryTime || null, photos: JSON.stringify(photos || []), active: false }
@@ -52,6 +52,6 @@ export async function POST(req: Request) {
 
     return NextResponse.json(product)
   } catch {
-    return NextResponse.json({ error: 'Something went wrong' }, { status: 500 })
+    return NextResponse.json({ error: 'Ceva nu a mers bine' }, { status: 500 })
   }
 }

@@ -6,10 +6,10 @@ import { prisma } from '@/lib/db'
 export async function DELETE() {
   try {
     const session = await getServerSession(authOptions)
-    if (!session?.user?.email) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    if (!session?.user?.email) return NextResponse.json({ error: 'Neautorizat' }, { status: 401 })
 
     const seller = await prisma.seller.findUnique({ where: { email: session.user.email } })
-    if (!seller) return NextResponse.json({ error: 'Seller not found' }, { status: 404 })
+    if (!seller) return NextResponse.json({ error: 'Vânzătorul nu a fost găsit' }, { status: 404 })
 
     await prisma.product.deleteMany({ where: { sellerId: seller.id } })
     await prisma.seller.delete({ where: { id: seller.id } })
@@ -17,6 +17,6 @@ export async function DELETE() {
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error(error)
-    return NextResponse.json({ error: 'Something went wrong' }, { status: 500 })
+    return NextResponse.json({ error: 'Ceva nu a mers bine' }, { status: 500 })
   }
 }

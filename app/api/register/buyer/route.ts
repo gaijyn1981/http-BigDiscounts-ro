@@ -9,16 +9,16 @@ export async function POST(req: Request) {
     const { email, password, name } = await req.json()
 
     if (!email || !password || !name) {
-      return NextResponse.json({ error: 'All fields required' }, { status: 400 })
+      return NextResponse.json({ error: 'Toate câmpurile sunt obligatorii' }, { status: 400 })
     }
 
-    if (typeof email !== 'string' || email.length > 200) return NextResponse.json({ error: 'Invalid email' }, { status: 400 })
-    if (typeof password !== 'string' || password.length < 8) return NextResponse.json({ error: 'Password must be at least 8 characters' }, { status: 400 })
-    if (password.length > 200) return NextResponse.json({ error: 'Password too long' }, { status: 400 })
-    if (typeof name !== 'string' || name.length > 100) return NextResponse.json({ error: 'Name too long' }, { status: 400 })
+    if (typeof email !== 'string' || email.length > 200) return NextResponse.json({ error: 'Email invalid' }, { status: 400 })
+    if (typeof password !== 'string' || password.length < 8) return NextResponse.json({ error: 'Parola trebuie să aibă cel puțin 8 caractere' }, { status: 400 })
+    if (password.length > 200) return NextResponse.json({ error: 'Parola este prea lungă' }, { status: 400 })
+    if (typeof name !== 'string' || name.length > 100) return NextResponse.json({ error: 'Numele este prea lung' }, { status: 400 })
 
     const existing = await prisma.buyer.findUnique({ where: { email } })
-    if (existing) return NextResponse.json({ error: 'Email already registered' }, { status: 400 })
+    if (existing) return NextResponse.json({ error: 'Emailul este deja înregistrat' }, { status: 400 })
 
     const hashed = await bcrypt.hash(password, 10)
     const verifyToken = randomBytes(32).toString('hex')
@@ -32,6 +32,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true })
   } catch (error) {
     console.error(error)
-    return NextResponse.json({ error: 'Something went wrong' }, { status: 500 })
+    return NextResponse.json({ error: 'Ceva nu a mers bine' }, { status: 500 })
   }
 }

@@ -6,7 +6,7 @@ const viewCache = new Map<string, number>()
 export async function POST(req: Request) {
   try {
     const { productId } = await req.json()
-    if (!productId) return NextResponse.json({ error: 'Missing productId' }, { status: 400 })
+    if (!productId) return NextResponse.json({ error: 'ID produs lipsă' }, { status: 400 })
 
     const ip = req.headers.get('x-forwarded-for') || 'anonymous'
     const key = `${ip}:${productId}`
@@ -27,6 +27,6 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true })
   } catch {
-    return NextResponse.json({ error: 'Failed to track view' }, { status: 500 })
+    return NextResponse.json({ error: 'Nu s-a putut înregistra vizualizarea' }, { status: 500 })
   }
 }

@@ -9,10 +9,10 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 export async function POST(req: Request) {
   try {
     const session = await getServerSession(authOptions)
-    if (!session?.user?.email) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    if (!session?.user?.email) return NextResponse.json({ error: 'Neautorizat' }, { status: 401 })
 
     const seller = await prisma.seller.findUnique({ where: { email: session.user.email } })
-    if (!seller) return NextResponse.json({ error: 'Seller not found' }, { status: 404 })
+    if (!seller) return NextResponse.json({ error: 'Vânzătorul nu a fost găsit' }, { status: 404 })
 
     const { productId, type } = await req.json()
 
@@ -20,17 +20,17 @@ export async function POST(req: Request) {
       where: { id: productId, sellerId: seller.id }
     })
 
-    if (!product) return NextResponse.json({ error: 'Product not found' }, { status: 404 })
+    if (!product) return NextResponse.json({ error: 'Produsul nu a fost găsit' }, { status: 404 })
 
     if (type === 'featured') {
-      if (!product.featuredSubId) return NextResponse.json({ error: 'No featured subscription' }, { status: 400 })
+      if (!product.featuredSubId) return NextResponse.json({ error: 'Niciun abonament de promovare' }, { status: 400 })
       await stripe.subscriptions.update(product.featuredSubId, { cancel_at_period_end: true })
       await prisma.product.update({
         where: { id: productId },
         data: { featured: false }
       })
     } else {
-      if (!product.stripeSubId) return NextResponse.json({ error: 'No active subscription' }, { status: 400 })
+      if (!product.stripeSubId) return NextResponse.json({ error: 'Niciun abonament activ' }, { status: 400 })
 
       await stripe.subscriptions.update(product.stripeSubId, { cancel_at_period_end: true })
 
@@ -50,6 +50,6 @@ export async function POST(req: Request) {
   } catch (error: any) {
     console.error('CANCEL ERROR:', error.message)
     console.error(error)
-    return NextResponse.json({ error: error.message || 'Something went wrong' }, { status: 500 })
+    return NextResponse.json({ error: error.message || 'Ceva nu a mers bine' }, { status: 500 })
   }
 }

@@ -46,7 +46,7 @@ export default function Terms() {
             </section>
             <section>
               <h2 className="text-xl font-black text-white mb-2">9. Legea Aplicabilă</h2>
-              <p>Acești termeni sunt guvernați de legile Angliei și Țării Galilor.</p>
+              <p>Acești termeni sunt guvernați de legile României.</p>
             </section>
             <section>
               <h2 className="text-xl font-black text-white mb-2">10. Contact</h2>
