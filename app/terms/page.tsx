@@ -4,7 +4,7 @@ export default function Terms() {
   return (
     <main className="min-h-screen" style={{background: '#0a0a0a'}}>
       <nav style={{background: '#111111', borderBottom: '1px solid #2a2a2a'}} className="px-6 py-4 flex justify-between items-center sticky top-0 z-50">
-        <span className="text-2xl font-black" style={{color: '#fcd968'}}>🇬🇧 BigDiscounts</span>
+        <span className="text-2xl font-black" style={{color: '#fcd968'}}>🇷🇴 BigDiscounts</span>
         <Link href="/" className="text-gray-400 hover:text-white transition-colors">← Înapoi Acasă</Link>
       </nav>
       <div className="max-w-3xl mx-auto px-6 py-12">
@@ -14,11 +14,11 @@ export default function Terms() {
           <div className="space-y-6 text-gray-400 leading-relaxed">
             <section>
               <h2 className="text-xl font-black text-white mb-2">1. Despre BigDiscounts</h2>
-              <p>BigDiscounts este o piață online din UK care permite vânzătorilor să listeze produse pentru £1 per produs pe lună. Cumpărătorii navighează și contactează vânzătorii direct. BigDiscounts nu gestionează tranzacțiile dintre cumpărători și vânzători.</p>
+              <p>BigDiscounts este o piață online din România care permite vânzătorilor să listeze produse pentru £1 per produs pe lună. Cumpărătorii navighează și contactează vânzătorii direct. BigDiscounts nu gestionează tranzacțiile dintre cumpărători și vânzători.</p>
             </section>
             <section>
               <h2 className="text-xl font-black text-white mb-2">2. Conturi de Vânzător</h2>
-              <p>Vânzătorii trebuie să fie din UK, să furnizeze informații corecte și să plătească £1/lună per anunț prin Stripe. Anunțurile se activează doar după plata cu succes. BigDiscounts poate elimina anunțurile care încalcă acești termeni.</p>
+              <p>Vânzătorii trebuie să fie din România, să furnizeze informații corecte și să plătească £1/lună per anunț prin Stripe. Anunțurile se activează doar după plata cu succes. BigDiscounts poate elimina anunțurile care încalcă acești termeni.</p>
             </section>
             <section>
               <h2 className="text-xl font-black text-white mb-2">3. Conturi de Cumpărător</h2>
@@ -30,7 +30,7 @@ export default function Terms() {
             </section>
             <section>
               <h2 className="text-xl font-black text-white mb-2">5. Returnări și Rambursări</h2>
-              <p>Conform UK Consumer Contracts Regulations 2013, cumpărătorii au dreptul de a anula în termen de 14 zile de la primirea bunurilor. Vânzătorii sunt responsabili pentru livrare și emiterea rambursărilor în termen de 14 zile de la primirea returnării. Cumpărătorii sunt responsabili pentru returnarea articolelor în termen de 14 zile de la primire. BigDiscounts nu este responsabil pentru aplicarea returnărilor între cumpărători și vânzători.</p>
+              <p>Conform legislației privind protecția consumatorilor, cumpărătorii au dreptul de a anula în termen de 14 zile de la primirea bunurilor. Vânzătorii sunt responsabili pentru livrare și emiterea rambursărilor în termen de 14 zile de la primirea returnării. Cumpărătorii sunt responsabili pentru returnarea articolelor în termen de 14 zile de la primire. BigDiscounts nu este responsabil pentru aplicarea returnărilor între cumpărători și vânzători.</p>
             </section>
             <section>
               <h2 className="text-xl font-black text-white mb-2">6. Conținut Interzis</h2>

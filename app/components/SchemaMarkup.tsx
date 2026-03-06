@@ -4,7 +4,7 @@ export default function SchemaMarkup() {
     "@type": "WebSite",
     "name": "BigDiscounts",
     "url": "https://www.bigdiscounts.uk",
-    "description": "The UK's premium discount marketplace. List your products for just £1/month. No commission, no middleman.",
+    "description": "Marketplace-ul premium de reduceri din România. Listează-ți produsele la doar £1/lună. Fără comision, fără intermediari.",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
@@ -25,7 +25,7 @@ export default function SchemaMarkup() {
       "@type": "ContactPoint",
       "email": "hello@bigdiscounts.uk",
       "contactType": "customer service",
-      "areaServed": "GB"
+      "areaServed": "RO"
     },
     "sameAs": []
   }

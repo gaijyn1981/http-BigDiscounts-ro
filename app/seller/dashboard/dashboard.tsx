@@ -157,7 +157,7 @@ export default function Dashboard() {
 
         <div className="rounded-xl p-4 mb-6" style={{background: '#1a1400', border: '1px solid #fcd968'}}>
           <p className="font-bold mb-1" style={{color: '#fcd968'}}>📦 Responsabilitățile Vânzătorului</p>
-          <p className="text-gray-400 text-sm">Ca vânzător, ești responsabil pentru: expedierea produselor către cumpărători și emiterea rambursărilor în termen de 14 zile de la primirea returului. Cumpărătorii sunt responsabili pentru returnarea articolelor în termen de 14 zile conform Regulamentelor UK privind Contractele cu Consumatorii din 2013. BigDiscounts nu este responsabil pentru niciun litigiu între cumpărători și vânzători.</p>
+          <p className="text-gray-400 text-sm">Ca vânzător, ești responsabil pentru: expedierea produselor către cumpărători și emiterea rambursărilor în termen de 14 zile de la primirea returului. Cumpărătorii sunt responsabili pentru returnarea articolelor în termen de 14 zile conform legislației privind protecția consumatorilor. BigDiscounts nu este responsabil pentru niciun litigiu între cumpărători și vânzători.</p>
         </div>
 
         <div className="flex justify-between items-center mb-8">

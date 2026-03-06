@@ -4,8 +4,8 @@ import { getServerSession } from 'next-auth'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Marketplace din UK pentru Vânzători & Cumpărători | BigDiscounts — Marketplace Corect, cu Taxe Mici',
-  description: 'BigDiscounts este un marketplace din Regatul Unit creat pentru a sprijini vânzătorii și cumpărătorii. Listează produse la doar £1/lună cu 0% comision, sau răsfoiește ofertele și cumpără direct de la vânzătorii din UK.',
+  title: 'Marketplace din România pentru Vânzători & Cumpărători | BigDiscounts — Marketplace Corect, cu Taxe Mici',
+  description: 'BigDiscounts este un marketplace din România creat pentru a sprijini vânzătorii și cumpărătorii. Listează produse la doar £1/lună cu 0% comision, sau răsfoiește ofertele și cumpără direct de la vânzătorii din România.',
 }
 
 export default async function Home() {
@@ -50,17 +50,17 @@ export default async function Home() {
       <section className="px-6 py-24 text-center" style={{background: 'linear-gradient(180deg, #111111 0%, #0a0a0a 100%)'}}>
         <div className="max-w-4xl mx-auto">
           <div className="inline-block mb-6 px-4 py-2 rounded-full text-sm font-bold" style={{background: '#1a1400', border: '1px solid #fcd968', color: '#fcd968'}}>
-            Conectăm cumpărători și afaceri din întregul Regat Unit
+            Conectăm cumpărători și afaceri din întreaga România
           </div>
           <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
-            Marketplace-ul din UK<br/>
+            Marketplace-ul din România<br/>
             <span style={{color: '#fcd968'}}>Creat pentru a sprijini vânzătorii și cumpărătorii</span>
           </h1>
           <p className="text-xl text-gray-400 mb-6 max-w-2xl mx-auto leading-relaxed">
             Un loc corect și transparent de a cumpăra și vinde — fără comision, taxe mici, control total.
           </p>
           <p className="text-gray-600 text-base mb-10 max-w-2xl mx-auto leading-relaxed">
-            BigDiscounts este un marketplace online din Regatul Unit conceput pentru a sprijini vânzătorii independenți și micile afaceri. Spre deosebire de platformele tradiționale care percep comision la fiecare vânzare, BigDiscounts oferă o taxă transparentă de £1/lună fără comision, permițând vânzătorilor să păstreze 100% din venituri, conectându-se direct cu cumpărătorii.
+            BigDiscounts este un marketplace online din România conceput pentru a sprijini vânzătorii independenți și micile afaceri. Spre deosebire de platformele tradiționale care percep comision la fiecare vânzare, BigDiscounts oferă o taxă transparentă de £1/lună fără comision, permițând vânzătorilor să păstreze 100% din venituri, conectându-se direct cu cumpărătorii.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             {session?.user ? (
@@ -112,7 +112,7 @@ export default async function Home() {
             </div>
             <div>
               <p className="text-4xl font-black" style={{color: '#fcd968'}}>{totalSellers}+</p>
-              <p className="text-gray-400 mt-1">Vânzători din UK</p>
+              <p className="text-gray-400 mt-1">Vânzători din România</p>
             </div>
             <div>
               <p className="text-4xl font-black" style={{color: '#fcd968'}}>£1</p>
@@ -198,8 +198,8 @@ export default async function Home() {
                 <div className="flex gap-4 items-start">
                   <span className="text-2xl">🔍</span>
                   <div>
-                    <p className="font-black text-white mb-1">1. Răsfoiește ofertele din UK</p>
-                    <p className="text-gray-400 text-sm">Descoperă produse de la vânzători și afaceri din UK, din toate categoriile.</p>
+                    <p className="font-black text-white mb-1">1. Răsfoiește ofertele din România</p>
+                    <p className="text-gray-400 text-sm">Descoperă produse de la vânzători și afaceri din România, din toate categoriile.</p>
                   </div>
                 </div>
                 <div className="flex gap-4 items-start">
@@ -229,7 +229,7 @@ export default async function Home() {
       <section className="px-6 py-16" style={{background: '#0a0a0a'}}>
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl font-black text-white mb-4">Răsfoiește pe categorii</h2>
-          <p className="text-gray-500 mb-10">Descoperă produse de la vânzătorii din UK, din toate categoriile.</p>
+          <p className="text-gray-500 mb-10">Descoperă produse de la vânzătorii din România, din toate categoriile.</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
             {[
               { icon: '📱', label: 'Electronică & Tehnologie', href: '/browse/Electronics%20%26%20Tech' },
@@ -264,7 +264,7 @@ export default async function Home() {
       <section className="px-6 py-24 text-center" style={{background: '#111111'}}>
         <div className="max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-8 leading-tight">
-            Un mod mai inteligent de a cumpăra și vinde în UK.
+            Un mod mai inteligent de a cumpăra și vinde în România.
           </h2>
           <p className="text-gray-400 text-lg mb-12 leading-relaxed">
             BigDiscounts este un marketplace transparent unde cumpărătorii și afacerile se conectează direct — fără adaosuri inutile sau bariere ascunse.
@@ -323,7 +323,7 @@ export default async function Home() {
           </div>
           <div style={{borderTop: '1px solid #1a1a1a'}} className="pt-6 text-center">
             <p className="text-gray-600 text-sm">hello@bigdiscounts.uk</p>
-            <p className="text-gray-600 text-xs mt-1">BigDiscounts este operat de Petrica Marin, Persoană Fizică Autorizată, Regatul Unit.</p>
+            <p className="text-gray-600 text-xs mt-1">BigDiscounts este operat de Petrica Marin, Persoană Fizică Autorizată, România.</p>
             <p className="text-gray-700 text-xs mt-1">© 2026 BigDiscounts. Toate drepturile rezervate.</p>
           </div>
         </div>

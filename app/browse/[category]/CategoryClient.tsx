@@ -186,14 +186,14 @@ export default function CategoryClient({ category, h1, description }: Props) {
 
       <section className="px-6 py-14" style={{ background: '#111111', borderTop: '1px solid #1a1a1a' }}>
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl font-black text-white mb-4">De ce să cumperi direct de la afacerile din UK</h2>
+          <h2 className="text-2xl font-black text-white mb-4">De ce să cumperi direct de la afacerile din România</h2>
           <p className="text-gray-500 leading-relaxed">
-            Cumpărăturile pe BigDiscounts permit cumpărătorilor să descopere produse de la vânzătorii și afacerile din UK de toate dimensiunile. Conectându-te direct cu vânzătorii, beneficiezi de comunicare transparentă, prețuri competitive și o gamă tot mai mare de produse din mai multe categorii.
+            Cumpărăturile pe BigDiscounts permit cumpărătorilor să descopere produse de la vânzătorii și afacerile din România de toate dimensiunile. Conectându-te direct cu vânzătorii, beneficiezi de comunicare transparentă, prețuri competitive și o gamă tot mai mare de produse din mai multe categorii.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
             {[
               { icon: '💬', text: 'Contact direct cu vânzătorii' },
-              { icon: '🇬🇧', text: 'Afaceri din Regatul Unit' },
+              { icon: '🇷🇴', text: 'Afaceri din România' },
               { icon: '✅', text: 'Fără taxe pentru cumpărători, niciodată' },
             ].map(item => (
               <div key={item.text} className="p-4 rounded-xl flex items-center gap-3 justify-center"

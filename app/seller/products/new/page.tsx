@@ -188,7 +188,7 @@ export default function NewProduct() {
               {[
                 'Expediază produsele prompt după primirea plății de la cumpărător',
                 'Asigură-te că descrierile și fotografiile produselor sunt corecte și nu induc în eroare',
-                'Acceptă retururile în termen de 14 zile conform Regulamentelor UK privind Contractele cu Consumatorii din 2013',
+                'Acceptă retururile în termen de 14 zile conform legislației privind protecția consumatorilor',
                 'Emite rambursări în termen de 14 zile de la primirea returului de la cumpărător',
                 'BigDiscounts nu este responsabil pentru litigiile dintre cumpărători și vânzători',
               ].map((item, i) => (

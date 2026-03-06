@@ -9,17 +9,17 @@ import SchemaMarkup from './components/SchemaMarkup'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'BigDiscounts - Piața de Reduceri din UK',
-  description: 'Descoperă oferte incredibile de la vânzători verificați din UK. Listează-ți produsele pentru doar £1/lună. Fără comision, fără intermediari.',
-  keywords: 'piață UK, produse cu reduceri, cumpără și vinde UK, produse ieftine UK, piață online',
+  title: 'BigDiscounts - Piața de Reduceri din România',
+  description: 'Descoperă oferte incredibile de la vânzători verificați din România. Listează-ți produsele pentru doar £1/lună. Fără comision, fără intermediari.',
+  keywords: 'piață România, produse cu reduceri, cumpără și vinde România, produse ieftine România, piață online',
   robots: 'index, follow',
   icons: {
     icon: '/favicon.svg',
   },
   openGraph: {
 
-    title: 'BigDiscounts - Piața de Reduceri din UK',
-    description: 'Descoperă oferte incredibile de la vânzători verificați din UK. Listează-ți produsele pentru doar £1/lună.',
+    title: 'BigDiscounts - Piața de Reduceri din România',
+    description: 'Descoperă oferte incredibile de la vânzători verificați din România. Listează-ți produsele pentru doar £1/lună.',
     url: 'https://www.bigdiscounts.uk',
     siteName: 'BigDiscounts',
     locale: 'ro_RO',

@@ -19,7 +19,7 @@ export default function BuyerTermsModal({ onAccept, onDecline }: Props) {
         <ul className="text-gray-400 text-sm space-y-2 mb-6">
           <li className="flex gap-2"><span style={{color: '#fcd968'}}>•</span> Tranzacțiile sunt direct între tine și vânzător</li>
           <li className="flex gap-2"><span style={{color: '#fcd968'}}>•</span> BigDiscounts nu este responsabil pentru plăți sau dispute</li>
-          <li className="flex gap-2"><span style={{color: '#fcd968'}}>•</span> Ai dreptul de returnare în 14 zile conform UK Consumer Contracts Regulations</li>
+          <li className="flex gap-2"><span style={{color: '#fcd968'}}>•</span> Ai dreptul de returnare în 14 zile conform legislației privind protecția consumatorilor</li>
           <li className="flex gap-2"><span style={{color: '#fcd968'}}>•</span> Vânzătorii sunt responsabili pentru livrare. Cumpărătorii au 14 zile pentru a returna articolele; vânzătorii trebuie să ramburseze în 14 zile de la primirea returnării.</li>
         </ul>
         <label className="flex items-center gap-3 mb-6 cursor-pointer">

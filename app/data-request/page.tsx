@@ -19,13 +19,13 @@ export default function DataRequest() {
   return (
     <main className="min-h-screen" style={{background: '#0a0a0a'}}>
       <nav style={{background: '#111111', borderBottom: '1px solid #2a2a2a'}} className="px-6 py-4 flex justify-between items-center sticky top-0 z-50">
-        <span className="text-2xl font-black" style={{color: '#fcd968'}}>🇬🇧 BigDiscounts</span>
+        <span className="text-2xl font-black" style={{color: '#fcd968'}}>🇷🇴 BigDiscounts</span>
         <Link href="/" className="text-gray-400 hover:text-white transition-colors">← Înapoi Acasă</Link>
       </nav>
       <div className="max-w-2xl mx-auto px-6 py-12">
         <div className="rounded-2xl p-8" style={{background: '#111111', border: '1px solid #222'}}>
           <h1 className="text-3xl font-black text-white mb-2">Solicitare Date</h1>
-          <p className="text-gray-500 mb-8">Exercită-ți drepturile GDPR UK. Vom răspunde în 30 de zile.</p>
+          <p className="text-gray-500 mb-8">Exercită-ți drepturile GDPR. Vom răspunde în 30 de zile.</p>
           {submitted ? (
             <div className="text-center py-8">
               <div className="text-5xl mb-4">✅</div>

@@ -3,8 +3,8 @@ import { getServerSession } from 'next-auth'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Vinde online în UK | Marketplace la £1/lună — BigDiscounts',
-  description: 'Vrei să vinzi online în UK fără să plătești comisioane mari? BigDiscounts oferă o taxă corectă de £1/lună cu 0% comision și control total pentru vânzători.',
+  title: 'Vinde online în România | Marketplace la £1/lună — BigDiscounts',
+  description: 'Vrei să vinzi online în România fără să plătești comisioane mari? BigDiscounts oferă o taxă corectă de £1/lună cu 0% comision și control total pentru vânzători.',
 }
 
 export default async function SellPage() {
@@ -38,10 +38,10 @@ export default async function SellPage() {
       <section className="px-6 py-24 text-center" style={{background: 'linear-gradient(180deg, #111111 0%, #0a0a0a 100%)'}}>
         <div className="max-w-3xl mx-auto">
           <div className="inline-block mb-6 px-4 py-2 rounded-full text-sm font-bold" style={{background: '#1a1400', border: '1px solid #fcd968', color: '#fcd968'}}>
-            Marketplace din Regatul Unit
+            Marketplace din România
           </div>
           <h1 className="text-5xl md:text-6xl font-black text-white mb-6 leading-tight">
-            Vinde online în UK cu <span style={{color: '#fcd968'}}>taxe corecte și transparente</span>
+            Vinde online în România cu <span style={{color: '#fcd968'}}>taxe corecte și transparente</span>
           </h1>
           <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
             Listează produse la £1/lună și păstrezi 100% din ce vinzi — fără comisioane, fără taxe ascunse, fără contracte.
@@ -58,10 +58,10 @@ export default async function SellPage() {
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-black text-white mb-4">Scopul nostru</h2>
           <p className="text-gray-400 leading-relaxed text-lg">
-            Multe marketplace-uri percep comision la fiecare vânzare, rețin fondurile și controlează vizibilitatea ta. BigDiscounts a fost creat pentru a oferi o alternativă corectă și transparentă vânzătorilor din UK — o taxă simplă de £1/lună, contact direct cu cumpărătorii și control total asupra prețurilor, brandingului și livrării.
+            Multe marketplace-uri percep comision la fiecare vânzare, rețin fondurile și controlează vizibilitatea ta. BigDiscounts a fost creat pentru a oferi o alternativă corectă și transparentă vânzătorilor din România — o taxă simplă de £1/lună, contact direct cu cumpărătorii și control total asupra prețurilor, brandingului și livrării.
           </p>
           <p className="text-gray-500 leading-relaxed mt-4">
-            Dacă ești în căutarea unei alternative la Amazon, eBay sau alte marketplace-uri cu taxe mari din UK, BigDiscounts oferă o soluție simplă. Vânzătorii păstrează controlul total, ajungând la cumpărători din întregul Regat Unit.
+            Dacă ești în căutarea unei alternative la Amazon, eBay sau alte marketplace-uri cu taxe mari din România, BigDiscounts oferă o soluție simplă. Vânzătorii păstrează controlul total, ajungând la cumpărători din întreaga România.
           </p>
         </div>
       </section>
@@ -163,7 +163,7 @@ export default async function SellPage() {
           <h2 className="text-2xl font-black text-white text-center mb-8">Cine poate vinde pe BigDiscounts</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
-              { icon: '🇬🇧', text: 'Marketplace din Regatul Unit' },
+              { icon: '🇷🇴', text: 'Marketplace din România' },
               { icon: '✅', text: 'Fără taxe ascunse — niciodată' },
               { icon: '💬', text: 'Cumpărătorii te contactează direct' },
               { icon: '🔒', text: 'Plăți securizate prin Stripe' },
@@ -197,8 +197,8 @@ export default async function SellPage() {
                 a: 'Tu și cumpărătorul stabiliți plata direct. Poți folosi PayPal, transfer bancar sau orice metodă preferi. BigDiscounts nu gestionează și nu reține plățile între cumpărători și vânzători.'
               },
               {
-                q: 'BigDiscounts este doar pentru vânzătorii din UK?',
-                a: 'Da — BigDiscounts este un marketplace din Regatul Unit deschis oricărui vânzător din UK, fie că ești comerciant independent, afacere mică, dropshipper sau retailer consacrat.'
+                q: 'BigDiscounts este doar pentru vânzătorii din România?',
+                a: 'Da — BigDiscounts este un marketplace din România deschis oricărui vânzător din România, fie că ești comerciant independent, afacere mică, dropshipper sau retailer consacrat.'
               },
               {
                 q: 'Ce se întâmplă după ce listez un produs?',
@@ -225,7 +225,7 @@ export default async function SellPage() {
       <section className="px-6 py-24 text-center" style={{background: '#111111'}}>
         <div className="max-w-2xl mx-auto">
           <h2 className="text-4xl font-black text-white mb-4">Ești gata să începi?</h2>
-          <p className="text-gray-400 mb-8 text-lg">Alătură-te vânzătorilor din UK care păstrează 100% din fiecare vânzare pe BigDiscounts.</p>
+          <p className="text-gray-400 mb-8 text-lg">Alătură-te vânzătorilor din România care păstrează 100% din fiecare vânzare pe BigDiscounts.</p>
           <Link href="/register?type=seller" style={{background: '#fcd968'}}
             className="text-black px-10 py-4 rounded-xl font-black text-xl hover:opacity-90 transition-opacity inline-block">
             Creează contul de vânzător — £1/lună
@@ -238,7 +238,7 @@ export default async function SellPage() {
         <div className="max-w-4xl mx-auto text-center">
           <span className="text-2xl font-black" style={{color: '#fcd968'}}>BigDiscounts</span>
           <p className="text-gray-600 text-sm mt-3">hello@bigdiscounts.uk</p>
-          <p className="text-gray-600 text-xs mt-1">BigDiscounts este operat de Petrica Marin, Persoană Fizică Autorizată, Regatul Unit.</p>
+          <p className="text-gray-600 text-xs mt-1">BigDiscounts este operat de Petrica Marin, Persoană Fizică Autorizată, România.</p>
           <div className="flex justify-center gap-6 mt-3">
             <Link href="/terms" className="text-gray-700 text-xs hover:text-gray-500">Termeni și condiții</Link>
             <Link href="/sell" className="text-gray-700 text-xs hover:text-gray-500">Politica vânzătorilor</Link>
