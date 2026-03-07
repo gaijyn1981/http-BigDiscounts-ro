@@ -3,9 +3,16 @@ import { prisma } from '@/lib/db'
 import bcrypt from 'bcryptjs'
 import { randomBytes } from 'crypto'
 import { sendVerificationEmail } from '@/lib/email'
+import { registerRateLimit } from '@/lib/ratelimit'
 
 export async function POST(req: Request) {
   try {
+    const ip = req.headers.get('x-forwarded-for') ?? 'anonymous'
+    const { success } = await registerRateLimit.limit(ip)
+    if (!success) {
+      return NextResponse.json({ error: 'Prea multe cereri. Încearcă din nou mai târziu.' }, { status: 429 })
+    }
+
     const { email, password, name } = await req.json()
 
     if (!email || !password || !name) {
