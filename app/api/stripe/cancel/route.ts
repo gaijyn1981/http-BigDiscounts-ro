@@ -15,12 +15,18 @@ export async function POST(req: Request) {
     if (!seller) return NextResponse.json({ error: 'Vânzătorul nu a fost găsit' }, { status: 404 })
 
     const { productId, type } = await req.json()
+    console.log('[CANCEL] productId:', productId, 'type:', type, 'sellerId:', seller.id)
 
     const product = await prisma.product.findFirst({
       where: { id: productId, sellerId: seller.id }
     })
 
-    if (!product) return NextResponse.json({ error: 'Produsul nu a fost găsit' }, { status: 404 })
+    if (!product) {
+      console.log('[CANCEL] Product not found')
+      return NextResponse.json({ error: 'Produsul nu a fost găsit' }, { status: 404 })
+    }
+
+    console.log('[CANCEL] Product found - stripeSubId:', product.stripeSubId, 'active:', product.active, 'subscriptionEndsAt:', product.subscriptionEndsAt)
 
     if (type === 'featured') {
       if (!product.featuredSubId) return NextResponse.json({ error: 'Niciun abonament de promovare' }, { status: 400 })
@@ -30,25 +36,32 @@ export async function POST(req: Request) {
         data: { featured: false }
       })
     } else {
-      if (!product.stripeSubId) return NextResponse.json({ error: 'Niciun abonament activ' }, { status: 400 })
+      if (!product.stripeSubId) {
+        console.log('[CANCEL] No stripeSubId on product')
+        return NextResponse.json({ error: 'Niciun abonament activ' }, { status: 400 })
+      }
 
-      await stripe.subscriptions.update(product.stripeSubId, { cancel_at_period_end: true })
+      console.log('[CANCEL] Calling Stripe update for sub:', product.stripeSubId)
+      const updatedSub = await stripe.subscriptions.update(product.stripeSubId, { cancel_at_period_end: true })
+      console.log('[CANCEL] Stripe update done - cancel_at_period_end:', updatedSub.cancel_at_period_end)
 
       const stripeSubscription = await stripe.subscriptions.retrieve(product.stripeSubId)
       const periodEnd = (stripeSubscription as any).current_period_end
+      console.log('[CANCEL] periodEnd from retrieve:', periodEnd)
 
-      console.log('periodEnd:', periodEnd)
-      console.log('productId:', productId)
+      const newEndsAt = periodEnd ? new Date(periodEnd * 1000) : null
+      console.log('[CANCEL] Setting subscriptionEndsAt to:', newEndsAt)
 
-      await prisma.product.update({
+      const updated = await prisma.product.update({
         where: { id: productId },
-        data: { subscriptionEndsAt: periodEnd ? new Date(periodEnd * 1000) : null }
+        data: { subscriptionEndsAt: newEndsAt }
       })
+      console.log('[CANCEL] Prisma update result - subscriptionEndsAt:', updated.subscriptionEndsAt)
     }
 
     return NextResponse.json({ success: true })
   } catch (error: any) {
-    console.error('CANCEL ERROR:', error.message)
+    console.error('[CANCEL] ERROR:', error.message)
     console.error(error)
     return NextResponse.json({ error: error.message || 'Ceva nu a mers bine' }, { status: 500 })
   }
