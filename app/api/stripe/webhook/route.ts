@@ -26,10 +26,7 @@ export async function POST(req: Request) {
       const type = session.metadata?.type
       const subscriptionId = session.subscription as string
 
-      if (!productId) {
-        console.error('No productId in metadata')
-        return NextResponse.json({ received: true })
-      }
+      if (!productId) return NextResponse.json({ received: true })
 
       if (type === 'featured') {
         await prisma.product.update({
@@ -39,11 +36,9 @@ export async function POST(req: Request) {
       } else {
         let subscriptionEndsAt: Date | null = null
         try {
-          const stripeSubscription = await stripe.subscriptions.retrieve(subscriptionId)
-          const periodEnd = (stripeSubscription as any).current_period_end
-          if (periodEnd) {
-            subscriptionEndsAt = new Date(periodEnd * 1000)
-          }
+          const sub = await stripe.subscriptions.retrieve(subscriptionId)
+          const periodEnd = (sub as any).cancel_at ?? sub.items?.data?.[0]?.current_period_end
+          if (periodEnd) subscriptionEndsAt = new Date(periodEnd * 1000)
         } catch (e) {
           console.error('Could not retrieve subscription:', e)
         }
@@ -74,7 +69,7 @@ export async function POST(req: Request) {
     if (event.type === 'customer.subscription.updated') {
       const subscription = event.data.object as Stripe.Subscription
       if (subscription.cancel_at_period_end) {
-        const periodEnd = (subscription as any).current_period_end
+        const periodEnd = (subscription as any).cancel_at ?? subscription.items?.data?.[0]?.current_period_end
         if (periodEnd) {
           await prisma.product.updateMany({
             where: { stripeSubId: subscription.id },
