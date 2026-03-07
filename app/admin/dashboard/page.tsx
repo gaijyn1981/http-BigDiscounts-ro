@@ -19,13 +19,6 @@ interface Product {
   seller: { companyName: string, email: string }
 }
 
-interface Report {
-  id: string
-  productId: string
-  reason: string
-  createdAt: string
-}
-
 interface Seller {
   id: string
   email: string
@@ -33,7 +26,6 @@ interface Seller {
   contactName: string
   phone: string
   verified: boolean
-  subscriptionStatus: string
   _count: { products: number }
 }
 
@@ -42,7 +34,6 @@ export default function AdminDashboard() {
   const router = useRouter()
   const [stats, setStats] = useState<Stats | null>(null)
   const [products, setProducts] = useState<Product[]>([])
-  const [reports, setReports] = useState<Report[]>([])
   const [sellers, setSellers] = useState<Seller[]>([])
   const [loading, setLoading] = useState(true)
   const [tab, setTab] = useState<'products' | 'sellers'>('products')
@@ -66,7 +57,6 @@ export default function AdminDashboard() {
     ]).then(([statsData, sellersData]) => {
       setStats(statsData.stats)
       setProducts(statsData.products || [])
-      setReports(statsData.reports || [])
       setSellers(sellersData)
       setLoading(false)
     })
@@ -78,6 +68,17 @@ export default function AdminDashboard() {
     setProducts(prev => prev.filter(p => p.id !== id))
   }
 
+  const activateProduct = async (id: string) => {
+    setActivating(id)
+    await fetch(`/api/admin/products/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ activate: true })
+    })
+    setProducts(prev => prev.map(p => p.id === id ? { ...p, active: true } : p))
+    setActivating(null)
+  }
+
   const toggleVerified = async (id: string, verified: boolean) => {
     await fetch(`/api/admin/sellers/${id}`, {
       method: 'PATCH',
@@ -85,17 +86,6 @@ export default function AdminDashboard() {
       body: JSON.stringify({ verified })
     })
     setSellers(prev => prev.map(s => s.id === id ? { ...s, verified } : s))
-  }
-
-  const activateSubscription = async (id: string) => {
-    setActivating(id)
-    await fetch(`/api/admin/sellers/${id}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ activateSubscription: true })
-    })
-    setSellers(prev => prev.map(s => s.id === id ? { ...s, subscriptionStatus: 'active' } : s))
-    setActivating(null)
   }
 
   const saveSellerEdit = async () => {
@@ -162,8 +152,16 @@ export default function AdminDashboard() {
                 <div>
                   <p className="text-white font-bold">{p.title}</p>
                   <p className="text-gray-400 text-sm">{p.seller.companyName} · {p.price} RON</p>
+                  <p className="text-xs mt-1" style={{color: p.active ? '#4ade80' : '#f87171'}}>{p.active ? 'Activ' : 'Inactiv'}</p>
                 </div>
-                <button onClick={() => deleteProduct(p.id)} className="px-3 py-1 rounded-lg text-sm font-bold" style={{background: '#1a1a1a', color: '#f87171', border: '1px solid #f87171'}}>Șterge</button>
+                <div className="flex gap-2">
+                  {!p.active && (
+                    <button onClick={() => activateProduct(p.id)} disabled={activating === p.id} className="px-3 py-1 rounded-lg text-sm font-bold" style={{background: '#1a1a1a', color: '#60a5fa', border: '1px solid #60a5fa'}}>
+                      {activating === p.id ? '...' : 'Activează'}
+                    </button>
+                  )}
+                  <button onClick={() => deleteProduct(p.id)} className="px-3 py-1 rounded-lg text-sm font-bold" style={{background: '#1a1a1a', color: '#f87171', border: '1px solid #f87171'}}>Șterge</button>
+                </div>
               </div>
             ))}
           </div>
@@ -177,17 +175,12 @@ export default function AdminDashboard() {
                   <div>
                     <p className="text-white font-bold">{s.companyName}</p>
                     <p className="text-gray-400 text-sm">{s.email} · {s.phone}</p>
-                    <p className="text-gray-500 text-xs mt-1">{s._count.products} produse · Abonament: <span style={{color: s.subscriptionStatus === 'active' ? '#4ade80' : '#f87171'}}>{s.subscriptionStatus || 'inactiv'}</span></p>
+                    <p className="text-gray-500 text-xs mt-1">{s._count.products} produse</p>
                   </div>
                   <div className="flex gap-2 flex-wrap justify-end">
                     <button onClick={() => toggleVerified(s.id, !s.verified)} className="px-3 py-1 rounded-lg text-sm font-bold" style={s.verified ? {background: '#1a1a1a', color: '#4ade80', border: '1px solid #4ade80'} : {background: '#1a1a1a', color: '#fcd968', border: '1px solid #fcd968'}}>
                       {s.verified ? 'Verificat' : 'Neverificat'}
                     </button>
-                    {s.subscriptionStatus !== 'active' && (
-                      <button onClick={() => activateSubscription(s.id)} disabled={activating === s.id} className="px-3 py-1 rounded-lg text-sm font-bold" style={{background: '#1a1a1a', color: '#60a5fa', border: '1px solid #60a5fa'}}>
-                        {activating === s.id ? '...' : 'Activează'}
-                      </button>
-                    )}
                     <button onClick={() => { setEditingSeller(s); setEditForm({ companyName: s.companyName, contactName: s.contactName, email: s.email, phone: s.phone }) }} className="px-3 py-1 rounded-lg text-sm font-bold text-gray-400" style={{background: '#1a1a1a', border: '1px solid #2a2a2a'}}>Editează</button>
                   </div>
                 </div>
