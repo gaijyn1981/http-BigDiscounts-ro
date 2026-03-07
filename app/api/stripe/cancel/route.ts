@@ -15,18 +15,12 @@ export async function POST(req: Request) {
     if (!seller) return NextResponse.json({ error: 'Vânzătorul nu a fost găsit' }, { status: 404 })
 
     const { productId, type } = await req.json()
-    console.log('[CANCEL] productId:', productId, 'type:', type)
 
     const product = await prisma.product.findFirst({
       where: { id: productId, sellerId: seller.id }
     })
 
-    if (!product) {
-      console.log('[CANCEL] Product not found')
-      return NextResponse.json({ error: 'Produsul nu a fost găsit' }, { status: 404 })
-    }
-
-    console.log('[CANCEL] stripeSubId:', product.stripeSubId)
+    if (!product) return NextResponse.json({ error: 'Produsul nu a fost găsit' }, { status: 404 })
 
     if (type === 'featured') {
       if (!product.featuredSubId) return NextResponse.json({ error: 'Niciun abonament de promovare' }, { status: 400 })
@@ -36,32 +30,20 @@ export async function POST(req: Request) {
         data: { featured: false }
       })
     } else {
-      if (!product.stripeSubId) {
-        console.log('[CANCEL] No stripeSubId')
-        return NextResponse.json({ error: 'Niciun abonament activ' }, { status: 400 })
-      }
+      if (!product.stripeSubId) return NextResponse.json({ error: 'Niciun abonament activ' }, { status: 400 })
 
       const updatedSub = await stripe.subscriptions.update(product.stripeSubId, { cancel_at_period_end: true })
-      console.log('[CANCEL] updatedSub keys:', Object.keys(updatedSub))
-      console.log('[CANCEL] full sub:', JSON.stringify(updatedSub))
-
       const periodEnd = (updatedSub as any).cancel_at ?? (updatedSub as any).items?.data?.[0]?.current_period_end
-      console.log('[CANCEL] periodEnd:', periodEnd)
 
-      const newEndsAt = periodEnd ? new Date(periodEnd * 1000) : null
-      console.log('[CANCEL] newEndsAt:', newEndsAt)
-
-      const updated = await prisma.product.update({
+      await prisma.product.update({
         where: { id: productId },
-        data: { subscriptionEndsAt: newEndsAt }
+        data: { subscriptionEndsAt: periodEnd ? new Date(periodEnd * 1000) : null }
       })
-      console.log('[CANCEL] saved subscriptionEndsAt:', updated.subscriptionEndsAt)
     }
 
     return NextResponse.json({ success: true })
   } catch (error: any) {
-    console.error('[CANCEL] ERROR:', error.message)
-    console.error(error)
+    console.error('CANCEL ERROR:', error.message)
     return NextResponse.json({ error: error.message || 'Ceva nu a mers bine' }, { status: 500 })
   }
 }
