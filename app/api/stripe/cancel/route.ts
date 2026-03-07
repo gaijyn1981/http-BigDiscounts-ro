@@ -45,7 +45,7 @@ export async function POST(req: Request) {
       console.log('[CANCEL] updatedSub keys:', Object.keys(updatedSub))
       console.log('[CANCEL] full sub:', JSON.stringify(updatedSub))
 
-      const periodEnd = (updatedSub as any).current_period_end
+      const periodEnd = (updatedSub as any).cancel_at ?? (updatedSub as any).items?.data?.[0]?.current_period_end
       console.log('[CANCEL] periodEnd:', periodEnd)
 
       const newEndsAt = periodEnd ? new Date(periodEnd * 1000) : null
