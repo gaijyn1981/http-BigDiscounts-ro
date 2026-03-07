@@ -2,7 +2,6 @@
 import { useSession, signOut } from 'next-auth/react'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import Link from 'next/link'
 
 interface Stats {
   totalSellers: number
@@ -34,6 +33,7 @@ interface Seller {
   contactName: string
   phone: string
   verified: boolean
+  subscriptionStatus: string
   _count: { products: number }
 }
 
@@ -49,6 +49,7 @@ export default function AdminDashboard() {
   const [editingSeller, setEditingSeller] = useState<Seller | null>(null)
   const [editForm, setEditForm] = useState({ companyName: '', contactName: '', email: '', phone: '' })
   const [saving, setSaving] = useState(false)
+  const [activating, setActivating] = useState<string | null>(null)
 
   useEffect(() => {
     if (status === 'loading') return
@@ -86,6 +87,17 @@ export default function AdminDashboard() {
     setSellers(prev => prev.map(s => s.id === id ? { ...s, verified } : s))
   }
 
+  const activateSubscription = async (id: string) => {
+    setActivating(id)
+    await fetch(`/api/admin/sellers/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ activateSubscription: true })
+    })
+    setSellers(prev => prev.map(s => s.id === id ? { ...s, subscriptionStatus: 'active' } : s))
+    setActivating(null)
+  }
+
   const saveSellerEdit = async () => {
     if (!editingSeller) return
     setSaving(true)
@@ -112,14 +124,13 @@ export default function AdminDashboard() {
       <nav style={{background: '#111111', borderBottom: '1px solid #2a2a2a'}} className="px-6 py-4 flex justify-between items-center sticky top-0 z-50">
         <span className="text-2xl font-black" style={{color: '#fcd968'}}>🇷🇴 BigDiscounts</span>
         <div className="flex items-center gap-4">
-  <span className="text-gray-400 text-sm">Panou Administrare</span>
-  <button onClick={() => signOut({ callbackUrl: '/login' })}
-    className="text-sm font-bold px-4 py-2 rounded-lg transition-opacity hover:opacity-80"
-    style={{background: '#1a1a1a', color: '#f87171', border: '1px solid #f87171'}}>
-    Deconectare
-  </button>
-</div>
-
+          <span className="text-gray-400 text-sm">Panou Administrare</span>
+          <button onClick={() => signOut({ callbackUrl: '/login' })}
+            className="text-sm font-bold px-4 py-2 rounded-lg transition-opacity hover:opacity-80"
+            style={{background: '#1a1a1a', color: '#f87171', border: '1px solid #f87171'}}>
+            Deconectare
+          </button>
+        </div>
       </nav>
 
       <div className="max-w-6xl mx-auto px-6 py-8">
@@ -166,12 +177,17 @@ export default function AdminDashboard() {
                   <div>
                     <p className="text-white font-bold">{s.companyName}</p>
                     <p className="text-gray-400 text-sm">{s.email} · {s.phone}</p>
-                    <p className="text-gray-500 text-xs mt-1">{s._count.products} produse</p>
+                    <p className="text-gray-500 text-xs mt-1">{s._count.products} produse · Abonament: <span style={{color: s.subscriptionStatus === 'active' ? '#4ade80' : '#f87171'}}>{s.subscriptionStatus || 'inactiv'}</span></p>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 flex-wrap justify-end">
                     <button onClick={() => toggleVerified(s.id, !s.verified)} className="px-3 py-1 rounded-lg text-sm font-bold" style={s.verified ? {background: '#1a1a1a', color: '#4ade80', border: '1px solid #4ade80'} : {background: '#1a1a1a', color: '#fcd968', border: '1px solid #fcd968'}}>
                       {s.verified ? 'Verificat' : 'Neverificat'}
                     </button>
+                    {s.subscriptionStatus !== 'active' && (
+                      <button onClick={() => activateSubscription(s.id)} disabled={activating === s.id} className="px-3 py-1 rounded-lg text-sm font-bold" style={{background: '#1a1a1a', color: '#60a5fa', border: '1px solid #60a5fa'}}>
+                        {activating === s.id ? '...' : 'Activează'}
+                      </button>
+                    )}
                     <button onClick={() => { setEditingSeller(s); setEditForm({ companyName: s.companyName, contactName: s.contactName, email: s.email, phone: s.phone }) }} className="px-3 py-1 rounded-lg text-sm font-bold text-gray-400" style={{background: '#1a1a1a', border: '1px solid #2a2a2a'}}>Editează</button>
                   </div>
                 </div>

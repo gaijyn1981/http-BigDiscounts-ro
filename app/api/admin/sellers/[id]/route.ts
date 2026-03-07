@@ -10,7 +10,7 @@ export async function PATCH(req: Request, context: { params: Promise<{ id: strin
   }
 
   const { id } = await context.params
-  const { verified, companyName, contactName, email, phone } = await req.json()
+  const { verified, companyName, contactName, email, phone, activateSubscription } = await req.json()
 
   const data: any = {}
   if (verified !== undefined) data.verified = verified
@@ -18,6 +18,10 @@ export async function PATCH(req: Request, context: { params: Promise<{ id: strin
   if (contactName !== undefined) data.contactName = contactName
   if (email !== undefined) data.email = email
   if (phone !== undefined) data.phone = phone
+  if (activateSubscription) {
+    data.subscriptionStatus = 'active'
+    data.subscriptionEndsAt = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
+  }
 
   const seller = await prisma.seller.update({
     where: { id },
