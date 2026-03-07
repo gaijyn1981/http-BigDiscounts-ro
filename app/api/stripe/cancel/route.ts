@@ -45,8 +45,8 @@ export async function POST(req: Request) {
       const updatedSub = await stripe.subscriptions.update(product.stripeSubId, { cancel_at_period_end: true })
       console.log('[CANCEL] Stripe update done - cancel_at_period_end:', updatedSub.cancel_at_period_end)
 
-      const stripeSubscription = await stripe.subscriptions.retrieve(product.stripeSubId)
-      const periodEnd = (stripeSubscription as any).current_period_end
+      console.log("[CANCEL] stripe sub:", JSON.stringify(updatedSub))
+      const periodEnd = (updatedSub as any).current_period_end
       console.log("[CANCEL] periodEnd from retrieve:", periodEnd)
       console.log("[CANCEL] sub current_period_end raw:", stripeSubscription.current_period_end)
       console.log("[CANCEL] sub status:", stripeSubscription.status)
