@@ -90,7 +90,7 @@ export default function Dashboard() {
       body: JSON.stringify({ productId: id, type })
     })
     if (res.ok) {
-      fetchProducts()
+      await fetchProducts()
       showToast(
         type === 'featured'
           ? 'Abonamentul de promovare a fost anulat - promovarea se va încheia la sfârșitul perioadei de facturare.'
