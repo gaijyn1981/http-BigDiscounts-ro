@@ -47,7 +47,10 @@ export async function POST(req: Request) {
 
       const stripeSubscription = await stripe.subscriptions.retrieve(product.stripeSubId)
       const periodEnd = (stripeSubscription as any).current_period_end
-      console.log('[CANCEL] periodEnd from retrieve:', periodEnd)
+      console.log("[CANCEL] periodEnd from retrieve:", periodEnd)
+      console.log("[CANCEL] sub current_period_end raw:", stripeSubscription.current_period_end)
+      console.log("[CANCEL] sub status:", stripeSubscription.status)
+      console.log("[CANCEL] sub cancel_at_period_end:", stripeSubscription.cancel_at_period_end)
 
       const newEndsAt = periodEnd ? new Date(periodEnd * 1000) : null
       console.log('[CANCEL] Setting subscriptionEndsAt to:', newEndsAt)
