@@ -29,14 +29,23 @@ interface Seller {
   _count: { products: number }
 }
 
+interface Buyer {
+  id: string
+  email: string
+  name: string
+  emailVerified: boolean
+  createdAt: string
+}
+
 export default function AdminDashboard() {
   const { data: session, status } = useSession()
   const router = useRouter()
   const [stats, setStats] = useState<Stats | null>(null)
   const [products, setProducts] = useState<Product[]>([])
   const [sellers, setSellers] = useState<Seller[]>([])
+  const [buyers, setBuyers] = useState<Buyer[]>([])
   const [loading, setLoading] = useState(true)
-  const [tab, setTab] = useState<'products' | 'sellers'>('products')
+  const [tab, setTab] = useState<'products' | 'sellers' | 'buyers'>('products')
   const [editingSeller, setEditingSeller] = useState<Seller | null>(null)
   const [editForm, setEditForm] = useState({ companyName: '', contactName: '', email: '', phone: '' })
   const [saving, setSaving] = useState(false)
@@ -53,11 +62,13 @@ export default function AdminDashboard() {
     if (!session?.user?.email || (session.user as any).role !== 'admin') return
     Promise.all([
       fetch('/api/admin/stats').then(r => r.json()),
-      fetch('/api/admin/sellers').then(r => r.json())
-    ]).then(([statsData, sellersData]) => {
+      fetch('/api/admin/sellers').then(r => r.json()),
+      fetch('/api/admin/buyers').then(r => r.json())
+    ]).then(([statsData, sellersData, buyersData]) => {
       setStats(statsData.stats)
       setProducts(statsData.products || [])
       setSellers(sellersData)
+      setBuyers(buyersData)
       setLoading(false)
     })
   }, [session])
@@ -112,7 +123,7 @@ export default function AdminDashboard() {
   return (
     <main className="min-h-screen" style={{background: '#0a0a0a'}}>
       <nav style={{background: '#111111', borderBottom: '1px solid #2a2a2a'}} className="px-6 py-4 flex justify-between items-center sticky top-0 z-50">
-        <span className="text-2xl font-black" style={{color: '#fcd968'}}>🇷🇴 BigDiscounts</span>
+        <span className="text-2xl font-black" style={{color: '#fcd968'}}>BigDiscounts</span>
         <div className="flex items-center gap-4">
           <span className="text-gray-400 text-sm">Panou Administrare</span>
           <button onClick={() => signOut({ callbackUrl: '/login' })}
@@ -127,8 +138,8 @@ export default function AdminDashboard() {
         {stats && (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             {[
-              { label: 'Vânzători', value: stats.totalSellers },
-              { label: 'Cumpărători', value: stats.totalBuyers },
+              { label: 'Vanzatori', value: stats.totalSellers },
+              { label: 'Cumparatori', value: stats.totalBuyers },
               { label: 'Total Produse', value: stats.totalProducts },
               { label: 'Produse Active', value: stats.activeProducts },
             ].map(s => (
@@ -142,7 +153,8 @@ export default function AdminDashboard() {
 
         <div className="flex gap-4 mb-6">
           <button onClick={() => setTab('products')} className={`px-4 py-2 rounded-lg font-bold text-sm ${tab === 'products' ? 'text-black' : 'text-gray-400'}`} style={tab === 'products' ? {background: '#fcd968'} : {background: '#1a1a1a'}}>Produse</button>
-          <button onClick={() => setTab('sellers')} className={`px-4 py-2 rounded-lg font-bold text-sm ${tab === 'sellers' ? 'text-black' : 'text-gray-400'}`} style={tab === 'sellers' ? {background: '#fcd968'} : {background: '#1a1a1a'}}>Vânzători</button>
+          <button onClick={() => setTab('sellers')} className={`px-4 py-2 rounded-lg font-bold text-sm ${tab === 'sellers' ? 'text-black' : 'text-gray-400'}`} style={tab === 'sellers' ? {background: '#fcd968'} : {background: '#1a1a1a'}}>Vanzatori</button>
+          <button onClick={() => setTab('buyers')} className={`px-4 py-2 rounded-lg font-bold text-sm ${tab === 'buyers' ? 'text-black' : 'text-gray-400'}`} style={tab === 'buyers' ? {background: '#fcd968'} : {background: '#1a1a1a'}}>Cumparatori</button>
         </div>
 
         {tab === 'products' && (
@@ -157,10 +169,10 @@ export default function AdminDashboard() {
                 <div className="flex gap-2">
                   {!p.active && (
                     <button onClick={() => activateProduct(p.id)} disabled={activating === p.id} className="px-3 py-1 rounded-lg text-sm font-bold" style={{background: '#1a1a1a', color: '#60a5fa', border: '1px solid #60a5fa'}}>
-                      {activating === p.id ? '...' : 'Activează'}
+                      {activating === p.id ? '...' : 'Activeaza'}
                     </button>
                   )}
-                  <button onClick={() => deleteProduct(p.id)} className="px-3 py-1 rounded-lg text-sm font-bold" style={{background: '#1a1a1a', color: '#f87171', border: '1px solid #f87171'}}>Șterge</button>
+                  <button onClick={() => deleteProduct(p.id)} className="px-3 py-1 rounded-lg text-sm font-bold" style={{background: '#1a1a1a', color: '#f87171', border: '1px solid #f87171'}}>Sterge</button>
                 </div>
               </div>
             ))}
@@ -181,8 +193,30 @@ export default function AdminDashboard() {
                     <button onClick={() => toggleVerified(s.id, !s.verified)} className="px-3 py-1 rounded-lg text-sm font-bold" style={s.verified ? {background: '#1a1a1a', color: '#4ade80', border: '1px solid #4ade80'} : {background: '#1a1a1a', color: '#fcd968', border: '1px solid #fcd968'}}>
                       {s.verified ? 'Verificat' : 'Neverificat'}
                     </button>
-                    <button onClick={() => { setEditingSeller(s); setEditForm({ companyName: s.companyName, contactName: s.contactName, email: s.email, phone: s.phone }) }} className="px-3 py-1 rounded-lg text-sm font-bold text-gray-400" style={{background: '#1a1a1a', border: '1px solid #2a2a2a'}}>Editează</button>
+                    <button onClick={() => { setEditingSeller(s); setEditForm({ companyName: s.companyName, contactName: s.contactName, email: s.email, phone: s.phone }) }} className="px-3 py-1 rounded-lg text-sm font-bold text-gray-400" style={{background: '#1a1a1a', border: '1px solid #2a2a2a'}}>Editeaza</button>
                   </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {tab === 'buyers' && (
+          <div className="space-y-3">
+            {buyers.length === 0 && (
+              <p className="text-gray-500 text-center py-8">Niciun cumparator inregistrat inca.</p>
+            )}
+            {buyers.map(b => (
+              <div key={b.id} className="p-4 rounded-xl" style={{background: '#111', border: '1px solid #2a2a2a'}}>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-white font-bold">{b.name}</p>
+                    <p className="text-gray-400 text-sm">{b.email}</p>
+                    <p className="text-gray-500 text-xs mt-1">Inregistrat {new Date(b.createdAt).toLocaleDateString('ro-RO')}</p>
+                  </div>
+                  <span className="px-3 py-1 rounded-lg text-sm font-bold" style={b.emailVerified ? {background: '#1a1a1a', color: '#4ade80', border: '1px solid #4ade80'} : {background: '#1a1a1a', color: '#f87171', border: '1px solid #f87171'}}>
+                    {b.emailVerified ? 'Verificat' : 'Neverificat'}
+                  </span>
                 </div>
               </div>
             ))}
@@ -193,14 +227,14 @@ export default function AdminDashboard() {
       {editingSeller && (
         <div className="fixed inset-0 flex items-center justify-center z-50" style={{background: 'rgba(0,0,0,0.8)'}}>
           <div className="p-6 rounded-2xl w-full max-w-md" style={{background: '#111', border: '1px solid #2a2a2a'}}>
-            <h2 className="text-white font-black text-xl mb-4">Editează Vânzătorul</h2>
+            <h2 className="text-white font-black text-xl mb-4">Editeaza Vanzatorul</h2>
             {['companyName', 'contactName', 'email', 'phone'].map(field => (
               <input key={field} value={(editForm as any)[field]} onChange={e => setEditForm(prev => ({...prev, [field]: e.target.value}))}
                 placeholder={field} className="w-full mb-3 px-4 py-2 rounded-lg text-white text-sm" style={{background: '#1a1a1a', border: '1px solid #2a2a2a'}} />
             ))}
             <div className="flex gap-3 mt-4">
-              <button onClick={saveSellerEdit} disabled={saving} className="flex-1 py-2 rounded-lg font-bold text-black" style={{background: '#fcd968'}}>{saving ? 'Se salvează...' : 'Salvează'}</button>
-              <button onClick={() => setEditingSeller(null)} className="flex-1 py-2 rounded-lg font-bold text-gray-400" style={{background: '#1a1a1a'}}>Anulează</button>
+              <button onClick={saveSellerEdit} disabled={saving} className="flex-1 py-2 rounded-lg font-bold text-black" style={{background: '#fcd968'}}>{saving ? 'Se salveaza...' : 'Salveaza'}</button>
+              <button onClick={() => setEditingSeller(null)} className="flex-1 py-2 rounded-lg font-bold text-gray-400" style={{background: '#1a1a1a'}}>Anuleaza</button>
             </div>
           </div>
         </div>
