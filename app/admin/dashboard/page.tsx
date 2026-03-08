@@ -2,6 +2,7 @@
 import { useSession, signOut } from 'next-auth/react'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 interface Stats {
   totalSellers: number
@@ -17,6 +18,13 @@ interface Product {
   active: boolean
   featured: boolean
   seller: { companyName: string, email: string }
+}
+
+interface Report {
+  id: string
+  productId: string
+  reason: string
+  createdAt: string
 }
 
 interface Seller {
@@ -42,6 +50,7 @@ export default function AdminDashboard() {
   const router = useRouter()
   const [stats, setStats] = useState<Stats | null>(null)
   const [products, setProducts] = useState<Product[]>([])
+  const [reports, setReports] = useState<Report[]>([])
   const [sellers, setSellers] = useState<Seller[]>([])
   const [buyers, setBuyers] = useState<Buyer[]>([])
   const [loading, setLoading] = useState(true)
@@ -49,7 +58,6 @@ export default function AdminDashboard() {
   const [editingSeller, setEditingSeller] = useState<Seller | null>(null)
   const [editForm, setEditForm] = useState({ companyName: '', contactName: '', email: '', phone: '' })
   const [saving, setSaving] = useState(false)
-  const [activating, setActivating] = useState<string | null>(null)
 
   useEffect(() => {
     if (status === 'loading') return
@@ -67,6 +75,7 @@ export default function AdminDashboard() {
     ]).then(([statsData, sellersData, buyersData]) => {
       setStats(statsData.stats)
       setProducts(statsData.products || [])
+      setReports(statsData.reports || [])
       setSellers(sellersData)
       setBuyers(buyersData)
       setLoading(false)
@@ -74,20 +83,9 @@ export default function AdminDashboard() {
   }, [session])
 
   const deleteProduct = async (id: string) => {
-    if (!confirm('Ștergi acest produs?')) return
+    if (!confirm('Stergi acest produs?')) return
     await fetch(`/api/admin/products/${id}`, { method: 'DELETE' })
     setProducts(prev => prev.filter(p => p.id !== id))
-  }
-
-  const activateProduct = async (id: string) => {
-    setActivating(id)
-    await fetch(`/api/admin/products/${id}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ activate: true })
-    })
-    setProducts(prev => prev.map(p => p.id === id ? { ...p, active: true } : p))
-    setActivating(null)
   }
 
   const toggleVerified = async (id: string, verified: boolean) => {
@@ -114,7 +112,7 @@ export default function AdminDashboard() {
 
   if (status === 'loading' || loading) return (
     <div className="min-h-screen flex items-center justify-center" style={{background: '#0a0a0a'}}>
-      <p className="text-gray-400">Se încarcă...</p>
+      <p className="text-gray-400">Se incarca...</p>
     </div>
   )
 
@@ -138,12 +136,18 @@ export default function AdminDashboard() {
         {stats && (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             {[
-              { label: 'Vanzatori', value: stats.totalSellers },
-              { label: 'Cumparatori', value: stats.totalBuyers },
-              { label: 'Total Produse', value: stats.totalProducts },
-              { label: 'Produse Active', value: stats.activeProducts },
+              { label: 'Vanzatori', value: stats.totalSellers, clickTab: 'sellers' as const },
+              { label: 'Cumparatori', value: stats.totalBuyers, clickTab: 'buyers' as const },
+              { label: 'Total Produse', value: stats.totalProducts, clickTab: 'products' as const },
+              { label: 'Produse Active', value: stats.activeProducts, clickTab: null },
             ].map(s => (
-              <div key={s.label} className="rounded-xl p-4 text-center" style={{background: '#111', border: '1px solid #fcd968'}}>
+              <div key={s.label}
+                onClick={() => s.clickTab && setTab(s.clickTab)}
+                className={`rounded-xl p-4 text-center transition-all ${s.clickTab ? 'cursor-pointer hover:scale-105' : ''}`}
+                style={{
+                  background: s.clickTab && tab === s.clickTab ? '#1a1a1a' : '#111',
+                  border: s.clickTab && tab === s.clickTab ? '2px solid #fcd968' : '1px solid #fcd968'
+                }}>
                 <p className="text-3xl font-black" style={{color: '#fcd968'}}>{s.value}</p>
                 <p className="text-gray-400 text-sm mt-1">{s.label}</p>
               </div>
@@ -164,16 +168,8 @@ export default function AdminDashboard() {
                 <div>
                   <p className="text-white font-bold">{p.title}</p>
                   <p className="text-gray-400 text-sm">{p.seller.companyName} · {p.price} RON</p>
-                  <p className="text-xs mt-1" style={{color: p.active ? '#4ade80' : '#f87171'}}>{p.active ? 'Activ' : 'Inactiv'}</p>
                 </div>
-                <div className="flex gap-2">
-                  {!p.active && (
-                    <button onClick={() => activateProduct(p.id)} disabled={activating === p.id} className="px-3 py-1 rounded-lg text-sm font-bold" style={{background: '#1a1a1a', color: '#60a5fa', border: '1px solid #60a5fa'}}>
-                      {activating === p.id ? '...' : 'Activeaza'}
-                    </button>
-                  )}
-                  <button onClick={() => deleteProduct(p.id)} className="px-3 py-1 rounded-lg text-sm font-bold" style={{background: '#1a1a1a', color: '#f87171', border: '1px solid #f87171'}}>Sterge</button>
-                </div>
+                <button onClick={() => deleteProduct(p.id)} className="px-3 py-1 rounded-lg text-sm font-bold" style={{background: '#1a1a1a', color: '#f87171', border: '1px solid #f87171'}}>Sterge</button>
               </div>
             ))}
           </div>
@@ -189,7 +185,7 @@ export default function AdminDashboard() {
                     <p className="text-gray-400 text-sm">{s.email} · {s.phone}</p>
                     <p className="text-gray-500 text-xs mt-1">{s._count.products} produse</p>
                   </div>
-                  <div className="flex gap-2 flex-wrap justify-end">
+                  <div className="flex gap-2">
                     <button onClick={() => toggleVerified(s.id, !s.verified)} className="px-3 py-1 rounded-lg text-sm font-bold" style={s.verified ? {background: '#1a1a1a', color: '#4ade80', border: '1px solid #4ade80'} : {background: '#1a1a1a', color: '#fcd968', border: '1px solid #fcd968'}}>
                       {s.verified ? 'Verificat' : 'Neverificat'}
                     </button>
