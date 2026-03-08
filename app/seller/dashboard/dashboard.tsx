@@ -230,7 +230,7 @@ export default function Dashboard() {
                       ⭐ Promovează 15 RON/lună
                     </button>
                   )}
-                  {product.active && product.stripeSubId && (
+                  {product.active && product.stripeSubId && !product.subscriptionEndsAt && (
                     <button onClick={() => cancelSubscription(product.id, 'regular')}
                       disabled={cancelling === product.id + 'regular'}
                       className="px-4 py-2 rounded-lg text-sm font-bold hover:opacity-80 disabled:opacity-30"
