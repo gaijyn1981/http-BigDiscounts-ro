@@ -97,6 +97,15 @@ export default function AdminDashboard() {
     setSellers(prev => prev.map(s => s.id === id ? { ...s, verified } : s))
   }
 
+  const toggleBuyerVerified = async (id: string, emailVerified: boolean) => {
+    await fetch('/api/admin/buyers', {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, emailVerified })
+    })
+    setBuyers(prev => prev.map(b => b.id === id ? { ...b, emailVerified } : b))
+  }
+
   const saveSellerEdit = async () => {
     if (!editingSeller) return
     setSaving(true)
@@ -210,9 +219,9 @@ export default function AdminDashboard() {
                     <p className="text-gray-400 text-sm">{b.email}</p>
                     <p className="text-gray-500 text-xs mt-1">Inregistrat {new Date(b.createdAt).toLocaleDateString('ro-RO')}</p>
                   </div>
-                  <span className="px-3 py-1 rounded-lg text-sm font-bold" style={b.emailVerified ? {background: '#1a1a1a', color: '#4ade80', border: '1px solid #4ade80'} : {background: '#1a1a1a', color: '#f87171', border: '1px solid #f87171'}}>
+                  <button onClick={() => toggleBuyerVerified(b.id, !b.emailVerified)} className="px-3 py-1 rounded-lg text-sm font-bold" style={b.emailVerified ? {background: '#1a1a1a', color: '#4ade80', border: '1px solid #4ade80'} : {background: '#1a1a1a', color: '#f87171', border: '1px solid #f87171'}}>
                     {b.emailVerified ? 'Verificat' : 'Neverificat'}
-                  </span>
+                  </button>
                 </div>
               </div>
             ))}
