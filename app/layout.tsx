@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   description: 'Descoperă oferte incredibile de la vânzători verificați din România. Listează-ți produsele pentru doar 5 RON/lună. Fără comision, fără intermediari.',
   keywords: 'piață România, produse cu reduceri, cumpără și vinde România, produse ieftine România, piață online',
   robots: 'index, follow',
+  verification: {
+    google: 'm2rAHzLBQg_D4c2L_SyZ0hKPIPzXsQFSHR7h0oewvt0',
+  },
   icons: {
     icon: '/favicon.svg',
   },
