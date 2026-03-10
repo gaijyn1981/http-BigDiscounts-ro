@@ -51,6 +51,66 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   return (
     <main className="min-h-screen" style={{background: '#0a0a0a'}}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": product.title,
+          "description": product.description.slice(0, 200),
+          "image": JSON.parse(product.photos || '[]'),
+          "offers": {
+            "@type": "Offer",
+            "price": product.price.toFixed(2),
+            "priceCurrency": "RON",
+            "availability": product.active ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+            "seller": {
+              "@type": "Organization",
+              "name": product.seller.companyName
+            }
+          }
+        }) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": product.title,
+          "description": product.description.slice(0, 200),
+          "image": JSON.parse(product.photos || '[]'),
+          "offers": {
+            "@type": "Offer",
+            "price": product.price.toFixed(2),
+            "priceCurrency": "RON",
+            "availability": product.active ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+            "seller": {
+              "@type": "Organization",
+              "name": product.seller.companyName
+            }
+          }
+        }) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": product.title,
+          "description": product.description.slice(0, 200),
+          "image": JSON.parse(product.photos || '[]'),
+          "offers": {
+            "@type": "Offer",
+            "price": product.price.toFixed(2),
+            "priceCurrency": "RON",
+            "availability": product.active ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+            "seller": {
+              "@type": "Organization",
+              "name": product.seller.companyName
+            }
+          }
+        }) }}
+      />
       <nav style={{background: '#111111', borderBottom: '1px solid #2a2a2a'}} className="px-6 py-4 flex justify-between items-center sticky top-0 z-50">
         <span className="text-2xl font-black" style={{color: '#fcd968'}}>🇷🇴 BigDiscounts</span>
         <div className="flex items-center gap-4">
