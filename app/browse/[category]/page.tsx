@@ -111,6 +111,12 @@ const categoryData: Record<string, { meta_title: string; meta_desc: string; h1: 
     h1: "Produse de curățenie & menaj de la vânzătorii din România",
     description: "Răsfoiește produse de curățenie, articole esențiale de menaj, produse de spălat și articole de întreținere a locuinței de la vânzătorii din România pe BigDiscounts. Categoria noastră Curățenie & Menaj prezintă anunțuri de la afacerile din România care vând direct cumpărătorilor la prețuri competitive. Fie că te aprovizionezi cu articole esențiale de zi cu zi sau cauți produse de curățenie specializate, BigDiscounts facilitează găsirea vânzătorilor din România, compararea opțiunilor și contactarea lor directă. Toți vânzătorii de pe BigDiscounts sunt din România, iar modelul nostru transparent de prețuri înseamnă că știi mereu exact ce plătești."
   },
+  "Imobiliare": {
+    meta_title: "Imobiliare de la vânzătorii din România | BigDiscounts",
+    meta_desc: "Răsfoiește anunțuri imobiliare de la vânzătorii din România pe BigDiscounts. Apartamente, case, terenuri și spații comerciale listate direct de proprietari.",
+    h1: "Imobiliare de la vânzătorii din România",
+    description: "Descoperă anunțuri imobiliare de la proprietari și agenți din România pe BigDiscounts. Găsești apartamente, case, vile, terenuri și spații comerciale listate direct, fără comisioane ascunse. BigDiscounts conectează cumpărătorii direct cu vânzătorii, oferind transparență totală și comunicare directă."
+  },
   "Other": {
     meta_title: "Produse de la vânzătorii din România | BigDiscounts Marketplace",
     meta_desc: "Răsfoiește o gamă largă de produse de la vânzătorii din România pe BigDiscounts. Contact direct, fără taxe pentru cumpărători, prețuri transparente.",
