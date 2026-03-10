@@ -122,6 +122,7 @@ export default function NewProduct() {
                     <option value="Office & Business">Birou și Afaceri</option>
                     <option value="Gifts & Seasonal">Cadouri și Sezoniere</option>
                     <option value="Cleaning & Household">Curățenie și Menaj</option>
+                    <option value="Imobiliare">Imobiliare</option>
                     <option value="Other">Altele</option>
                   </select>
                 </div>

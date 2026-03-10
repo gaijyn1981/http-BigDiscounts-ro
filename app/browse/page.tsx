@@ -129,6 +129,7 @@ export default function BrowsePage() {
               <option value="Office & Business">Birou & Afaceri</option>
               <option value="Gifts & Seasonal">Cadouri & Sezoniere</option>
               <option value="Cleaning & Household">Curățenie & Menaj</option>
+              <option value="Imobiliare">Imobiliare</option>
               <option value="Other">Altele</option>
             </select>
             <select value={sort} onChange={e => setSort(e.target.value)}

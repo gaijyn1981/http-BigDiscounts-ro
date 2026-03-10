@@ -250,6 +250,7 @@ export default async function Home() {
               { icon: '💼', label: 'Birou & Afaceri', href: '/browse/Office%20%26%20Business' },
               { icon: '🎁', label: 'Cadouri & Sezoniere', href: '/browse/Gifts%20%26%20Seasonal' },
               { icon: '🧹', label: 'Curățenie & Menaj', href: '/browse/Cleaning%20%26%20Household' },
+              { icon: '🏠', label: 'Imobiliare', href: '/browse/Imobiliare' },
               { icon: '📦', label: 'Vezi tot', href: '/browse' },
             ].map(item => (
               <Link key={item.label} href={item.href} className="p-4 rounded-xl text-center hover:opacity-80 transition-opacity" style={{background: '#111111', border: '1px solid #fcd968'}}>

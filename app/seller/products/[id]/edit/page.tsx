@@ -124,6 +124,7 @@ export default function EditProductPage() {
               <option value="Office & Business">Birou & Afaceri</option>
               <option value="Gifts & Seasonal">Cadouri & Sezoniere</option>
               <option value="Cleaning & Household">Curățenie & Menaj</option>
+              <option value="Imobiliare">Imobiliare</option>
               <option value="Other">Altele</option>
             </select>
           </div>

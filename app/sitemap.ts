@@ -6,7 +6,7 @@ const categories = [
   "Home & Living", "Garden & Outdoor", "Pets", "Baby & Kids",
   "Health & Beauty", "Toys & Games", "Sports & Fitness", "Food & Drink",
   "Books & Stationery", "Tools & DIY", "Automotive", "Arts & Crafts",
-  "Office & Business", "Gifts & Seasonal", "Cleaning & Household", "Other"
+  "Office & Business", "Gifts & Seasonal", "Cleaning & Household", "Imobiliare", "Other"
 ]
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
