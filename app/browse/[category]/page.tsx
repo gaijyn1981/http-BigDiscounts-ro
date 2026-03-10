@@ -146,5 +146,20 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
   const name = decodeURIComponent(rawCategory)
   const data = categoryData[name]
   if (!data) notFound()
-  return <CategoryClient category={name} h1={data.h1} description={data.description} />
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Acasa", "item": "https://www.bigdiscounts.ro" },
+      { "@type": "ListItem", "position": 2, "name": "Exploreaza", "item": "https://www.bigdiscounts.ro/browse" },
+      { "@type": "ListItem", "position": 3, "name": name, "item": `https://www.bigdiscounts.ro/browse/${encodeURIComponent(name)}` }
+    ]
+  }
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <CategoryClient category={name} h1={data.h1} description={data.description} />
+    </>
+  )
 }

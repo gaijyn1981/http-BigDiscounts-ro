@@ -95,6 +95,19 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Acasa", "item": "https://www.bigdiscounts.ro" },
+            { "@type": "ListItem", "position": 2, "name": "Exploreaza", "item": "https://www.bigdiscounts.ro/browse" },
+            { "@type": "ListItem", "position": 3, "name": product.category || "Produse", "item": product.category ? "https://www.bigdiscounts.ro/browse/" + encodeURIComponent(product.category) : "https://www.bigdiscounts.ro/browse" },
+            { "@type": "ListItem", "position": 4, "name": product.title, "item": "https://www.bigdiscounts.ro/product/" + product.id }
+          ]
+        }) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
           "@type": "Product",
           "name": product.title,
           "description": product.description.slice(0, 200),
