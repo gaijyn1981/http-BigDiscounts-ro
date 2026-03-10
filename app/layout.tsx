@@ -19,6 +19,12 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.svg',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'BigDiscounts - Piata de Reduceri din Romania',
+    description: 'Descopera oferte incredibile de la vanzatori verificati din Romania. Listeaza-ti produsele pentru doar 5 RON/luna. Fara comision, fara intermediari.',
+    site: '@bigdiscounts_ro',
+  },
   openGraph: {
 
     title: 'BigDiscounts - Piața de Reduceri din România',
