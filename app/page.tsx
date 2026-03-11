@@ -25,6 +25,55 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen" style={{background: '#0a0a0a'}}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Cat costa sa listezi pe BigDiscounts?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Costa doar 5 RON/luna sa iti listezi produsele pe BigDiscounts. Nu exista comision, costuri ascunse sau contracte. Poti anula oricand."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "BigDiscounts percepe comision pe vanzari?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Nu. BigDiscounts percepe 0% comision pe toate vanzarile. Pastrezi 100% din veniturile tale. Singurul cost este taxa de 5 RON/luna."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Cum contacteaza cumparatorii vanzatorii pe BigDiscounts?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Cumparatorii contacteaza vanzatorii direct prin platforma. Nu exista intermediar — comunicati si tranzactionati direct cu cumparatorul."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Cine poate vinde pe BigDiscounts?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Orice afacere sau vanzator independent din Romania poate lista produse pe BigDiscounts. Platforma este conceputa pentru a sprijini micile afaceri si vanzatorii independenti."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Cum incep sa vand pe BigDiscounts?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Inregistreaza-ti un cont, creeaza-ti listele de produse si activeaza abonamentul de 5 RON/luna. Anunturile tale vor fi live imediat."
+              }
+            }
+          ]
+        }) }}
+      />
       <nav style={{background: '#111111', borderBottom: '1px solid #2a2a2a'}} className="px-6 py-4 flex justify-between items-center sticky top-0 z-50">
         <span className="text-2xl font-black" style={{color: '#fcd968'}}>BigDiscounts</span>
         <div className="flex gap-4 items-center">
