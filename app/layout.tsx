@@ -9,6 +9,7 @@ import SchemaMarkup from './components/SchemaMarkup'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.bigdiscounts.ro'),
   title: 'BigDiscounts - Piața de Reduceri din România',
   description: 'Descoperă oferte incredibile de la vânzători verificați din România. Listează-ți produsele pentru doar 5 RON/lună. Fără comision, fără intermediari.',
   keywords: 'piață România, produse cu reduceri, cumpără și vinde România, produse ieftine România, piață online',
