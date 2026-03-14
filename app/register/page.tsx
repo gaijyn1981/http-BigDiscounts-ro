@@ -36,7 +36,7 @@ export default function RegisterPage() {
         <div className="rounded-2xl p-8" style={{background: '#111111', border: '1px solid #222'}}>
           <div className="text-5xl mb-4">📧</div>
           <h1 className="text-2xl font-black text-white mb-2">Verifică-ți Email-ul!</h1>
-          <p className="text-gray-400 mb-6">Am trimis un link de verificare la <span style={{color: '#fcd968'}}>{form.email}</span>. Apasă pe el pentru a-ți activa contul.</p>
+          <p className="text-gray-400 mb-6">Am trimis un link de verificare la <span style={{color: '#fcd968'}}>{form.email}</span>. Apasă pe el pentru a-ți activa contul. Dacă nu îl găsești, verifică folderul de spam sau junk.</p>
           <Link href="/login"
             className="block w-full py-3 rounded-xl font-black text-lg text-black transition-opacity hover:opacity-90"
             style={{background: '#fcd968'}}>
