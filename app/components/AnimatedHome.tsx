@@ -107,17 +107,17 @@ export default function AnimatedHome({ session, recentProducts, totalProducts, t
           }}
         >
           <div className="inline-block mb-6 px-4 py-2 rounded-full text-sm font-bold" style={{ background: '#1a1400', border: '1px solid #fcd968', color: '#fcd968' }}>
-            Connecting Buyers and Businesses Across the UK
+            Conectăm Cumpărători și Afaceri din România
           </div>
           <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
-            The UK Marketplace<br />
-            <span style={{ color: '#fcd968' }}>Built to Support Sellers and Buyers</span>
+            Marketplace-ul din România<br />
+            <span style={{ color: '#fcd968' }}>Creat pentru Vânzători și Cumpărători</span>
           </h1>
           <p className="text-xl text-gray-400 mb-6 max-w-2xl mx-auto leading-relaxed">
-            A fair, transparent place to buy and sell — no commission, low fees, full control.
+            Un loc corect și transparent pentru cumpărare și vânzare — fără comision, taxe mici, control total.
           </p>
           <p className="text-gray-600 text-base mb-10 max-w-2xl mx-auto leading-relaxed">
-            BigDiscounts is an online marketplace in the United Kingdom designed to support independent sellers and small businesses. Unlike traditional platforms that charge commission on every sale, BigDiscounts offers a transparent £1/month listing fee with no commission, allowing sellers to keep 100% of their revenue while connecting directly with buyers.
+            BigDiscounts este un marketplace online din România creat pentru a sprijini vânzătorii independenți și micile afaceri. Spre deosebire de platformele tradiționale care percep comision la fiecare vânzare, BigDiscounts oferă o taxă transparentă de 5 RON/lună fără comision, permițând vânzătorilor să păstreze 100% din veniturile lor.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             {session ? (
