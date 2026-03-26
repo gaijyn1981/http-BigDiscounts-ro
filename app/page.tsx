@@ -175,41 +175,6 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="px-6 py-16" style={{background: '#0a0a0a'}}>
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl font-black text-white mb-4">Răsfoiește pe categorii</h2>
-          <p className="text-gray-500 mb-10">Descoperă produse de la vânzătorii din România, din toate categoriile.</p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {[
-              { icon: '📱', label: 'Electronică & Tehnologie', href: '/browse/Electronics%20%26%20Tech' },
-              { icon: '📲', label: 'Telefoane & Accesorii', href: '/browse/Phone%20%26%20Accessories' },
-              { icon: '👗', label: 'Îmbrăcăminte & Modă', href: '/browse/Clothing%20%26%20Fashion' },
-              { icon: '🏠', label: 'Casă & Locuință', href: '/browse/Home%20%26%20Living' },
-              { icon: '🌿', label: 'Grădină & Exterior', href: '/browse/Garden%20%26%20Outdoor' },
-              { icon: '🐾', label: 'Animale de companie', href: '/browse/Pets' },
-              { icon: '👶', label: 'Bebeluși & Copii', href: '/browse/Baby%20%26%20Kids' },
-              { icon: '💊', label: 'Sănătate & Frumusețe', href: '/browse/Health%20%26%20Beauty' },
-              { icon: '🧸', label: 'Jucării & Jocuri', href: '/browse/Toys%20%26%20Games' },
-              { icon: '⚽', label: 'Sport & Fitness', href: '/browse/Sports%20%26%20Fitness' },
-              { icon: '🍫', label: 'Alimente & Băuturi', href: '/browse/Food%20%26%20Drink' },
-              { icon: '📚', label: 'Cărți & Papetărie', href: '/browse/Books%20%26%20Stationery' },
-              { icon: '🔧', label: 'Unelte & Bricolaj', href: '/browse/Tools%20%26%20DIY' },
-              { icon: '🚗', label: 'Auto', href: '/browse/Automotive' },
-              { icon: '🎨', label: 'Arte & Meșteșuguri', href: '/browse/Arts%20%26%20Crafts' },
-              { icon: '💼', label: 'Birou & Afaceri', href: '/browse/Office%20%26%20Business' },
-              { icon: '🎁', label: 'Cadouri & Sezoniere', href: '/browse/Gifts%20%26%20Seasonal' },
-              { icon: '🧹', label: 'Curățenie & Menaj', href: '/browse/Cleaning%20%26%20Household' },
-              { icon: '🏠', label: 'Imobiliare', href: '/browse/Imobiliare' },
-              { icon: '📦', label: 'Vezi tot', href: '/browse' },
-            ].map(item => (
-              <Link key={item.label} href={item.href} className="p-4 rounded-xl text-center hover:opacity-80 transition-opacity" style={{background: '#111111', border: '1px solid #fcd968'}}>
-                <div className="text-2xl mb-2">{item.icon}</div>
-                <p className="text-gray-300 text-sm font-medium">{item.label}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="px-6 py-24 text-center" style={{background: '#111111'}}>
         <div className="max-w-2xl mx-auto">
