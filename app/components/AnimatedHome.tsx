@@ -134,7 +134,7 @@ export default function AnimatedHome({ session, recentProducts, totalProducts, t
             <Link href="/browse"
               className="text-black px-8 py-4 rounded-xl font-black text-lg hover:scale-105 transition-transform duration-200 inline-block"
               style={{ background: '#fcd968' }}>
-              Explorează
+              Caută produse
             </Link>
           </div>
         </div>
