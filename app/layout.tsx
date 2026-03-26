@@ -5,6 +5,7 @@ import Providers from './providers'
 import CookieBanner from './components/CookieBanner'
 import GoogleAnalytics from './components/GoogleAnalytics'
 import SchemaMarkup from './components/SchemaMarkup'
+import NavbarWrapper from './components/NavbarWrapper'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -46,6 +47,7 @@ export default function RootLayout({
     <html lang="ro">
       <body className={inter.className}>
         <Providers>
+          <NavbarWrapper />
           {children}
           <CookieBanner />
           <GoogleAnalytics />

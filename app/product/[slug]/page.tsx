@@ -125,22 +125,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           }
         }) }}
       />
-      <nav style={{background: '#111111', borderBottom: '1px solid #2a2a2a'}} className="px-6 py-4 flex justify-between items-center sticky top-0 z-50">
-        <span className="text-2xl font-black" style={{color: '#fcd968'}}>🇷🇴 BigDiscounts</span>
-        <div className="flex items-center gap-4">
-          <Link href="/browse" className="text-gray-400 hover:text-white transition-colors">← Explorează</Link>
-          {session?.user ? (
-            <Link href="/seller/dashboard" className="text-gray-400 hover:text-white transition-colors text-sm">
-              Panou
-            </Link>
-          ) : (
-            <>
-              <Link href="/login" className="text-gray-400 hover:text-white transition-colors">Autentificare</Link>
-              <Link href="/register" style={{background: '#fcd968'}} className="text-black px-5 py-2 rounded-lg font-bold hover:opacity-90">Înregistrare</Link>
-            </>
-          )}
-        </div>
-      </nav>
 
       <div className="max-w-5xl mx-auto px-6 py-10">
         <div className="rounded-2xl overflow-hidden" style={{background: '#111111', border: '1px solid #222'}}>
