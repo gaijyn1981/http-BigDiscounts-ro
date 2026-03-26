@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import AnimatedHome from './components/AnimatedHome'
 import { prisma } from '@/lib/db'
 import { getServerSession } from 'next-auth'
 import type { Metadata } from 'next'
@@ -96,115 +97,14 @@ export default async function Home() {
         </div>
       </nav>
 
-      <section className="px-6 py-24 text-center" style={{background: 'linear-gradient(180deg, #111111 0%, #0a0a0a 100%)'}}>
-        <div className="max-w-4xl mx-auto">
-          <div className="inline-block mb-6 px-4 py-2 rounded-full text-sm font-bold" style={{background: '#1a1400', border: '1px solid #fcd968', color: '#fcd968'}}>
-            Conectăm cumpărători și afaceri din întreaga țară
-          </div>
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight">
-            Marketplace-ul din România<br/>
-            <span style={{color: '#fcd968'}}>Creat pentru a sprijini vânzătorii și cumpărătorii</span>
-          </h1>
-          <p className="text-xl text-gray-400 mb-6 max-w-2xl mx-auto leading-relaxed">
-            Un loc corect și transparent de a cumpăra și vinde — fără comision, taxe mici, control total.
-          </p>
-          <p className="text-gray-600 text-base mb-10 max-w-2xl mx-auto leading-relaxed">
-            BigDiscounts este un marketplace online din România conceput pentru a sprijini vânzătorii independenți și micile afaceri. Spre deosebire de platformele tradiționale care percep comision la fiecare vânzare, BigDiscounts oferă o taxă transparentă de 5 RON/lună fără comision, permițând vânzătorilor să păstreze 100% din venituri, conectându-se direct cu cumpărătorii.
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            {session?.user ? (
-              <Link href="/seller/dashboard" style={{background: '#fcd968'}}
-                className="text-black px-8 py-4 rounded-xl font-black text-lg hover:opacity-90 transition-opacity">
-                Mergi la Panou de control
-              </Link>
-            ) : (
-              <Link href="/register?type=seller" style={{background: '#fcd968'}}
-                className="text-black px-8 py-4 rounded-xl font-black text-lg hover:opacity-90 transition-opacity">
-                Începe să vinzi — 5 RON/lună
-              </Link>
-            )}
-            <Link href="/browse"
-              className="text-black px-8 py-4 rounded-xl font-black text-lg hover:opacity-90 transition-opacity"
-              style={{background: '#fcd968'}}>
-              Răsfoiește ofertele
-            </Link>
-          </div>
-        </div>
-      </section>
+      <AnimatedHome
+        session={!!session?.user}
+        recentProducts={recentProducts}
+        totalProducts={totalProducts}
+        totalSellers={totalSellers}
+        showCounters={showCounters}
+      />
 
-      <section className="px-6 py-14" style={{background: '#111111', borderTop: '1px solid #1a1a1a', borderBottom: '1px solid #1a1a1a'}}>
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-black text-white text-center mb-8">O alternativă corectă la marketplace-urile cu taxe mari</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { icon: '💰', title: 'Taxă de listare 5 RON/lună', desc: 'Fără comision la nicio vânzare.' },
-              { icon: '💰', title: 'Păstrezi 100% din fiecare vânzare', desc: 'Veniturile tale rămân ale tale, mereu.' },
-              { icon: '💬', title: 'Cumpărătorii te contactează direct', desc: 'Control total asupra comunicării și livrării.' },
-              { icon: '✅', title: 'Prețuri simple, transparente', desc: 'Fără costuri ascunse, fără contracte, anulezi oricând.' },
-            ].map(item => (
-              <div key={item.title} className="p-5 rounded-xl text-center" style={{background: '#1a1a1a', border: '1px solid #fcd968'}}>
-                <div className="text-3xl mb-3">{item.icon}</div>
-                <h3 className="font-black text-white text-sm mb-2">{item.title}</h3>
-                <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {showCounters && (
-        <section className="px-6 py-12" style={{background: '#0a0a0a', borderBottom: '1px solid #1a1a1a'}}>
-          <div className="max-w-4xl mx-auto grid grid-cols-3 gap-8 text-center">
-            <div>
-              <p className="text-4xl font-black" style={{color: '#fcd968'}}>{totalProducts}+</p>
-              <p className="text-gray-400 mt-1">Anunțuri active</p>
-            </div>
-            <div>
-              <p className="text-4xl font-black" style={{color: '#fcd968'}}>{totalSellers}+</p>
-              <p className="text-gray-400 mt-1">Vânzători din România</p>
-            </div>
-            <div>
-              <p className="text-4xl font-black" style={{color: '#fcd968'}}>5 RON</p>
-              <p className="text-gray-400 mt-1">Pe lună</p>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {recentProducts.length > 0 && (
-        <section className="px-6 py-16">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex justify-between items-center mb-8">
-              <h2 className="text-3xl font-black text-white">Cele mai recente oferte</h2>
-              <Link href="/browse" style={{color: '#fcd968'}} className="font-bold hover:opacity-80">Vezi toate ofertele →</Link>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {recentProducts.map(product => {
-                const photos = JSON.parse(product.photos || '[]')
-                const photo = photos[0]
-                return (
-                  <Link key={product.id} href={`/product/${product.id}`}
-                    className="rounded-2xl overflow-hidden group hover:transform hover:scale-105 transition-all duration-200"
-                    style={{background: '#111111', border: '1px solid #222'}}>
-                    <div className="h-48 flex items-center justify-center overflow-hidden" style={{background: '#1a1a1a'}}>
-                      {photo ? (
-                        <img src={photo} alt={product.title} className="w-full h-full object-cover" />
-                      ) : (
-                        <span className="text-5xl">📦</span>
-                      )}
-                    </div>
-                    <div className="p-4">
-                      <h3 className="font-bold text-white truncate mb-1">{product.title}</h3>
-                      <p className="text-gray-500 text-sm mb-2">{product.seller.companyName}</p>
-                      <p className="text-2xl font-black" style={{color: '#fcd968'}}>{product.price.toFixed(2)} RON</p>
-                    </div>
-                  </Link>
-                )
-              })}
-            </div>
-          </div>
-        </section>
-      )}
 
       <section className="px-6 py-16" style={{background: '#111111'}}>
         <div className="max-w-5xl mx-auto">
