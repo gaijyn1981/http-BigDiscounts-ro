@@ -4,7 +4,7 @@ export default function GoogleAnalytics() {
   return (
     <>
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-Z40PHEQW58"
+        src="https://www.googletagmanager.com/gtag/js?id=G-5C8H002MYM"
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">
@@ -12,7 +12,7 @@ export default function GoogleAnalytics() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-Z40PHEQW58');
+          gtag('config', 'G-5C8H002MYM');
         `}
       </Script>
     </>
