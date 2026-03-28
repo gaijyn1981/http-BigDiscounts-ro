@@ -4,19 +4,30 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen" style={{background: '#0a0a0a'}}>
 
-      <div className="max-w-3xl mx-auto px-6 py-16">
+      <style>{`
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up { animation: fadeUp 0.6s ease forwards; }
+        .fade-up-1 { animation: fadeUp 0.6s ease 0.1s forwards; opacity: 0; }
+        .fade-up-2 { animation: fadeUp 0.6s ease 0.2s forwards; opacity: 0; }
+        .fade-up-3 { animation: fadeUp 0.6s ease 0.3s forwards; opacity: 0; }
+        .fade-up-4 { animation: fadeUp 0.6s ease 0.4s forwards; opacity: 0; }
+      `}</style>
+      <div className="max-w-3xl mx-auto px-6 py-16 fade-up">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-black text-white mb-4">Despre <span style={{color: '#fcd968'}}>BigDiscounts</span></h1>
           <p className="text-gray-400 text-xl">Piața premium de reduceri din România</p>
         </div>
 
         <div className="space-y-8">
-          <div className="rounded-2xl p-8" style={{background: '#111111', border: '1px solid #222'}}>
+          <div className="rounded-2xl p-8 fade-up-1" style={{background: '#111111', border: '1px solid #222'}}>
             <h2 className="text-2xl font-black text-white mb-4">Povestea Noastră</h2>
             <p className="text-gray-400 leading-relaxed">BigDiscounts a fost creat cu o idee simplă — vânzătorii din România merită un loc corect și accesibil pentru a-și lista produsele fără a plăti comisioane uriașe sau taxe lunare. Pentru doar 5 RON pe anunț pe lună, vânzătorii pot ajunge la mii de cumpărători din întreaga România.</p>
           </div>
 
-          <div className="rounded-2xl p-8" style={{background: '#111111', border: '1px solid #fcd968'}}>
+          <div className="rounded-2xl p-8 fade-up-2" style={{background: '#111111', border: '1px solid #fcd968'}}>
             <h2 className="text-2xl font-black text-white mb-4">Misiunea Noastră</h2>
             <p className="text-gray-400 leading-relaxed">Să conectăm cumpărătorii și vânzătorii din România direct, fără intermediari. Fără taxe ascunse, fără comisioane, fără complicații. Doar oferte excelente la prețuri corecte.</p>
           </div>
@@ -39,7 +50,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="rounded-2xl p-8" style={{background: '#111111', border: '1px solid #222'}}>
+          <div className="rounded-2xl p-8 fade-up-3" style={{background: '#111111', border: '1px solid #222'}}>
             <h2 className="text-2xl font-black text-white mb-4">Cine Suntem</h2>
             <p className="text-gray-400 leading-relaxed mb-6">BigDiscounts este administrat de Petrica Marin, un comerciant individual din România. Suntem pasionați de sprijinirea micilor afaceri din România și de a ajuta cumpărătorii să găsească oferte excelente.</p>
             <div className="flex gap-4 flex-wrap">
