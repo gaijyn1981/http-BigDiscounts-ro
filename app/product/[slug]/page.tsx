@@ -7,6 +7,7 @@ import ReportButton from '@/app/components/ReportButton'
 import ContactSellerButtons from '@/app/components/ContactSellerButtons'
 import type { Metadata } from 'next'
 import { getServerSession } from 'next-auth'
+import { TrackView } from '@/app/components/RecentlyViewed'
 import ProductAnimations from '@/app/components/ProductAnimations'
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -52,6 +53,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   return (
     <main className="min-h-screen" style={{background: '#0a0a0a'}}>
+      <TrackView product={{
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        photo: photos[0] || null
+      }} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify({

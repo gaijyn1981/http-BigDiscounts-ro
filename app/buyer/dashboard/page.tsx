@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import DeleteAccountButton from '@/app/components/DeleteAccountButton'
+import { RecentlyViewedSection } from '@/app/components/RecentlyViewed'
 
 interface Product {
   id: string
@@ -125,6 +126,7 @@ export default function BuyerDashboard() {
           <p className="text-gray-500 text-sm mb-4">Șterge permanent contul tău și toate produsele salvate.</p>
           <DeleteAccountButton type="buyer" />
         </div>
+      <RecentlyViewedSection currency='RON' />
       </div>
     </main>
   )
