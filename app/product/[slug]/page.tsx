@@ -52,87 +52,45 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const photos = JSON.parse(product.photos || '[]')
   const session = await getServerSession()
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.title,
+    "description": product.description.slice(0, 200),
+    "image": photos,
+    "offers": {
+      "@type": "Offer",
+      "price": product.price.toFixed(2),
+      "priceCurrency": "RON",
+      "availability": product.active ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+      "seller": {
+        "@type": "Organization",
+        "name": product.seller.companyName
+      }
+    }
+  }
+
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Acasa", "item": "https://www.bigdiscounts.ro" },
+      { "@type": "ListItem", "position": 2, "name": "Exploreaza", "item": "https://www.bigdiscounts.ro/browse" },
+      { "@type": "ListItem", "position": 3, "name": product.category || "Produse", "item": product.category ? "https://www.bigdiscounts.ro/browse/" + encodeURIComponent(product.category) : "https://www.bigdiscounts.ro/browse" },
+      { "@type": "ListItem", "position": 4, "name": product.title, "item": "https://www.bigdiscounts.ro/product/" + product.id }
+    ]
+  }
+
   return (
     <main className="min-h-screen" style={{background: '#0a0a0a'}}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <TrackView product={{
         id: product.id,
         title: product.title,
         price: product.price,
         photo: photos[0] || null
       }} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": product.title,
-          "description": product.description.slice(0, 200),
-          "image": JSON.parse(product.photos || '[]'),
-          "offers": {
-            "@type": "Offer",
-            "price": product.price.toFixed(2),
-            "priceCurrency": "RON",
-            "availability": product.active ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-            "seller": {
-              "@type": "Organization",
-              "name": product.seller.companyName
-            }
-          }
-        }) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": product.title,
-          "description": product.description.slice(0, 200),
-          "image": JSON.parse(product.photos || '[]'),
-          "offers": {
-            "@type": "Offer",
-            "price": product.price.toFixed(2),
-            "priceCurrency": "RON",
-            "availability": product.active ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-            "seller": {
-              "@type": "Organization",
-              "name": product.seller.companyName
-            }
-          }
-        }) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            { "@type": "ListItem", "position": 1, "name": "Acasa", "item": "https://www.bigdiscounts.ro" },
-            { "@type": "ListItem", "position": 2, "name": "Exploreaza", "item": "https://www.bigdiscounts.ro/browse" },
-            { "@type": "ListItem", "position": 3, "name": product.category || "Produse", "item": product.category ? "https://www.bigdiscounts.ro/browse/" + encodeURIComponent(product.category) : "https://www.bigdiscounts.ro/browse" },
-            { "@type": "ListItem", "position": 4, "name": product.title, "item": "https://www.bigdiscounts.ro/product/" + product.id }
-          ]
-        }) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": product.title,
-          "description": product.description.slice(0, 200),
-          "image": JSON.parse(product.photos || '[]'),
-          "offers": {
-            "@type": "Offer",
-            "price": product.price.toFixed(2),
-            "priceCurrency": "RON",
-            "availability": product.active ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-            "seller": {
-              "@type": "Organization",
-              "name": product.seller.companyName
-            }
-          }
-        }) }}
-      />
 
       <div className="max-w-5xl mx-auto px-6 py-10">
         <div className="rounded-2xl overflow-hidden" style={{background: '#111111', border: '1px solid #222'}}>
@@ -173,7 +131,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                   </Link>
                 )}
                 <h1 className="text-3xl font-black text-white mt-3 mb-2">{product.title}</h1>
-                {/* Price rendered by ProductAnimations */}
                 {product.deliveryTime && (
                   <p className="text-sm font-semibold mb-4" style={{color: '#4ade80'}}>🚚 Livrare: {product.deliveryTime}</p>
                 )}
@@ -185,7 +142,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 <p className="text-xs text-gray-600 uppercase tracking-wide font-semibold mb-3">Vândut de</p>
                 <div className="rounded-xl p-4" style={{background: '#1a1a1a', border: '1px solid #2a2a2a'}}>
                   <div className="flex items-center gap-2 mb-1">
-                    <p className="font-bold text-white text-lg">{product.seller.companyName}</p>
+                    <Link href={`/seller/${product.seller.id}`} className="font-bold text-white text-lg hover:text-yellow-400 transition-colors">{product.seller.companyName}</Link>
                     {product.seller.verified && (
                       <span className="text-xs font-bold px-2 py-1 rounded-full"
                         style={{background: '#0a1a0a', color: '#4ade80', border: '1px solid #4ade80'}}>
@@ -199,6 +156,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                     phone={product.seller.phone}
                     paypalMe={product.seller.paypalMe}
                     price={product.price}
+                    productId={product.id}
+                    productTitle={product.title}
                   />
                   <FavouriteButton productId={product.id} />
                   <ShareButtons title={product.title} id={product.id} />
