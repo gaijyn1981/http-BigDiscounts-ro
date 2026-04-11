@@ -9,7 +9,7 @@ export async function GET() {
     return NextResponse.json({ error: 'Neautorizat' }, { status: 401 })
   }
 
-  const [reviews, totalSellers, totalBuyers, totalProducts, activeProducts, products, reports] = await Promise.all([
+  const [totalSellers, totalBuyers, totalProducts, activeProducts, products, reviews, reports, sellersByWeek, productsByWeek] = await Promise.all([
     prisma.seller.count(),
     prisma.buyer.count(),
     prisma.product.count(),
@@ -18,16 +18,32 @@ export async function GET() {
       include: { seller: { select: { companyName: true, email: true } } },
       orderBy: { createdAt: 'desc' }
     }),
-    prisma.review.findMany({ orderBy: { createdAt: 'desc' }, include: { product: { select: { title: true } } } }),
-      prisma.report.findMany({
+    prisma.review.findMany({
+      orderBy: { createdAt: 'desc' },
+      include: { product: { select: { title: true } } }
+    }),
+    prisma.report.findMany({
       orderBy: { createdAt: 'desc' },
       take: 20
-    })
+    }),
+    prisma.seller.findMany({
+      where: { createdAt: { gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000) } },
+      select: { createdAt: true },
+      orderBy: { createdAt: 'asc' }
+    }),
+    prisma.product.findMany({
+      where: { createdAt: { gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000) } },
+      select: { createdAt: true, active: true },
+      orderBy: { createdAt: 'asc' }
+    }),
   ])
 
   return NextResponse.json({
     stats: { totalSellers, totalBuyers, totalProducts, activeProducts },
     products,
-    reports
+    reviews,
+    reports,
+    sellersByWeek,
+    productsByWeek,
   })
 }
