@@ -1,0 +1,45 @@
+{
+  "name": "BigDiscounts Romania",
+  "short_name": "BigDiscounts",
+  "description": "Piața de Reduceri din România — oferte incredibile de la vânzători verificați.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#dc2626",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "ro-RO",
+  "categories": ["shopping", "business"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Răsfoiește Oferte",
+      "url": "/browse",
+      "description": "Răsfoiește toate produsele cu reduceri"
+    },
+    {
+      "name": "Vinde un Produs",
+      "url": "/sell",
+      "description": "Listează produsul tău pentru 5 RON/lună"
+    }
+  ]
+}

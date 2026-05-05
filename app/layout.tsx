@@ -12,6 +12,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.bigdiscounts.ro'),
+  manifest: '/manifest.json',
   title: 'BigDiscounts - Piața de Reduceri din România',
   description: 'Descoperă oferte incredibile de la vânzători verificați din România. Listează-ți produsele pentru doar 5 RON/lună. Fără comision, fără intermediari.',
   keywords: 'piață România, produse cu reduceri, cumpără și vinde România, produse ieftine România, piață online',
@@ -55,6 +56,11 @@ export default function RootLayout({
           <GoogleAnalytics />
           <SchemaMarkup />
         </Providers>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js')})}`,
+          }}
+        />
       </body>
     </html>
   )
